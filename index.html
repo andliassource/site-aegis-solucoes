@@ -1,106 +1,428 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aegis Soluções - Sistema ERP Completo</title>
-    <meta name="description" content="Aegis ERP - Sistema completo de gestão empresarial com 12 módulos integrados. Transforme sua empresa com tecnologia de ponta.">
-    <link rel="stylesheet" href="style.css">
+    <title>Aegis Soluções - Conformidade Tributária e GRC com IA</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter + Signika -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Signika:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Configuração de cores e fontes do Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'aegis-blue': {
+                            '500': '#0067B8',
+                            '600': '#005a9e',
+                            '700': '#004c85',
+                        },
+                        'aegis-dark': '#1A202C',
+                        'aegis-gray': {
+                            '100': '#F7FAFC',
+                            '200': '#EDF2F7',
+                            '500': '#718096',
+                            '700': '#2D3748',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos adicionais para o scroll e efeitos */
+        .risk-score-high { color: #F56565; }
+        .risk-score-medium { color: #ECC94B; }
+        .risk-score-low { color: #48BB78; }
+    </style>
     <link rel="icon" href="favicon.ico">
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="nav-brand">
-                    <img src="logo.png" alt="Aegis Soluções" class="logo">
-                    <span>Aegis Soluções</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#produtos">Produtos</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                    <li><a href="https://app.aegissolucoes.dev.br" class="btn-demo">Demo Grátis</a></li>
-                </ul>
+<body class="bg-aegis-gray-100 text-aegis-gray-700 antialiased">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <!-- Logo SVG Aegis -->
+                <svg class="h-10 w-10 text-aegis-blue-500" viewBox="0 0 375 375" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 186.242188 96.359375 L 125.484375 193.316406 L 81.53125 264.417969 L 276.734375 129.972656 C 280.613281 126.09375 287.078125 126.09375 290.957031 129.972656 C 294.832031 133.851562 296.125 140.3125 293.539062 144.191406 L 209.511719 288.980469 L 305.175781 288.980469 L 267.6875 228.21875 L 280.613281 206.242188 L 336.203125 294.152344 C 337.496094 298.027344 337.496094 301.90625 336.203125 305.785156 C 333.617188 309.664062 329.738281 312.25 325.859375 312.25 L 190.121094 312.25 C 186.242188 312.25 182.363281 309.664062 181.070312 305.785156 C 178.484375 303.199219 178.484375 298.027344 181.070312 295.445312 L 183.65625 288.980469 L 248.292969 176.511719 L 81.53125 291.566406 L 54.382812 309.664062 C 49.210938 313.542969 38.867188 312.25 34.992188 305.785156 C 33.699219 301.90625 33.699219 298.027344 36.285156 294.152344 L 106.09375 181.679688 L 175.902344 67.917969 C 178.484375 65.332031 182.363281 62.75 186.242188 62.75 C 190.121094 62.75 192.707031 65.332031 195.292969 67.917969 L 235.367188 132.558594 L 215.976562 145.484375 Z" fill-opacity="1" fill-rule="nonzero"/>
+                </svg>
+                <span class="text-2xl font-extrabold text-aegis-dark" style="font-family: 'Signika', sans-serif;">
+                    Aegis <span class="text-aegis-blue-500">Soluções</span>
+                </span>
+            </a>
+            <!-- Navegação Desktop -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-aegis-gray-700 hover:text-aegis-blue-500 font-medium transition-colors duration-300">Início</a>
+                <a href="#simulador" class="text-aegis-gray-700 hover:text-aegis-blue-500 font-medium transition-colors duration-300">Simulador</a>
+                <a href="#funcionalidades" class="text-aegis-gray-700 hover:text-aegis-blue-500 font-medium transition-colors duration-300">Produtos</a>
+                <a href="https://app.aegissolucoes.dev.br" class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors duration-300">Demo Grátis</a>
+                <a href="#contato" class="bg-aegis-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-aegis-blue-600 transition-colors duration-300">
+                    Fale Conosco
+                </a>
             </div>
+            <!-- Botão Mobile Menu -->
+            <button id="mobile-menu-btn" class="md:hidden text-aegis-gray-700 hover:text-aegis-blue-500">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </nav>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block text-aegis-gray-700 hover:text-aegis-blue-500 font-medium">Início</a>
+                <a href="#simulador" class="block text-aegis-gray-700 hover:text-aegis-blue-500 font-medium">Simulador</a>
+                <a href="#funcionalidades" class="block text-aegis-gray-700 hover:text-aegis-blue-500 font-medium">Produtos</a>
+                <a href="https://app.aegissolucoes.dev.br" class="block bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 text-center">Demo Grátis</a>
+                <a href="#contato" class="block bg-aegis-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-aegis-blue-600 text-center">Fale Conosco</a>
+            </div>
+        </div>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Transforme sua Empresa com o <span class="highlight">Aegis ERP</span></h1>
-                    <p>Sistema completo de gestão empresarial com 12 módulos integrados. Controle financeiro, fiscal, vendas, estoque e muito mais em uma única plataforma.</p>
-                    <div class="hero-buttons">
-                        <a href="https://app.aegissolucoes.dev.br" class="btn btn-primary">Testar Grátis</a>
-                        <a href="#produtos" class="btn btn-secondary">Conhecer Produtos</a>
+        <!-- Seção Hero -->
+        <section id="home" class="bg-white">
+            <div class="container mx-auto px-6 py-20 md:py-32">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-aegis-dark leading-tight mb-6">
+                            Sua empresa em conformidade, sempre.
+                        </h1>
+                        <p class="text-lg md:text-xl text-aegis-gray-500 mb-8">
+                            A Aegis oferece um <strong>ERP/CRM modular com Inteligência Artificial</strong> para simplificar a conformidade tributária e governança, garantindo segurança e flexibilidade.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="#simulador" class="bg-aegis-blue-500 text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-aegis-blue-600 transition-transform duration-300 transform hover:scale-105 inline-block">
+                                Simule Sua Conformidade
+                            </a>
+                            <a href="https://app.aegissolucoes.dev.br" class="bg-green-500 text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-green-600 transition-transform duration-300 transform hover:scale-105 inline-block">
+                                Testar Demo Grátis
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="hero-image">
-                    <img src="dashboard-preview.png" alt="Aegis ERP Dashboard">
-                </div>
-            </div>
-        </section>
-
-        <section id="produtos" class="products">
-            <div class="container">
-                <h2>Módulos do Aegis ERP</h2>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <h3>📊 Dashboard Executivo</h3>
-                        <p>KPIs em tempo real, métricas consolidadas e visão geral do negócio.</p>
-                    </div>
-                    <div class="product-card">
-                        <h3>🏢 Gestão de Empresas</h3>
-                        <p>CRUD completo, validação CNPJ, organização por setores.</p>
-                    </div>
-                    <div class="product-card">
-                        <h3>👥 CRM Avançado</h3>
-                        <p>Pipeline de vendas, gestão de leads e histórico de interações.</p>
-                    </div>
-                    <div class="product-card">
-                        <h3>📦 Controle de Estoque</h3>
-                        <p>Produtos, categorias, alertas de estoque baixo.</p>
-                    </div>
-                    <div class="product-card">
-                        <h3>💰 Gestão Financeira</h3>
-                        <p>Fluxo de caixa, DRE, controle de receitas e despesas.</p>
-                    </div>
-                    <div class="product-card">
-                        <h3>📋 Módulo Fiscal</h3>
-                        <p>NFe, SPED, compliance fiscal e obrigações acessórias.</p>
+                    <div class="hidden lg:block">
+                        <img src="dashboard-preview.png" alt="Aegis ERP Dashboard" class="w-full rounded-xl shadow-2xl">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="sobre" class="about">
-            <div class="container">
-                <h2>Sobre a Aegis Soluções</h2>
-                <p>Desenvolvemos soluções tecnológicas inovadoras para gestão empresarial. Nosso foco é simplificar processos complexos e aumentar a eficiência das empresas brasileiras.</p>
+        <!-- Seção Desafio e Solução -->
+        <section class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-aegis-dark">O Desafio Atual e a Solução Aegis</h2>
+                    <p class="text-lg text-aegis-gray-500 mt-4 max-w-2xl mx-auto">Entenda como a complexidade tributária afeta seu negócio e como a Aegis pode ajudar.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                    <!-- Card Problema -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                        <h3 class="text-2xl font-bold text-red-500 mb-6">O Cenário de Complexidade</h3>
+                        <ul class="space-y-4 text-aegis-gray-700">
+                            <li class="flex items-start"><span class="text-red-500 mr-3 mt-1">❌</span><span>Empresas lutam para acompanhar <strong>mudanças tributárias e regulatórias constantes</strong>.</span></li>
+                            <li class="flex items-start"><span class="text-red-500 mr-3 mt-1">❌</span><span>Falta de soluções flexíveis e seguras para evitar <strong>riscos de multas</strong>.</span></li>
+                            <li class="flex items-start"><span class="text-red-500 mr-3 mt-1">❌</span><span><strong>Alto custo com consultorias</strong> e retrabalho devido à burocracia.</span></li>
+                            <li class="flex items-start"><span class="text-red-500 mr-3 mt-1">❌</span><span>Gestão fragmentada que dificulta uma <strong>visão completa</strong> dos dados.</span></li>
+                        </ul>
+                    </div>
+                    <!-- Card Solução -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                        <h3 class="text-2xl font-bold text-green-500 mb-6">A Solução Integrada Aegis</h3>
+                        <ul class="space-y-4 text-aegis-gray-700">
+                            <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✅</span><span><strong>ERP/CRM modular</strong> com atualizações automáticas conforme o calendário legal.</span></li>
+                            <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✅</span><span><strong>Dashboards inteligentes com IA</strong> que geram insights preditivos.</span></li>
+                            <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✅</span><span>Módulos especializados em <strong>GRC (Governança, Riscos e Conformidade)</strong>.</span></li>
+                            <li class="flex items-start"><span class="text-green-500 mr-3 mt-1">✅</span><span>Plataforma <strong>SaaS escalável</strong>, orientada por dados e com arquitetura moderna.</span></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="contato" class="contact">
-            <div class="container">
-                <h2>Entre em Contato</h2>
-                <div class="contact-info">
-                    <p>📧 contato@aegissolucoes.dev.br</p>
-                    <p>🌐 https://app.aegissolucoes.dev.br</p>
-                    <p>💻 GitHub: andliassource</p>
+        <!-- Seção Simulador -->
+        <section id="simulador" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-aegis-dark">Simulador de Risco de Conformidade</h2>
+                    <p class="text-lg text-aegis-gray-500 mt-4">Tenha uma estimativa do nível de conformidade da sua empresa e identifique áreas de melhoria. Sua jornada para a segurança tributária começa aqui!</p>
                 </div>
+                <div class="max-w-3xl mx-auto bg-gray-50 p-8 md:p-12 rounded-xl shadow-lg border border-gray-200">
+                    <div class="space-y-6">
+                        <!-- Pergunta 1 -->
+                        <div>
+                            <label for="setor" class="block text-lg font-semibold text-aegis-dark mb-2">1. Qual o setor de atuação da sua empresa?</label>
+                            <select id="setor" name="setor" required class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-aegis-blue-500 focus:border-aegis-blue-500 transition">
+                                <option value="">Selecione seu setor...</option>
+                                <option value="varejo">Varejo</option>
+                                <option value="servicos">Serviços</option>
+                                <option value="industria">Indústria/Manufatura</option>
+                                <option value="logistica">Logística/Transporte</option>
+                                <option value="saude">Saúde</option>
+                                <option value="financeiro">Financeiro</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <!-- Pergunta 2 -->
+                        <div>
+                            <label for="faturamento" class="block text-lg font-semibold text-aegis-dark mb-2">2. Qual o faturamento anual estimado?</label>
+                            <select id="faturamento" name="faturamento" required class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-aegis-blue-500 focus:border-aegis-blue-500 transition">
+                                <option value="">Selecione o faturamento...</option>
+                                <option value="pequeno">Até R$ 1 milhão</option>
+                                <option value="medio">R$ 1 milhão a R$ 10 milhões</option>
+                                <option value="grande">Acima de R$ 10 milhões</option>
+                                <option value="muito_grande">Acima de R$ 100 milhões</option>
+                            </select>
+                        </div>
+                        <!-- Pergunta 3 -->
+                        <div>
+                            <label for="sistema_fiscal" class="block text-lg font-semibold text-aegis-dark mb-2">3. Utiliza um sistema dedicado para gestão fiscal?</label>
+                            <select id="sistema_fiscal" name="sistema_fiscal" required class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-aegis-blue-500 focus:border-aegis-blue-500 transition">
+                                <option value="">Selecione...</option>
+                                <option value="sim">Sim, robusto e atualizado</option>
+                                <option value="parcial">Sim, mas com lacunas ou desatualizado</option>
+                                <option value="nao">Não, usamos planilhas ou sistemas básicos</option>
+                            </select>
+                        </div>
+                        <!-- Pergunta 4 -->
+                        <div>
+                            <label for="revisao_conformidade" class="block text-lg font-semibold text-aegis-dark mb-2">4. Com que frequência revisa os processos de conformidade?</label>
+                            <select id="revisao_conformidade" name="revisao_conformidade" required class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-aegis-blue-500 focus:border-aegis-blue-500 transition">
+                                <option value="">Selecione a frequência...</option>
+                                <option value="mensal">Mensalmente</option>
+                                <option value="trimestral">Trimestralmente</option>
+                                <option value="semestral">Semestralmente</option>
+                                <option value="anual">Anualmente</option>
+                                <option value="nunca">Raramente ou nunca</option>
+                            </select>
+                        </div>
+                        <!-- Pergunta 5 -->
+                        <div>
+                            <label for="reforma_tributaria" class="block text-lg font-semibold text-aegis-dark mb-2">5. Como sua empresa está se preparando para a Reforma Tributária?</label>
+                            <select id="reforma_tributaria" name="reforma_tributaria" required class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-aegis-blue-500 focus:border-aegis-blue-500 transition">
+                                <option value="">Selecione o nível de preparo...</option>
+                                <option value="planejado">Temos um plano detalhado e estamos implementando</option>
+                                <option value="avaliando">Estamos avaliando o impacto e buscando soluções</option>
+                                <option value="desinformado">Ainda não estamos preparados</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" class="mt-8 w-full bg-aegis-blue-500 text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-aegis-blue-600 transition-all duration-300" onclick="simularConformidade()">
+                        Calcular Meu Risco
+                    </button>
+                    <!-- Resultado do Simulador -->
+                    <div id="simulatorResults" class="mt-10 text-center bg-white p-8 rounded-lg border-2 border-dashed border-aegis-blue-500" style="display: none;">
+                        <h3 class="text-2xl font-bold text-aegis-dark mb-4">Seu Nível de Risco de Não Conformidade</h3>
+                        <span id="riskScore" class="block text-5xl font-extrabold mb-4"></span>
+                        <p id="riskDescription" class="text-aegis-gray-500 text-lg"></p>
+                        <p class="mt-6 font-semibold">Para uma análise precisa, <a href="#contato" class="text-aegis-blue-500 underline">fale com um especialista.</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Funcionalidades -->
+        <section class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-aegis-dark">Uma Plataforma Completa e Modular</h2>
+                    <p class="text-lg text-aegis-gray-500 mt-4 max-w-2xl mx-auto">Ative apenas o que precisa, com garantia de integração e escalabilidade.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature Card 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2">
+                        <div class="text-4xl text-aegis-blue-500 mb-4">📊</div>
+                        <h3 class="text-xl font-bold text-aegis-dark mb-2">Núcleo Operacional (ERP/CRM)</h3>
+                        <p class="text-aegis-gray-500">Controle financeiro, fiscal, contábil e gestão completa de relacionamento com clientes.</p>
+                    </div>
+                    <!-- Feature Card 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2">
+                        <div class="text-4xl text-aegis-blue-500 mb-4">🧠</div>
+                        <h3 class="text-xl font-bold text-aegis-dark mb-2">Inteligência de Dados e IA</h3>
+                        <p class="text-aegis-gray-500">Dashboards preditivos e simulações de impacto fiscal para decisões estratégicas.</p>
+                    </div>
+                    <!-- Módulo Governança -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
+                        <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+                        <div class="text-4xl text-aegis-blue-500 mb-4">🏛️</div>
+                        <h3 class="text-xl font-bold text-aegis-dark mb-2">Governança Corporativa</h3>
+                        <p class="text-aegis-gray-500">Estruture processos e políticas para garantir a transparência e a responsabilidade corporativa.</p>
+                    </div>
+                    <!-- Módulo Riscos -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
+                         <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+                        <div class="text-4xl text-aegis-blue-500 mb-4">⚠️</div>
+                        <h3 class="text-xl font-bold text-aegis-dark mb-2">Gestão de Riscos</h3>
+                        <p class="text-aegis-gray-500">Identifique, avalie e mitigue riscos operacionais, financeiros e de mercado de forma proativa.</p>
+                    </div>
+                    <!-- Módulo Compliance -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
+                         <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+                        <div class="text-4xl text-aegis-blue-500 mb-4">✅</div>
+                        <h3 class="text-xl font-bold text-aegis-dark mb-2">Compliance e Conformidade</h3>
+                        <p class="text-aegis-gray-500">Garanta a adequação a normas como LGPD, ISO e regulamentações setoriais específicas.</p>
+                    </div>
+                    <!-- Módulo Gestão de Pessoas -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
+                         <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+                        <div class="text-4xl text-aegis-blue-500 mb-4">🧑💼</div>
+                        <h3 class="text-xl font-bold text-aegis-dark mb-2">Gestão de Pessoas (RH)</h3>
+                        <p class="text-aegis-gray-500">Administre salários, funções, avaliações de desempenho (TPR) e todo o ciclo de vida do colaborador.</p>
+                    </div>
+                    <!-- Módulo Gestão de Sistemas -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
+                         <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+                        <div class="text-4xl text-aegis-blue-500 mb-4">💻</div>
+                        <h3 class="text-xl font-bold text-aegis-dark mb-2">Gestão de Sistemas (TI)</h3>
+                        <p class="text-aegis-gray-500">Controle ativos de TIC, Help Desk, incidentes, monitoramento e registro de perdas.</p>
+                    </div>
+                     <!-- Módulo Gestão Documental -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
+                         <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+                        <div class="text-4xl text-aegis-blue-500 mb-4">📝</div>
+                        <h3 class="text-xl font-bold text-aegis-dark mb-2">Gestão Documental e Assinaturas</h3>
+                        <p class="text-aegis-gray-500">Gerencie políticas e normas com auxílio de IA, aprovação e assinaturas eletrônicas.</p>
+                    </div>
+                     <!-- Módulo ESG (Sugestão) -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
+                         <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+                        <div class="text-4xl text-aegis-blue-500 mb-4">🌱</div>
+                        <h3 class="text-xl font-bold text-aegis-dark mb-2">Sustentabilidade (ESG)</h3>
+                        <p class="text-aegis-gray-500">Monitore e reporte suas métricas ambientais, sociais e de governança para o mercado.</p>
+                    </div>
+                     <!-- Feature Card 4 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
+                        <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+                        <div class="text-4xl text-aegis-blue-500 mb-4">⚙️</div>
+                        <h3 class="text-xl font-bold text-aegis-dark mb-2">Continuidade de Negócios</h3>
+                        <p class="text-aegis-gray-500">Planejamento e resposta a incidentes para garantir que suas operações nunca parem.</p>
+                    </div>
+                     <!-- Feature Card 5 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
+                        <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+                        <div class="text-4xl text-aegis-blue-500 mb-4">🚀</div>
+                        <h3 class="text-xl font-bold text-aegis-dark mb-2">Estratégia e Planejamento</h3>
+                        <p class="text-aegis-gray-500">Definição de OKRs, gestão de projetos e inovação para um crescimento sustentável.</p>
+                    </div>
+                     <!-- Feature Card 6 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2">
+                        <div class="text-4xl text-aegis-blue-500 mb-4">🔗</div>
+                        <h3 class="text-xl font-bold text-aegis-dark mb-2">Integrações e APIs Abertas</h3>
+                        <p class="text-aegis-gray-500">Conecte-se facilmente a sistemas externos, bancos e marketplaces.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Formulário de Contato -->
+        <section id="contato" class="py-20 md:py-28 bg-aegis-dark">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white">Dê o Próximo Passo na Sua Transformação Digital</h2>
+                    <p class="text-lg text-gray-300 mt-4">Preencha o formulário e descubra como a Aegis pode otimizar sua conformidade e governança.</p>
+                </div>
+                 <!-- Formulário Netlify -->
+                <form name="contact" method="POST" data-netlify="true" class="max-w-2xl mx-auto space-y-6">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <!-- Campo Nome -->
+                    <div>
+                        <label for="name" class="block text-lg font-semibold text-white mb-2">Nome Completo</label>
+                        <input type="text" id="name" name="name" required placeholder="Seu nome" class="w-full p-4 bg-aegis-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-aegis-blue-500 focus:border-aegis-blue-500 transition">
+                    </div>
+                     <!-- Campo Email -->
+                    <div>
+                        <label for="email" class="block text-lg font-semibold text-white mb-2">E-mail Corporativo</label>
+                        <input type="email" id="email" name="email" required placeholder="seu.email@suaempresa.com.br" class="w-full p-4 bg-aegis-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-aegis-blue-500 focus:border-aegis-blue-500 transition">
+                    </div>
+                     <!-- Campo Empresa -->
+                     <div>
+                        <label for="empresa" class="block text-lg font-semibold text-white mb-2">Nome da Empresa</label>
+                        <input type="text" id="empresa" name="empresa" required placeholder="Nome da sua empresa" class="w-full p-4 bg-aegis-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-aegis-blue-500 focus:border-aegis-blue-500 transition">
+                    </div>
+                    <!-- Campo Mensagem -->
+                    <div>
+                        <label for="message" class="block text-lg font-semibold text-white mb-2">Como podemos ajudar?</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Gostaria de uma demonstração do módulo fiscal..." class="w-full p-4 bg-aegis-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-aegis-blue-500 focus:border-aegis-blue-500 transition"></textarea>
+                    </div>
+                    <!-- Botão de Envio -->
+                    <div>
+                        <button type="submit" class="w-full bg-aegis-blue-500 text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-aegis-blue-600 transition-all duration-300">
+                            Falar com um Especialista
+                        </button>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
+    <!-- Footer -->
+    <footer class="bg-aegis-gray-200">
+        <div class="container mx-auto px-6 py-8 text-center text-aegis-gray-500">
             <p>&copy; 2024 Aegis Soluções. Todos os direitos reservados.</p>
+            <p class="text-sm mt-1">Transformando conformidade em vantagem competitiva.</p>
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script>
+        function simularConformidade() {
+            const setor = document.getElementById('setor').value;
+            const faturamento = document.getElementById('faturamento').value;
+            const sistemaFiscal = document.getElementById('sistema_fiscal').value;
+            const revisaoConformidade = document.getElementById('revisao_conformidade').value;
+            const reformaTributaria = document.getElementById('reforma_tributaria').value;
+            const resultsDiv = document.getElementById('simulatorResults');
+            const riskScoreSpan = document.getElementById('riskScore');
+            const riskDescriptionP = document.getElementById('riskDescription');
+
+            if (!setor || !faturamento || !sistemaFiscal || !revisaoConformidade || !reformaTributaria) {
+                alert('Por favor, preencha todas as perguntas do simulador.');
+                return;
+            }
+
+            let score = 0;
+            
+            // Lógica de pontuação
+            const setorScores = { 'industria': 5, 'varejo': 4, 'logistica': 3, 'financeiro': 4, 'saude': 3, 'servicos': 2, 'outro': 2 };
+            const faturamentoScores = { 'muito_grande': 6, 'grande': 4, 'medio': 2, 'pequeno': 1 };
+            const sistemaScores = { 'nao': 5, 'parcial': 3, 'sim': 1 };
+            const revisaoScores = { 'nunca': 6, 'anual': 4, 'semestral': 2, 'trimestral': 1, 'mensal': 1 };
+            const reformaScores = { 'desinformado': 7, 'avaliando': 4, 'planejado': 1 };
+
+            score += setorScores[setor] || 0;
+            score += faturamentoScores[faturamento] || 0;
+            score += sistemaScores[sistemaFiscal] || 0;
+            score += revisaoScores[revisaoConformidade] || 0;
+            score += reformaScores[reformaTributaria] || 0;
+            
+            let description = '';
+            let riskClass = '';
+
+            if (score >= 20) {
+                description = "Seu risco é <strong>CRÍTICO</strong>. Sua empresa está vulnerável a multas e ineficiências. É urgente implementar soluções como a Aegis para garantir sua segurança.";
+                riskClass = 'risk-score-high';
+            } else if (score >= 12) {
+                description = "Seu risco é <strong>ELEVADO</strong>. Existem lacunas em sua gestão que podem gerar problemas. A Aegis pode fornecer as ferramentas para mitigar esses riscos.";
+                riskClass = 'risk-score-medium';
+            } else {
+                description = "Seu risco é <strong>MODERADO</strong>. Embora tenha uma base, há espaço para aprimoramento. Com a Aegis, sua empresa pode alcançar um novo patamar de excelência.";
+                riskClass = 'risk-score-low';
+            }
+
+            riskScoreSpan.textContent = `${score} Pontos de Risco`;
+            riskScoreSpan.className = 'block text-5xl font-extrabold mb-4 ' + riskClass;
+            riskDescriptionP.innerHTML = description;
+            resultsDiv.style.display = 'block';
+
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
 </body>
 </html>
