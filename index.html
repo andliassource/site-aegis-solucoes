@@ -17,6 +17,9 @@
     <meta property="twitter:title" content="Aegis Soluções - Conformidade Tributária e GRC com IA">
     <meta property="twitter:description" content="A Aegis oferece um ERP/CRM modular com Inteligência Artificial para simplificar a conformidade tributária e governança, garantindo segurança e flexibilidade.">
     <meta property="twitter:image" content="https://aegissolucoes.dev.br/dashboard-preview.png">
+    <!-- SEO -->
+    <link rel="canonical" href="https://aegissolucoes.dev.br/">
+    <meta name="robots" content="index, follow">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter + Signika -->
@@ -57,7 +60,6 @@
     </style>
     <script src="//unpkg.com/alpinejs" defer></script>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body class="bg-aegis-gray-100 text-aegis-gray-700 antialiased">
 
@@ -132,11 +134,11 @@
                             <div x-show="activeSlide === 1" class="absolute inset-0 duration-700 ease-in-out">
                                 <img src="dashboard-preview.png" class="block w-full h-full object-cover" alt="Aegis ERP Dashboard">
                         </div>
-                            <div x-show="activeSlide === 2" class="absolute inset-0 hidden duration-700 ease-in-out" style="display: none;">
-                                <img src="https://via.placeholder.com/800x600.png?text=Tool+Screenshot+2" class="block w-full h-full object-cover" alt="Screenshot 2">
+                            <div x-show="activeSlide === 2" class="absolute inset-0 duration-700 ease-in-out">
+                                <img src="https://picsum.photos/800/600?random=1" class="block w-full h-full object-cover" alt="Screenshot 2">
                         </div>
-                            <div x-show="activeSlide === 3" class="absolute inset-0 hidden duration-700 ease-in-out" style="display: none;">
-                                <img src="https://via.placeholder.com/800x600.png?text=Tool+Screenshot+3" class="block w-full h-full object-cover" alt="Screenshot 3">
+                            <div x-show="activeSlide === 3" class="absolute inset-0 duration-700 ease-in-out">
+                                <img src="https://picsum.photos/800/600?random=2" class="block w-full h-full object-cover" alt="Screenshot 3">
                             </div>
                         </div>
                         <!-- Slider indicators -->
@@ -423,7 +425,10 @@
                     <p class="text-sm mt-1">Transformando conformidade em vantagem competitiva.</p>
                 </div>
                 <div class="mt-4 md:mt-0">
-
+                    <div class="inline-flex items-center p-2 bg-white rounded-lg shadow-md">
+                        <svg class="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.417l5.611-1.683a11.955 11.955 0 012.389-.421 11.955 11.955 0 012.389.421L19 20.417a12.02 12.02 0 00-2.618-11.459z"></path></svg>
+                        <span class="ml-2 text-sm font-semibold text-gray-700">Site Seguro</span>
+                    </div>
                 </div>
             </div>
         </div>
