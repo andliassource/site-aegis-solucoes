@@ -226,10 +226,23 @@ body {
 
 /* Footer */
 footer {
-    background: #333;
-    color: white;
     text-align: center;
-    padding: 2rem 0;
+    padding: 20px;
+    background: #f9f9f9;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer a {
+    display: inline-block;
+    margin: 10px;
+}
+
+footer img {
+    height: 40px;
 }
 
 /* Animações e Efeitos */
