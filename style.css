@@ -245,6 +245,13 @@ footer img {
     height: 40px;
 }
 
+.seal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
 /* Animações e Efeitos */
 @keyframes fadeInUp {
     from {
