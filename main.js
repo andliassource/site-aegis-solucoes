@@ -1,51 +1,47 @@
 // JavaScript para o site institucional
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling para links internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
+    // Lógica para o menu mobile
+    const mobileMenuButton = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.backdropFilter = 'blur(10px)';
-        } else {
-            navbar.style.background = '#fff';
-            navbar.style.backdropFilter = 'none';
-        }
-    });
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
 
     // Animação de entrada dos cards
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -50px 0px' // Inicia a animação um pouco antes de o elemento estar totalmente visível
     };
 
-    const observer = new IntersectionObserver(function(entries) {
+    const cardObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('fade-in-up');
+                observer.unobserve(entry.target); // Para a observação após a animação
             }
         });
     }, observerOptions);
 
-    // Aplicar animação aos cards
-    document.querySelectorAll('.product-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
+    // Aplicar animação aos cards de funcionalidades
+    document.querySelectorAll('#funcionalidades .grid > div').forEach(card => {
+        cardObserver.observe(card);
     });
+
+    // Header scroll effect - Mais performático com classes CSS
+    const header = document.querySelector('header');
+    if (header) {
+        let isScrolled = false;
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50 && !isScrolled) {
+                header.classList.add('scrolled');
+                isScrolled = true;
+            } else if (window.scrollY <= 50 && isScrolled) {
+                header.classList.remove('scrolled');
+                isScrolled = false;
+            }
+        });
+    }
 });

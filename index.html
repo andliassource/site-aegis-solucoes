@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aegis Soluções - Conformidade Tributária e GRC com IA</title>
+    <meta name="description" content="A Aegis oferece um ERP/CRM modular com Inteligência Artificial para simplificar a conformidade tributária e governança, garantindo segurança e flexibilidade.">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aegissolucoes.dev.br/">
+    <meta property="og:title" content="Aegis Soluções - Conformidade Tributária e GRC com IA">
+    <meta property="og:description" content="A Aegis oferece um ERP/CRM modular com Inteligência Artificial para simplificar a conformidade tributária e governança, garantindo segurança e flexibilidade.">
+    <meta property="og:image" content="https://aegissolucoes.dev.br/dashboard-preview.png">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://aegissolucoes.dev.br/">
+    <meta property="twitter:title" content="Aegis Soluções - Conformidade Tributária e GRC com IA">
+    <meta property="twitter:description" content="A Aegis oferece um ERP/CRM modular com Inteligência Artificial para simplificar a conformidade tributária e governança, garantindo segurança e flexibilidade.">
+    <meta property="twitter:image" content="https://aegissolucoes.dev.br/dashboard-preview.png">
+    <!-- SEO -->
+    <link rel="canonical" href="https://aegissolucoes.dev.br/">
+    <meta name="robots" content="index, follow">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter + Signika -->
@@ -42,7 +58,8 @@
         .risk-score-medium { color: #ECC94B; }
         .risk-score-low { color: #48BB78; }
     </style>
-    <link rel="icon" href="favicon.ico">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body class="bg-aegis-gray-100 text-aegis-gray-700 antialiased">
 
@@ -63,6 +80,7 @@
                 <a href="#home" class="text-aegis-gray-700 hover:text-aegis-blue-500 font-medium transition-colors duration-300">Início</a>
                 <a href="#simulador" class="text-aegis-gray-700 hover:text-aegis-blue-500 font-medium transition-colors duration-300">Simulador</a>
                 <a href="#funcionalidades" class="text-aegis-gray-700 hover:text-aegis-blue-500 font-medium transition-colors duration-300">Produtos</a>
+                <a href="https://mail.umbler.com/" target="_blank" class="text-aegis-gray-700 hover:text-aegis-blue-500 font-medium transition-colors duration-300">Email</a>
                 <a href="https://app.aegissolucoes.dev.br" class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors duration-300">Demo Grátis</a>
                 <a href="#contato" class="bg-aegis-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-aegis-blue-600 transition-colors duration-300">
                     Fale Conosco
@@ -81,6 +99,7 @@
                 <a href="#home" class="block text-aegis-gray-700 hover:text-aegis-blue-500 font-medium">Início</a>
                 <a href="#simulador" class="block text-aegis-gray-700 hover:text-aegis-blue-500 font-medium">Simulador</a>
                 <a href="#funcionalidades" class="block text-aegis-gray-700 hover:text-aegis-blue-500 font-medium">Produtos</a>
+                <a href="https://mail.umbler.com/" target="_blank" class="block text-aegis-gray-700 hover:text-aegis-blue-500 font-medium">Email</a>
                 <a href="https://app.aegissolucoes.dev.br" class="block bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 text-center">Demo Grátis</a>
                 <a href="#contato" class="block bg-aegis-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-aegis-blue-600 text-center">Fale Conosco</a>
             </div>
@@ -109,9 +128,42 @@
                             </a>
                         </div>
                     </div>
-                    <div class="hidden lg:block">
-                        <img src="dashboard-preview.png" alt="Aegis ERP Dashboard" class="w-full rounded-xl shadow-2xl">
+                    <div x-data="{ activeSlide: 1, slides: [1, 2, 3] }" class="relative w-full max-w-lg mx-auto lg:mx-0 lg:max-w-none">
+                        <!-- Slides -->
+                        <div class="relative overflow-hidden rounded-lg shadow-2xl h-96">
+                            <div x-show="activeSlide === 1" class="absolute inset-0 duration-700 ease-in-out">
+                                <img src="assets/img1.png" class="block w-full h-full object-cover" alt="Aegis ERP Dashboard">
+                        </div>
+                            <div x-show="activeSlide === 2" class="absolute inset-0 duration-700 ease-in-out">
+                                <img src="assets/img2.png" class="block w-full h-full object-cover" alt="Screenshot 2">
+                        </div>
+                            <div x-show="activeSlide === 3" class="absolute inset-0 duration-700 ease-in-out">
+                                <img src="dashboard-preview.png" class="block w-full h-full object-cover" alt="Screenshot 3">
+                            </div>
+                        </div>
+                        <!-- Slider indicators -->
+                        <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                            <button type="button" class="w-3 h-3 rounded-full" :class="{'bg-white': activeSlide === 1, 'bg-white/50': activeSlide !== 1}" @click="activeSlide = 1"></button>
+                            <button type="button" class="w-3 h-3 rounded-full" :class="{'bg-white': activeSlide === 2, 'bg-white/50': activeSlide !== 2}" @click="activeSlide = 2"></button>
+                            <button type="button" class="w-3 h-3 rounded-full" :class="{'bg-white': activeSlide === 3, 'bg-white/50': activeSlide !== 3}" @click="activeSlide = 3"></button>
                     </div>
+                        <!-- Slider controls -->
+                        <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" @click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                                </svg>
+                                <span class="sr-only">Previous</span>
+                            </span>
+                        </button>
+                        <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" @click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1">
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                </svg>
+                                <span class="sr-only">Next</span>
+                            </span>
+                        </button>
                 </div>
             </div>
         </section>
@@ -251,63 +303,63 @@
                     </div>
                     <!-- Módulo Governança -->
                     <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
-                        <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+
                         <div class="text-4xl text-aegis-blue-500 mb-4">🏛️</div>
                         <h3 class="text-xl font-bold text-aegis-dark mb-2">Governança Corporativa</h3>
                         <p class="text-aegis-gray-500">Estruture processos e políticas para garantir a transparência e a responsabilidade corporativa.</p>
                     </div>
                     <!-- Módulo Riscos -->
                     <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
-                         <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+
                         <div class="text-4xl text-aegis-blue-500 mb-4">⚠️</div>
                         <h3 class="text-xl font-bold text-aegis-dark mb-2">Gestão de Riscos</h3>
                         <p class="text-aegis-gray-500">Identifique, avalie e mitigue riscos operacionais, financeiros e de mercado de forma proativa.</p>
                     </div>
                     <!-- Módulo Compliance -->
                     <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
-                         <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+
                         <div class="text-4xl text-aegis-blue-500 mb-4">✅</div>
                         <h3 class="text-xl font-bold text-aegis-dark mb-2">Compliance e Conformidade</h3>
                         <p class="text-aegis-gray-500">Garanta a adequação a normas como LGPD, ISO e regulamentações setoriais específicas.</p>
                     </div>
                     <!-- Módulo Gestão de Pessoas -->
                     <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
-                         <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+
                         <div class="text-4xl text-aegis-blue-500 mb-4">🧑💼</div>
                         <h3 class="text-xl font-bold text-aegis-dark mb-2">Gestão de Pessoas (RH)</h3>
                         <p class="text-aegis-gray-500">Administre salários, funções, avaliações de desempenho (TPR) e todo o ciclo de vida do colaborador.</p>
                     </div>
                     <!-- Módulo Gestão de Sistemas -->
                     <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
-                         <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+
                         <div class="text-4xl text-aegis-blue-500 mb-4">💻</div>
                         <h3 class="text-xl font-bold text-aegis-dark mb-2">Gestão de Sistemas (TI)</h3>
                         <p class="text-aegis-gray-500">Controle ativos de TIC, Help Desk, incidentes, monitoramento e registro de perdas.</p>
                     </div>
                      <!-- Módulo Gestão Documental -->
                     <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
-                         <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+
                         <div class="text-4xl text-aegis-blue-500 mb-4">📝</div>
                         <h3 class="text-xl font-bold text-aegis-dark mb-2">Gestão Documental e Assinaturas</h3>
                         <p class="text-aegis-gray-500">Gerencie políticas e normas com auxílio de IA, aprovação e assinaturas eletrônicas.</p>
                     </div>
                      <!-- Módulo ESG (Sugestão) -->
                     <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
-                         <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+
                         <div class="text-4xl text-aegis-blue-500 mb-4">🌱</div>
                         <h3 class="text-xl font-bold text-aegis-dark mb-2">Sustentabilidade (ESG)</h3>
                         <p class="text-aegis-gray-500">Monitore e reporte suas métricas ambientais, sociais e de governança para o mercado.</p>
                     </div>
                      <!-- Feature Card 4 -->
                     <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
-                        <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+
                         <div class="text-4xl text-aegis-blue-500 mb-4">⚙️</div>
                         <h3 class="text-xl font-bold text-aegis-dark mb-2">Continuidade de Negócios</h3>
                         <p class="text-aegis-gray-500">Planejamento e resposta a incidentes para garantir que suas operações nunca parem.</p>
                     </div>
                      <!-- Feature Card 5 -->
                     <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2 relative">
-                        <span class="absolute top-4 right-4 bg-yellow-400 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Em Breve</span>
+
                         <div class="text-4xl text-aegis-blue-500 mb-4">🚀</div>
                         <h3 class="text-xl font-bold text-aegis-dark mb-2">Estratégia e Planejamento</h3>
                         <p class="text-aegis-gray-500">Definição de OKRs, gestão de projetos e inovação para um crescimento sustentável.</p>
@@ -363,13 +415,31 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-aegis-gray-200">
-        <div class="container mx-auto px-6 py-8 text-center text-aegis-gray-500">
-            <p>&copy; 2024 Aegis Soluções. Todos os direitos reservados.</p>
-            <p class="text-sm mt-1">Transformando conformidade em vantagem competitiva.</p>
-        </div>
-    </footer>
+<footer style="text-align:center; padding:20px; background:#f9f9f9; font-size:14px;">
+  <p>© 2025 Aegis Soluções – Todos os direitos reservados.</p>
+
+  <!-- Selo HTTPS/SSL Let's Encrypt (Netlify) -->
+  <a href="https://letsencrypt.org/" target="_blank" rel="noopener noreferrer">
+    <img src="assets/letsencrypt.svg"
+         alt="Site protegido com Let's Encrypt SSL"
+         style="height:40px; margin:10px;">
+  </a>
+
+  <!-- Selo ICP-Brasil (Certisign como exemplo) -->
+  <a href="https://www.certisign.com.br/duvidas/selo-site-seguro"
+     target="_blank" rel="noopener noreferrer">
+    <img src="assets/certisign.svg"
+         alt="Selo Site Seguro ICP-Brasil Certisign"
+         style="height:40px; margin:10px;">
+  </a>
+
+  <!-- Selo Registro.br (autoridade do domínio) -->
+  <a href="https://registro.br/" target="_blank" rel="noopener noreferrer">
+    <img src="assets/registrobr.svg"
+         alt="Domínio registrado no Registro.br"
+         style="height:40px; margin:10px;">
+  </a>
+</footer>
 
     <script>
         function simularConformidade() {
@@ -424,5 +494,6 @@
             resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     </script>
+    <script src="main.js" defer></script>
 </body>
 </html>
