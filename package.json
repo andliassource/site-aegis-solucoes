@@ -1,13 +1,15 @@
 {
-  "name": "site-aegis-solucoes",
-  "version": "1.0.0",
-  "description": "Site institucional da Aegis Soluções",
-  "main": "index.html",
+  "name": "aegis-website",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "build": "echo 'Static site - no build needed'",
-    "start": "echo 'Static site ready'"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "keywords": ["aegis", "erp", "crm", "gestao", "empresarial"],
-  "author": "Aegis Soluções",
-  "license": "MIT"
+  "dependencies": {
+    "astro": "^4.11.5"
+  }
 }
