@@ -7,7 +7,7 @@ test('Header component', async () => {
     const container = await AstroContainer.create();
     const result = await container.renderToString(Header);
 
-    // Check for logo text
+    // Check for brand name
     expect(result).toContain('Aegis');
     expect(result).toContain('Soluções');
 
@@ -15,5 +15,7 @@ test('Header component', async () => {
     expect(result).toContain('Início');
     expect(result).toContain('Simulador');
     expect(result).toContain('Produtos');
+    expect(result).toContain('Email');
+    expect(result).toContain('Demo Grátis');
     expect(result).toContain('Fale Conosco');
 });
