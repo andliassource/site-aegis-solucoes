@@ -7,16 +7,13 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "test": "vitest",
-    "test:ui": "vitest --ui"
+    "astro": "astro"
   },
   "dependencies": {
     "astro": "^5.0.0"
   },
   "devDependencies": {
-    "@vitest/ui": "^3.2.4",
-    "happy-dom": "^18.0.1",
-    "vitest": "^3.2.4"
+    "@playwright/test": "^1.55.1",
+    "@types/node": "^24.5.2"
   }
 }
