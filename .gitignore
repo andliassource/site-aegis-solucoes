@@ -1,19 +1,28 @@
+# Dependencies
 node_modules/
-.DS_Store
-*.log
-.env
-.env.local
-.env.production
-dist/
-build/
 
-# Outros projetos (evitar confusão)
-../minha-startup-crm-vite/
-minha-startup-crm-vite/
-src/
-package-lock.json
-vite.config.js
-.firebase/
-.netlify/functions-internal/
-# Local Netlify folder
-.netlify
+# Build outputs
+dist/
+.astro/
+
+# Vercel artifacts
+.vercel/
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE / Editor specific
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
