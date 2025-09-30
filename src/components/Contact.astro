@@ -1,4 +1,26 @@
 ---
+import { getFunctions, httpsCallable } from "firebase/functions";
+import { app } from "../../firebase/client";
+
+const functions = getFunctions(app);
+const sendContactEmail = httpsCallable(functions, 'sendContactEmail');
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("name");
+    const email = data.get("email");
+    const message = data.get("message");
+
+    const result = await sendContactEmail({ name, email, message });
+
+    // Handle success (e.g., show a success message)
+    console.log(result.data);
+  } catch (error) {
+    // Handle error (e.g., show an error message)
+    console.error(error);
+  }
+}
 ---
 <section id="contato" class="py-20 md:py-28 bg-aegis-dark">
     <div class="container mx-auto px-6">
@@ -6,30 +28,24 @@
             <h2 class="text-3xl md:text-4xl font-extrabold text-white">Dê o Próximo Passo na Sua Transformação Digital</h2>
             <p class="text-lg text-gray-300 mt-4">Preencha o formulário e descubra como a Aegis pode otimizar sua conformidade e governança.</p>
         </div>
-         <!-- Formulário Netlify -->
-        <form name="contact" method="POST" data-netlify="true" class="max-w-2xl mx-auto space-y-6">
+        <form id="contact-form" class="max-w-2xl mx-auto space-y-6">
             <input type="hidden" name="form-name" value="contact" />
-            <!-- Campo Nome -->
             <div>
                 <label for="name" class="block text-lg font-semibold text-white mb-2">Nome Completo</label>
                 <input type="text" id="name" name="name" required placeholder="Seu nome" class="w-full p-4 bg-aegis-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-aegis-blue-500 focus:border-aegis-blue-500 transition">
             </div>
-             <!-- Campo Email -->
             <div>
                 <label for="email" class="block text-lg font-semibold text-white mb-2">E-mail Corporativo</label>
                 <input type="email" id="email" name="email" required placeholder="seu.email@suaempresa.com.br" class="w-full p-4 bg-aegis-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-aegis-blue-500 focus:border-aegis-blue-500 transition">
             </div>
-             <!-- Campo Empresa -->
              <div>
                 <label for="empresa" class="block text-lg font-semibold text-white mb-2">Nome da Empresa</label>
                 <input type="text" id="empresa" name="empresa" required placeholder="Nome da sua empresa" class="w-full p-4 bg-aegis-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-aegis-blue-500 focus:border-aegis-blue-500 transition">
             </div>
-            <!-- Campo Mensagem -->
             <div>
                 <label for="message" class="block text-lg font-semibold text-white mb-2">Como podemos ajudar?</label>
                 <textarea id="message" name="message" rows="4" placeholder="Gostaria de uma demonstração do módulo fiscal..." class="w-full p-4 bg-aegis-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-aegis-blue-500 focus:border-aegis-blue-500 transition"></textarea>
             </div>
-            <!-- Botão de Envio -->
             <div>
                 <button type="submit" class="w-full bg-aegis-blue-500 text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-aegis-blue-600 transition-all duration-300">
                     Falar com um Especialista
@@ -38,3 +54,27 @@
         </form>
     </div>
 </section>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    const { sendContactEmail } = await import('../../firebase/client');
+
+    try {
+      const result = await sendContactEmail(data);
+      console.log(result.data);
+      // You can show a success message to the user here.
+      alert('Mensagem enviada com sucesso!');
+      form.reset();
+    } catch (error) {
+      console.error(error);
+      // You can show an error message to the user here.
+      alert('Ocorreu um erro ao enviar a mensagem. Tente novamente mais tarde.');
+    }
+  });
+</script>
