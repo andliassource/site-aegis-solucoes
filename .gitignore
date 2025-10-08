@@ -1,0 +1,19 @@
+node_modules/
+.DS_Store
+*.log
+.env
+.env.local
+.env.production
+dist/
+build/
+
+# Outros projetos (evitar confusão)
+../minha-startup-crm-vite/
+minha-startup-crm-vite/
+src/
+package-lock.json
+vite.config.js
+.firebase/
+.netlify/functions-internal/
+# Local Netlify folder
+.netlify

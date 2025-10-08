@@ -1,0 +1,13 @@
+{
+  "name": "site-aegis-solucoes",
+  "version": "1.0.0",
+  "description": "Site institucional da Aegis Soluções",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'",
+    "start": "echo 'Static site ready'"
+  },
+  "keywords": ["aegis", "erp", "crm", "gestao", "empresarial"],
+  "author": "Aegis Soluções",
+  "license": "MIT"
+}
