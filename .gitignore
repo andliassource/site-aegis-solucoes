@@ -33,3 +33,5 @@ pnpm-debug.log*
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+.firebase/hosting.ZGlzdA.cache
+.firebase/hosting.ZGlzdA.cache
