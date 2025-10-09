@@ -1,9 +1,8 @@
 import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
+import tailwind from '@astrojs/tailwind';
+import alpine from '@astrojs/alpinejs';
 
 export default defineConfig({
+  integrations: [tailwind(), alpine()],
   trailingSlash: 'always',
-  vite: {
-    plugins: [tailwindcss()],
-  },
 });

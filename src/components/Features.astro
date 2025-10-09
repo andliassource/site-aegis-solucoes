@@ -14,7 +14,7 @@
                 <p class="text-aegis-gray-500">Controle financeiro, fiscal, contábil e gestão completa de relacionamento com clientes.</p>
             </div>
             <!-- Feature Card 2 -->
-            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2">
+            <div id="simulador" class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform transform hover:-translate-y-2">
                 <div class="text-4xl text-aegis-blue-500 mb-4">🧠</div>
                 <h3 class="text-xl font-bold text-aegis-dark mb-2">Inteligência de Dados e IA</h3>
                 <p class="text-aegis-gray-500">Dashboards preditivos e simulações de impacto fiscal para decisões estratégicas.</p>
@@ -91,25 +91,3 @@
         </div>
     </div>
 </section>
-<script>
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px' // Inicia a animação um pouco antes de o elemento estar totalmente visível
-    };
-
-    const cardObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-up');
-                observer.unobserve(entry.target); // Para a observação após a animação
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('#funcionalidades .grid > div').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        cardObserver.observe(card);
-    });
-</script>
