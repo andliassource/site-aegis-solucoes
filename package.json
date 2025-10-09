@@ -10,7 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.0.0"
+    "astro": "^5.0.0",
+    "firebase": "^10.12.2"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.1",
