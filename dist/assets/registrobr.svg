@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta name="theme-color" content="#212121" />
+		<meta name="msapplication-TileColor" content="#212121" />
+
+		<meta
+			name="description"
+			content="Registro de domínio por R$ 40,00 por ano. Registro de domínio .com.br, .net.br e demais .br. Seus endereços na Internet não podem mudar!"
+		/>
+
+		<meta property="og:title" content="Registro.br" />
+		<meta property="og:site_name" content="Registro.br" />
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:description"
+			content="Registro de domínio por R$ 40,00 por ano. Registro de domínio .com.br, .net.br e demais .br. Seus endereços na Internet não podem mudar!"
+		/>
+		<meta property="og:url" content="https://registro.br/" />
+		<meta property="og:image" content="/assets/img/share_registro.png" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@ComuNICbr" />
+		<meta name="twitter:creator" content="@ComuNICbr" />
+		<meta name="twitter:title" content="Registro.br" />
+		<meta
+			name="twitter:description"
+			content="Registro de domínio por R$ 40,00 por ano. Registro de domínio .com.br, .net.br e demais .br. Seus endereços na Internet não podem mudar!"
+		/>
+		<meta name="twitter:image" content="/assets/img/share_registro.png" />
+
+		<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png" sizes="180x180" />
+		<link rel="icon" href="/assets/img/favicon/favicon-32x32.png" sizes="32x32" type="image/png" />
+		<link rel="icon" href="/assets/img/favicon/favicon-16x16.png" sizes="16x16" type="image/png" />
+		<link rel="manifest" href="/assets/img/favicon/site.webmanifest" />
+		<link rel="mask-icon" href="/assets/img/favicon/safari-pinned-tab.svg" color="#212121" />
+		<script type="module" crossorigin src="/assets/main-B4ja6hrQ.js"></script>
+		<link rel="stylesheet" crossorigin href="/assets/main-eqTZ7Y4Y.css">
+	</head>
+	<body>
+		<!--[if lt IE 11]>
+			<p class="main-alert outdated font-5">
+				<strong>O seu navegador está desatualizado!</strong>
+				Atualize o seu navegador para ter uma melhor experiência e visualização deste site.
+				<a class="font-6" href="http://outdatedbrowser.com/pt-br" target="_blank" title="Atualize o seu navegador agora"
+					>Atualize o seu navegador agora</a
+				>
+			</p>
+		<![endif]-->
+
+		<noscript>
+			<p class="main-alert font-5">
+				<strong>Javascript desativado</strong>
+				Ative o JavaScript no seu navegador para ter uma melhor experiência e visualização deste site.
+			</p>
+		</noscript>
+
+		<div id="app"></div>
+	</body>
+</html>
