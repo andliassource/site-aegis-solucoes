@@ -23,8 +23,8 @@
             </a>
         </div>
         <!-- Botão Mobile Menu -->
-        <button id="mobile-menu-btn" class="md:hidden text-aegis-gray-700 hover:text-aegis-blue-500">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button id="mobile-menu-btn" class="md:hidden text-aegis-gray-700 hover:text-aegis-blue-500" aria-label="Abrir menu de navegação" aria-expanded="false">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
         </button>
@@ -48,7 +48,9 @@
 
         if (mobileMenuButton && mobileMenu) {
             mobileMenuButton.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
                 mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
             });
         }
     });

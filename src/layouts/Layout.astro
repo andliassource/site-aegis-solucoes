@@ -13,8 +13,25 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="A Aegis oferece um ERP/CRM modular com Inteligência Artificial para simplificar a conformidade tributária e governança, garantindo segurança e flexibilidade." />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="keywords" content="ERP, CRM, conformidade tributária, governança, GRC, inteligência artificial, compliance, LGPD" />
+		<meta name="author" content="Aegis Soluções" />
+		<meta name="robots" content="index, follow" />
+		
+		<!-- Open Graph -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content="ERP/CRM modular com IA para conformidade tributária e governança corporativa" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://site.aegissolucoes.dev.br" />
+		<meta property="og:image" content="https://site.aegissolucoes.dev.br/assets/dashboard-preview.png" />
+		
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content="ERP/CRM modular com IA para conformidade tributária" />
+		
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href="https://site.aegissolucoes.dev.br" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
