@@ -99,6 +99,37 @@ body {
   gap: 1rem;
 }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  padding: 0.22rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.72rem;
+  border-radius: 999px;
+  padding: 0.3rem 0.48rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: var(--text);
+}
+
+.lang-btn.is-active {
+  background: rgba(45, 212, 191, 0.18);
+  color: var(--text);
+}
+
 .menu a {
   color: var(--muted);
   text-decoration: none;
@@ -595,6 +626,10 @@ h1 span {
 
   .menu a {
     padding: 0.5rem 0.2rem;
+  }
+
+  .lang-switch {
+    width: fit-content;
   }
 
   .hero {

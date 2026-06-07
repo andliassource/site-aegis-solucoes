@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aegis Solucoes | ERP/CRM 360 com 40+ modulos empresariais</title>
-  <meta name="description" content="Aegis Solucoes: ERP/CRM 360 com 40+ modulos para Financeiro, Fiscal, RH, CRM, Projetos, GRC, BI e Operacoes, com IA aplicada ao contexto empresarial.">
+  <title id="meta-title">Aegis Solucoes | ERP/CRM 360 com 40+ modulos empresariais</title>
+  <meta id="meta-description" name="description" content="Aegis Solucoes: ERP/CRM 360 com 40+ modulos para Financeiro, Fiscal, RH, CRM, Projetos, GRC, BI e Operacoes, com IA aplicada ao contexto empresarial.">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Aegis Solucoes | ERP/CRM 360 com 40+ modulos empresariais">
-  <meta property="og:description" content="Gestao empresarial integrada com stack completo de modulos, governanca e IA aplicada a decisao.">
+  <meta id="meta-og-title" property="og:title" content="Aegis Solucoes | ERP/CRM 360 com 40+ modulos empresariais">
+  <meta id="meta-og-description" property="og:description" content="Gestao empresarial integrada com stack completo de modulos, governanca e IA aplicada a decisao.">
   <meta property="og:url" content="https://aegissolucoes.dev.br/">
   <meta property="og:image" content="https://aegissolucoes.dev.br/dashboard-preview.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aegis Solucoes | ERP/CRM 360 com 40+ modulos empresariais">
-  <meta name="twitter:description" content="Uma plataforma para operar, governar e escalar com visao 360 de negocio.">
+  <meta id="meta-twitter-title" name="twitter:title" content="Aegis Solucoes | ERP/CRM 360 com 40+ modulos empresariais">
+  <meta id="meta-twitter-description" name="twitter:description" content="Uma plataforma para operar, governar e escalar com visao 360 de negocio.">
   <meta name="twitter:image" content="https://aegissolucoes.dev.br/dashboard-preview.png">
   <link rel="canonical" href="https://aegissolucoes.dev.br/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -32,7 +32,7 @@
         <svg class="brand-logo" viewBox="0 0 375 375" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M186.242 96.359L125.484 193.316L81.531 264.418L276.734 129.973C280.613 126.094 287.078 126.094 290.957 129.973C294.832 133.852 296.125 140.313 293.539 144.192L209.512 288.98H305.176L267.687 228.219L280.613 206.242L336.203 294.152C337.496 298.027 337.496 301.906 336.203 305.785C333.617 309.664 329.738 312.25 325.859 312.25H190.121C186.242 312.25 182.363 309.664 181.07 305.785C178.484 303.199 178.484 298.027 181.07 295.445L183.656 288.98L248.293 176.512L81.531 291.566L54.383 309.664C49.211 313.543 38.867 312.25 34.992 305.785C33.699 301.906 33.699 298.027 36.285 294.152L106.094 181.68L175.902 67.918C178.484 65.332 182.363 62.75 186.242 62.75C190.121 62.75 192.707 65.332 195.293 67.918L235.367 132.559L215.977 145.484L186.242 96.359Z" fill="currentColor"/>
         </svg>
-        <span class="brand-text">Aegis Solucoes</span>
+        <span class="brand-text" data-i18n="brand.name">Aegis Solucoes</span>
       </a>
 
       <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menu">
@@ -40,12 +40,17 @@
       </button>
 
       <nav class="menu" id="menu">
-        <a href="#modulos">Modulos</a>
-        <a href="#arquitetura">Arquitetura</a>
-        <a href="#vantagens">Vantagens</a>
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button class="lang-btn" data-set-lang="pt" aria-label="Portugues">PT</button>
+          <button class="lang-btn" data-set-lang="en" aria-label="English">EN</button>
+          <button class="lang-btn" data-set-lang="es" aria-label="Espanol">ES</button>
+        </div>
+        <a href="#modulos" data-i18n="nav.modules">Modulos</a>
+        <a href="#arquitetura" data-i18n="nav.architecture">Arquitetura</a>
+        <a href="#vantagens" data-i18n="nav.advantages">Vantagens</a>
         <a href="#faq">FAQ</a>
-        <a href="https://app.aegissolucoes.dev.br" class="btn ghost" target="_blank" rel="noopener">Entrar no App</a>
-        <a href="#contato" class="btn solid">Falar com Especialista</a>
+        <a href="https://app.aegissolucoes.dev.br" class="btn ghost" target="_blank" rel="noopener" data-i18n="nav.enterApp">Entrar no App</a>
+        <a href="#contato" class="btn solid" data-i18n="nav.talkSpecialist">Falar com Especialista</a>
       </nav>
     </div>
   </header>
@@ -55,23 +60,23 @@
       <div class="hero-backdrop" aria-hidden="true"></div>
       <div class="shell hero-grid reveal">
         <div class="hero-copy">
-          <p class="eyebrow">Plataforma operacional Aegis</p>
-          <h1>
+          <p class="eyebrow" data-i18n="hero.eyebrow">Plataforma operacional Aegis</p>
+          <h1 data-i18n-html="hero.title">
             ERP/CRM <span>360 empresarial</span> para conectar operacao,
             governanca e crescimento no mesmo ecossistema.
           </h1>
-          <p class="lead">
+          <p class="lead" data-i18n="hero.lead">
             Sao 40+ modulos ativos entre Financeiro, Fiscal, RH, CRM, Projetos, GRC, BI,
             Integracoes, Riscos, Qualidade e Operacoes. Tudo com visao 360, rastreabilidade e IA de apoio.
           </p>
           <div class="hero-cta">
-            <a href="https://app.aegissolucoes.dev.br" target="_blank" rel="noopener" class="btn solid lg">Ver ambiente</a>
-            <a href="#modulos" class="btn ghost lg">Explorar modulos</a>
+            <a href="https://app.aegissolucoes.dev.br" target="_blank" rel="noopener" class="btn solid lg" data-i18n="hero.ctaPrimary">Ver ambiente</a>
+            <a href="#modulos" class="btn ghost lg" data-i18n="hero.ctaSecondary">Explorar modulos</a>
           </div>
           <ul class="hero-proof">
-            <li>ERP Modular para adocao por fases</li>
-            <li>Governanca integrada e trilha de auditoria</li>
-            <li>Dashboards taticos e executivos por persona</li>
+            <li data-i18n="hero.proof1">ERP Modular para adocao por fases</li>
+            <li data-i18n="hero.proof2">Governanca integrada e trilha de auditoria</li>
+            <li data-i18n="hero.proof3">Dashboards taticos e executivos por persona</li>
           </ul>
         </div>
 
@@ -85,19 +90,19 @@
       <div class="shell strip-grid">
         <article>
           <strong>40+</strong>
-          <span>modulos ERP/CRM em operacao</span>
+          <span data-i18n="stats.modules">modulos ERP/CRM em operacao</span>
         </article>
         <article>
           <strong>100%</strong>
-          <span>arquitetura focada em rastreabilidade</span>
+          <span data-i18n="stats.traceability">arquitetura focada em rastreabilidade</span>
         </article>
         <article>
           <strong>24/7</strong>
-          <span>dados operacionais disponiveis</span>
+          <span data-i18n="stats.availability">dados operacionais disponiveis</span>
         </article>
         <article>
           <strong>1 plataforma</strong>
-          <span>com visao 360 de negocio</span>
+          <span data-i18n="stats.vision">com visao 360 de negocio</span>
         </article>
       </div>
     </section>
@@ -105,9 +110,9 @@
     <section class="section reveal" id="modulos">
       <div class="shell">
         <div class="section-head">
-          <p class="eyebrow">Modulos reais da operacao</p>
-          <h2>Aderente ao stack real do Aegis App (ERP/CRM/GRC/BI)</h2>
-          <p>
+          <p class="eyebrow" data-i18n="modules.eyebrow">Modulos reais da operacao</p>
+          <h2 data-i18n="modules.title">Aderente ao stack real do Aegis App (ERP/CRM/GRC/BI)</h2>
+          <p data-i18n="modules.subtitle">
             Este website agora comunica o que a plataforma realmente entrega em producao,
             sem reduzir a proposta para um recorte pequeno de modulos.
           </p>
@@ -115,36 +120,36 @@
 
         <div class="module-grid">
           <article class="module-card">
-            <h3>Financeiro e Contabil</h3>
-            <p>Fluxo de caixa, contas, conciliacoes, resultado e indicadores para previsibilidade de margem.</p>
+            <h3 data-i18n="module.finance.title">Financeiro e Contabil</h3>
+            <p data-i18n="module.finance.desc">Fluxo de caixa, contas, conciliacoes, resultado e indicadores para previsibilidade de margem.</p>
           </article>
           <article class="module-card">
-            <h3>Fiscal e Tributario</h3>
-            <p>Calendario fiscal, obrigacoes, validacoes e reducao de risco de multa em ambiente auditavel.</p>
+            <h3 data-i18n="module.fiscal.title">Fiscal e Tributario</h3>
+            <p data-i18n="module.fiscal.desc">Calendario fiscal, obrigacoes, validacoes e reducao de risco de multa em ambiente auditavel.</p>
           </article>
           <article class="module-card">
-            <h3>RH e Departamento Pessoal</h3>
-            <p>Rotinas de pessoas, conformidade trabalhista e visao de produtividade por time.</p>
+            <h3 data-i18n="module.hr.title">RH e Departamento Pessoal</h3>
+            <p data-i18n="module.hr.desc">Rotinas de pessoas, conformidade trabalhista e visao de produtividade por time.</p>
           </article>
           <article class="module-card">
-            <h3>CRM e Comercial</h3>
-            <p>Pipeline, funil, previsao de receita e acompanhamento de oportunidades em tempo real.</p>
+            <h3 data-i18n="module.crm.title">CRM e Comercial</h3>
+            <p data-i18n="module.crm.desc">Pipeline, funil, previsao de receita e acompanhamento de oportunidades em tempo real.</p>
           </article>
           <article class="module-card">
-            <h3>Projetos e Entregas</h3>
-            <p>Planejamento, prazos, risco de execucao e governanca de iniciativas estrategicas.</p>
+            <h3 data-i18n="module.projects.title">Projetos e Entregas</h3>
+            <p data-i18n="module.projects.desc">Planejamento, prazos, risco de execucao e governanca de iniciativas estrategicas.</p>
           </article>
           <article class="module-card">
-            <h3>Compliance e Auditoria</h3>
-            <p>Controles, trilhas de aprovacao, evidencias e maturidade de governanca corporativa.</p>
+            <h3 data-i18n="module.compliance.title">Compliance e Auditoria</h3>
+            <p data-i18n="module.compliance.desc">Controles, trilhas de aprovacao, evidencias e maturidade de governanca corporativa.</p>
           </article>
           <article class="module-card">
-            <h3>BI e Analytics</h3>
-            <p>Paineis executivos com leitura por persona e camada tática para operacao orientada a dados.</p>
+            <h3 data-i18n="module.bi.title">BI e Analytics</h3>
+            <p data-i18n="module.bi.desc">Paineis executivos com leitura por persona e camada tatica para operacao orientada a dados.</p>
           </article>
           <article class="module-card">
-            <h3>IA Assistiva</h3>
-            <p>Insights acionaveis, alertas e priorizacao de anomalias com foco em decisao e resposta rapida.</p>
+            <h3 data-i18n="module.ai.title">IA Assistiva</h3>
+            <p data-i18n="module.ai.desc">Insights acionaveis, alertas e priorizacao de anomalias com foco em decisao e resposta rapida.</p>
           </article>
         </div>
       </div>
@@ -153,23 +158,23 @@
     <section class="section alt reveal" id="arquitetura">
       <div class="shell architecture">
         <div class="arch-copy">
-          <p class="eyebrow">Arquitetura de valor</p>
-          <h2>Do dado operacional ao comando executivo</h2>
-          <p>
+          <p class="eyebrow" data-i18n="arch.eyebrow">Arquitetura de valor</p>
+          <h2 data-i18n="arch.title">Do dado operacional ao comando executivo</h2>
+          <p data-i18n="arch.desc">
             A experiencia foi redesenhada para comunicar nao apenas visual, mas maturidade de produto.
             O visitante entende rapidamente como a plataforma conecta processos criticos sem fragmentacao.
           </p>
           <ul>
-            <li>Camada operacional: captura e execucao</li>
-            <li>Camada de controle: risco, conformidade e auditoria</li>
-            <li>Camada executiva: indicadores, tendencias e decisao</li>
+            <li data-i18n="arch.li1">Camada operacional: captura e execucao</li>
+            <li data-i18n="arch.li2">Camada de controle: risco, conformidade e auditoria</li>
+            <li data-i18n="arch.li3">Camada executiva: indicadores, tendencias e decisao</li>
           </ul>
         </div>
         <div class="arch-board" aria-hidden="true">
-          <div class="node">Operacao</div>
-          <div class="node">Controles</div>
-          <div class="node">Insights IA</div>
-          <div class="node">Gestao Executiva</div>
+          <div class="node" data-i18n="arch.node1">Operacao</div>
+          <div class="node" data-i18n="arch.node2">Controles</div>
+          <div class="node" data-i18n="arch.node3">Insights IA</div>
+          <div class="node" data-i18n="arch.node4">Gestao Executiva</div>
         </div>
       </div>
     </section>
@@ -177,21 +182,21 @@
     <section class="section reveal" id="vantagens">
       <div class="shell">
         <div class="section-head">
-          <p class="eyebrow">Por que evoluiu</p>
-          <h2>Mais aderente aos padroes atuais de site B2B SaaS</h2>
+          <p class="eyebrow" data-i18n="adv.eyebrow">Por que evoluiu</p>
+          <h2 data-i18n="adv.title">Mais aderente aos padroes atuais de site B2B SaaS</h2>
         </div>
         <div class="benefit-grid">
           <article>
-            <h3>Narrativa orientada a produto real</h3>
-            <p>O site agora conversa com os modulos existentes, sem prometer o que a plataforma nao entrega.</p>
+            <h3 data-i18n="adv.card1.title">Narrativa orientada a produto real</h3>
+            <p data-i18n="adv.card1.desc">O site agora conversa com os modulos existentes, sem prometer o que a plataforma nao entrega.</p>
           </article>
           <article>
-            <h3>Visual premium e responsivo</h3>
-            <p>Tipografia contemporanea, atmosfera visual proprietaria e hierarquia clara em desktop e mobile.</p>
+            <h3 data-i18n="adv.card2.title">Visual premium e responsivo</h3>
+            <p data-i18n="adv.card2.desc">Tipografia contemporanea, atmosfera visual proprietaria e hierarquia clara em desktop e mobile.</p>
           </article>
           <article>
-            <h3>Conversao com contexto</h3>
-            <p>CTAs em pontos estrategicos com foco em demo, conversa comercial e qualificacao de demanda.</p>
+            <h3 data-i18n="adv.card3.title">Conversao com contexto</h3>
+            <p data-i18n="adv.card3.desc">CTAs em pontos estrategicos com foco em demo, conversa comercial e qualificacao de demanda.</p>
           </article>
         </div>
       </div>
@@ -201,20 +206,20 @@
       <div class="shell">
         <div class="section-head">
           <p class="eyebrow">FAQ</p>
-          <h2>Perguntas que ajudam no fechamento</h2>
+          <h2 data-i18n="faq.title">Perguntas que ajudam no fechamento</h2>
         </div>
         <div class="faq-list">
           <details>
-            <summary>O site usa os mesmos modulos da aplicacao?</summary>
-            <p>Sim. A estrutura comercial foi alinhada aos blocos funcionais existentes no Aegis App para manter consistencia entre promessa e entrega.</p>
+            <summary data-i18n="faq.q1">O site usa os mesmos modulos da aplicacao?</summary>
+            <p data-i18n="faq.a1">Sim. A estrutura comercial foi alinhada aos blocos funcionais existentes no Aegis App para manter consistencia entre promessa e entrega.</p>
           </details>
           <details>
-            <summary>Posso evoluir por fases sem parar a operacao?</summary>
-            <p>Sim. O modelo modular permite adocao progressiva, priorizando primeiro as frentes de maior impacto no negocio.</p>
+            <summary data-i18n="faq.q2">Posso evoluir por fases sem parar a operacao?</summary>
+            <p data-i18n="faq.a2">Sim. O modelo modular permite adocao progressiva, priorizando primeiro as frentes de maior impacto no negocio.</p>
           </details>
           <details>
-            <summary>A plataforma atende exigencias de governanca e auditoria?</summary>
-            <p>Sim. Ha trilha de evidencias, controles e visao de risco orientada a compliance corporativo.</p>
+            <summary data-i18n="faq.q3">A plataforma atende exigencias de governanca e auditoria?</summary>
+            <p data-i18n="faq.a3">Sim. Ha trilha de evidencias, controles e visao de risco orientada a compliance corporativo.</p>
           </details>
         </div>
       </div>
@@ -223,13 +228,13 @@
     <section class="section cta reveal" id="contato">
       <div class="shell cta-box">
         <div>
-          <p class="eyebrow">Proximo passo</p>
-          <h2>Quer o website totalmente alinhado com sua esteira comercial?</h2>
-          <p>Podemos evoluir com versao institucional + versao por segmento + paginas por modulo.</p>
+          <p class="eyebrow" data-i18n="cta.eyebrow">Proximo passo</p>
+          <h2 data-i18n="cta.title">Quer o website totalmente alinhado com sua esteira comercial?</h2>
+          <p data-i18n="cta.desc">Podemos evoluir com versao institucional + versao por segmento + paginas por modulo.</p>
         </div>
         <div class="cta-actions">
           <a class="btn solid lg" href="mailto:contato@aegissolucoes.dev.br">contato@aegissolucoes.dev.br</a>
-          <a class="btn ghost lg" href="https://app.aegissolucoes.dev.br" target="_blank" rel="noopener">Abrir aplicacao</a>
+          <a class="btn ghost lg" href="https://app.aegissolucoes.dev.br" target="_blank" rel="noopener" data-i18n="cta.openApp">Abrir aplicacao</a>
         </div>
       </div>
     </section>
@@ -241,13 +246,13 @@
         <svg class="footer-logo" viewBox="0 0 375 375" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M186.242 96.359L125.484 193.316L81.531 264.418L276.734 129.973C280.613 126.094 287.078 126.094 290.957 129.973C294.832 133.852 296.125 140.313 293.539 144.192L209.512 288.98H305.176L267.687 228.219L280.613 206.242L336.203 294.152C337.496 298.027 337.496 301.906 336.203 305.785C333.617 309.664 329.738 312.25 325.859 312.25H190.121C186.242 312.25 182.363 309.664 181.07 305.785C178.484 303.199 178.484 298.027 181.07 295.445L183.656 288.98L248.293 176.512L81.531 291.566L54.383 309.664C49.211 313.543 38.867 312.25 34.992 305.785C33.699 301.906 33.699 298.027 36.285 294.152L106.094 181.68L175.902 67.918C178.484 65.332 182.363 62.75 186.242 62.75C190.121 62.75 192.707 65.332 195.293 67.918L235.367 132.559L215.977 145.484L186.242 96.359Z" fill="currentColor"/>
         </svg>
-        <p>Aegis Solucoes © 2026. ERP/CRM 360 com 40+ modulos para operacao, governanca e escala.</p>
+        <p data-i18n="footer.copy">Aegis Solucoes © 2026. ERP/CRM 360 com 40+ modulos para operacao, governanca e escala.</p>
       </div>
       <div class="footer-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#modulos">Modulos</a>
-        <a href="#arquitetura">Arquitetura</a>
-        <a href="#contato">Contato</a>
+        <a href="#inicio" data-i18n="footer.home">Inicio</a>
+        <a href="#modulos" data-i18n="footer.modules">Modulos</a>
+        <a href="#arquitetura" data-i18n="footer.architecture">Arquitetura</a>
+        <a href="#contato" data-i18n="footer.contact">Contato</a>
       </div>
     </div>
   </footer>
