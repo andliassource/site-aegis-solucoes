@@ -75,13 +75,14 @@ body {
   align-items: center;
   gap: 0.7rem;
   text-decoration: none;
-  color: var(--text);
+  color: var(--brand);
 }
 
 .brand-logo {
   width: 42px;
   height: 42px;
   border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .brand-text {
@@ -89,6 +90,7 @@ body {
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.2px;
+  color: var(--text);
 }
 
 .menu {
@@ -495,9 +497,11 @@ h1 span {
   gap: 0.8rem;
 }
 
-.footer-brand img {
+.footer-logo {
   width: 34px;
   height: 34px;
+  color: var(--brand);
+  flex-shrink: 0;
 }
 
 .footer-brand p {
