@@ -255,6 +255,7 @@ h1 span {
   padding: 0.72rem;
   box-shadow: var(--shadow);
   overflow: hidden;
+  min-height: 220px;
 }
 
 .hero-shot {
@@ -495,13 +496,29 @@ h1 span {
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  max-width: 520px;
 }
 
 .footer-logo {
   width: 34px;
   height: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  max-width: 34px;
+  max-height: 34px;
   color: var(--brand);
   flex-shrink: 0;
+  display: block;
+}
+
+.footer-brand img,
+.footer-brand svg {
+  width: 34px;
+  height: 34px;
+  max-width: 34px;
+  max-height: 34px;
+  object-fit: contain;
+  flex: 0 0 34px;
 }
 
 .footer-brand p {
