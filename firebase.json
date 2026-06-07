@@ -1,0 +1,23 @@
+{
+  "hosting": {
+    "target": "website",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "**/.*",
+      "**/node_modules/**",
+      "README.md",
+      "package.json",
+      "deploy.bat",
+      "netlify.toml",
+      ".workspace-check.md"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "projects": {},
+  "targets": {
+    "site-aegis-solucoes-1416-a6b2d": {
+      "hosting": {
+        "website": [
+          "web-site-aegis"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
