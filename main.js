@@ -1,47 +1,50 @@
-// JavaScript para o site institucional
-document.addEventListener('DOMContentLoaded', function() {
-    // Lógica para o menu mobile
-    const mobileMenuButton = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+document.addEventListener('DOMContentLoaded', () => {
+  const topbar = document.getElementById('topbar');
+  const menuToggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('menu');
 
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+  const onScroll = () => {
+    if (!topbar) return;
+    if (window.scrollY > 12) {
+      topbar.classList.add('scrolled');
+    } else {
+      topbar.classList.remove('scrolled');
     }
+  };
 
-    // Animação de entrada dos cards
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px' // Inicia a animação um pouco antes de o elemento estar totalmente visível
-    };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 
-    const cardObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-up');
-                observer.unobserve(entry.target); // Para a observação após a animação
-            }
-        });
-    }, observerOptions);
-
-    // Aplicar animação aos cards de funcionalidades
-    document.querySelectorAll('#funcionalidades .grid > div').forEach(card => {
-        cardObserver.observe(card);
+  if (menuToggle && menu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    // Header scroll effect - Mais performático com classes CSS
-    const header = document.querySelector('header');
-    if (header) {
-        let isScrolled = false;
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50 && !isScrolled) {
-                header.classList.add('scrolled');
-                isScrolled = true;
-            } else if (window.scrollY <= 50 && isScrolled) {
-                header.classList.remove('scrolled');
-                isScrolled = false;
-            }
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  const revealElements = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
         });
-    }
+      },
+      { threshold: 0.15 }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
+  } else {
+    revealElements.forEach((el) => el.classList.add('is-visible'));
+  }
 });
