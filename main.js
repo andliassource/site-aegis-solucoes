@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'modules.title': 'Aderente ao stack real do Aegis App (ERP/CRM/GRC/BI)',
         'modules.subtitle':
           'Este website agora comunica o que a plataforma realmente entrega em producao, sem reduzir a proposta para um recorte pequeno de modulos.',
+        'modules.scopeTitle': '40+ modulos distribuidos em frentes reais do negocio',
+        'modules.scopeDesc': 'A comunicacao agora explicita a cobertura funcional para operacao, controladoria, governanca e execucao.',
         'module.finance.title': 'Financeiro e Contabil',
         'module.finance.desc': 'Fluxo de caixa, contas, conciliacoes, resultado e indicadores para previsibilidade de margem.',
         'module.fiscal.title': 'Fiscal e Tributario',
@@ -126,6 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'modules.title': 'Aligned with the real Aegis App stack (ERP/CRM/GRC/BI)',
         'modules.subtitle':
           'This website now communicates what the platform really delivers in production, without reducing it to a small module subset.',
+        'modules.scopeTitle': '40+ modules distributed across real business fronts',
+        'modules.scopeDesc': 'The messaging now makes the functional coverage explicit for operations, control, governance, and execution.',
         'module.finance.title': 'Finance and Accounting',
         'module.finance.desc': 'Cash flow, payable/receivable, reconciliation, results and indicators for margin predictability.',
         'module.fiscal.title': 'Tax and Fiscal',
@@ -213,6 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'modules.title': 'Alineado al stack real del Aegis App (ERP/CRM/GRC/BI)',
         'modules.subtitle':
           'Este sitio ahora comunica lo que la plataforma realmente entrega en produccion, sin reducir la propuesta a un recorte pequeno.',
+        'modules.scopeTitle': '40+ modulos distribuidos en frentes reales del negocio',
+        'modules.scopeDesc': 'La comunicacion ahora explicita la cobertura funcional para operacion, control, gobernanza y ejecucion.',
         'module.finance.title': 'Finanzas y Contabilidad',
         'module.finance.desc': 'Flujo de caja, cuentas, conciliaciones, resultados e indicadores para previsibilidad de margen.',
         'module.fiscal.title': 'Fiscal y Tributario',

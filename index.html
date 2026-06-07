@@ -80,44 +80,68 @@
           </ul>
         </div>
 
-        <div class="hero-panel hero-dashboard" aria-label="Dashboard Aegis ERP CRM 360">
-          <div class="dashboard-shell">
-            <aside class="dashboard-sidebar">
-              <div class="dashboard-brand">Aegis ERP</div>
-              <div class="dashboard-nav-item is-active">Dashboard</div>
-              <div class="dashboard-nav-item">Empresas</div>
-              <div class="dashboard-nav-item">Contatos</div>
-              <div class="dashboard-nav-item">Produtos</div>
-              <div class="dashboard-nav-item">Financeiro</div>
-              <div class="dashboard-nav-item">Vendas</div>
-              <div class="dashboard-nav-item">Fiscal</div>
-              <div class="dashboard-nav-item">RH</div>
-              <div class="dashboard-nav-item">Compliance</div>
-            </aside>
-            <section class="dashboard-main">
-              <div class="dashboard-topbar">
-                <span>Dashboard ERP/CRM</span>
-                <div class="dashboard-user">AD</div>
-              </div>
-              <div class="dashboard-kpis">
-                <article><strong>R$ 2.500,00</strong><span>Receita</span></article>
-                <article class="danger"><strong>R$ 450,00</strong><span>Despesas</span></article>
-                <article><strong>5</strong><span>Pedidos</span></article>
-                <article><strong>1</strong><span>Oportunidade</span></article>
-              </div>
-              <div class="dashboard-panels">
-                <div class="dashboard-chart line-chart">
-                  <div class="chart-title">Receita ao longo do tempo</div>
-                  <svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
-                    <path d="M0,30 C12,10 22,18 35,22 C48,26 58,18 72,16 C84,14 92,8 100,5" />
-                  </svg>
+        <div class="hero-panel hero-monitor" aria-label="Monitor com dashboard Aegis ERP CRM 360">
+          <div class="monitor-frame">
+            <div class="monitor-bezel">
+              <div class="monitor-camera" aria-hidden="true"></div>
+              <div class="monitor-screen">
+                <div class="app-shell">
+                  <header class="app-topbar">
+                    <div class="app-topbar-left">
+                      <span class="app-menu-icon" aria-hidden="true"></span>
+                      <span class="app-brand">AEGIS ERP</span>
+                      <span class="app-version">v2.2.1 | 49 Modulos</span>
+                    </div>
+                    <div class="app-topbar-right">
+                      <span class="notif-dot"></span>
+                      <span class="user-badge">AD</span>
+                    </div>
+                  </header>
+                  <div class="app-body">
+                    <aside class="app-sidebar">
+                      <div class="sidebar-chip is-active">Dashboard principal</div>
+                      <div class="sidebar-chip">Financeiro</div>
+                      <div class="sidebar-chip">Fiscal</div>
+                      <div class="sidebar-chip">Compras</div>
+                      <div class="sidebar-chip">Estoque</div>
+                      <div class="sidebar-chip">Vendas</div>
+                      <div class="sidebar-chip">RH</div>
+                    </aside>
+                    <main class="app-dashboard">
+                      <div class="dashboard-tabs">
+                        <span class="tab is-active">Dashboard principal</span>
+                        <span class="tab">KPIs e metas</span>
+                        <span class="tab">Recursos modernizados</span>
+                      </div>
+                      <div class="kpi-grid">
+                        <article><small>Clientes</small><strong>56</strong><span>ativos no sistema</span></article>
+                        <article><small>Empresas</small><strong>45</strong><span>portifolio consolidado</span></article>
+                        <article><small>Pedidos</small><strong>21</strong><span>conclusao 61.9%</span></article>
+                        <article><small>Tarefas</small><strong>29/100</strong><span>em andamento</span></article>
+                      </div>
+                      <div class="kpi-grid second-row">
+                        <article><small>Receita Total</small><strong class="positive">R$ 4.858.072,00</strong><span>acumulada</span></article>
+                        <article><small>Despesas</small><strong class="negative">R$ 1.885.123,45</strong><span>38.8% da receita</span></article>
+                        <article><small>Lucro Liquido</small><strong class="positive">R$ 2.972.948,55</strong><span>61.2% margem</span></article>
+                        <article><small>Projetos</small><strong>10</strong><span>notificacoes recentes</span></article>
+                      </div>
+                      <div class="chart-grid">
+                        <section class="chart-card chart-line">
+                          <div class="chart-card-title">salesOverTime</div>
+                          <svg viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true">
+                            <path d="M0,28 C8,18 14,12 22,20 C32,30 38,34 48,28 C58,23 68,18 76,20 C86,23 93,16 100,8" />
+                          </svg>
+                        </section>
+                        <section class="chart-card chart-pie">
+                          <div class="chart-card-title">salesByCategory</div>
+                          <div class="pie-visual large" aria-hidden="true"></div>
+                        </section>
+                      </div>
+                    </main>
+                  </div>
                 </div>
-                <div class="dashboard-chart pie-chart">
-                  <div class="chart-title">Distribuicao por categoria</div>
-                  <div class="pie-visual" aria-hidden="true"></div>
-                </div>
               </div>
-            </section>
+            </div>
           </div>
         </div>
       </div>
@@ -153,6 +177,27 @@
             Este website agora comunica o que a plataforma realmente entrega em producao,
             sem reduzir a proposta para um recorte pequeno de modulos.
           </p>
+        </div>
+
+        <div class="module-scope">
+          <div class="module-scope-copy">
+            <strong data-i18n="modules.scopeTitle">40+ modulos distribuidos em frentes reais do negocio</strong>
+            <p data-i18n="modules.scopeDesc">A comunicacao agora explicita a cobertura funcional para operacao, controladoria, governanca e execucao.</p>
+          </div>
+          <div class="module-pills" aria-label="Cobertura de modulos">
+            <span>Compras</span>
+            <span>Estoque</span>
+            <span>Tesouraria</span>
+            <span>Contratos</span>
+            <span>Atendimento</span>
+            <span>Portais</span>
+            <span>Integracoes</span>
+            <span>Automacao</span>
+            <span>Riscos</span>
+            <span>Qualidade</span>
+            <span>Indicadores</span>
+            <span>Mobilidade</span>
+          </div>
         </div>
 
         <div class="module-grid">
