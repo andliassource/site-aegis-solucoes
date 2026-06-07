@@ -80,8 +80,45 @@
           </ul>
         </div>
 
-        <div class="hero-panel">
-          <img src="dashboard-preview.png" alt="Painel principal do Aegis ERP/CRM 360" class="hero-shot" loading="eager">
+        <div class="hero-panel hero-dashboard" aria-label="Dashboard Aegis ERP CRM 360">
+          <div class="dashboard-shell">
+            <aside class="dashboard-sidebar">
+              <div class="dashboard-brand">Aegis ERP</div>
+              <div class="dashboard-nav-item is-active">Dashboard</div>
+              <div class="dashboard-nav-item">Empresas</div>
+              <div class="dashboard-nav-item">Contatos</div>
+              <div class="dashboard-nav-item">Produtos</div>
+              <div class="dashboard-nav-item">Financeiro</div>
+              <div class="dashboard-nav-item">Vendas</div>
+              <div class="dashboard-nav-item">Fiscal</div>
+              <div class="dashboard-nav-item">RH</div>
+              <div class="dashboard-nav-item">Compliance</div>
+            </aside>
+            <section class="dashboard-main">
+              <div class="dashboard-topbar">
+                <span>Dashboard ERP/CRM</span>
+                <div class="dashboard-user">AD</div>
+              </div>
+              <div class="dashboard-kpis">
+                <article><strong>R$ 2.500,00</strong><span>Receita</span></article>
+                <article class="danger"><strong>R$ 450,00</strong><span>Despesas</span></article>
+                <article><strong>5</strong><span>Pedidos</span></article>
+                <article><strong>1</strong><span>Oportunidade</span></article>
+              </div>
+              <div class="dashboard-panels">
+                <div class="dashboard-chart line-chart">
+                  <div class="chart-title">Receita ao longo do tempo</div>
+                  <svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0,30 C12,10 22,18 35,22 C48,26 58,18 72,16 C84,14 92,8 100,5" />
+                  </svg>
+                </div>
+                <div class="dashboard-chart pie-chart">
+                  <div class="chart-title">Distribuicao por categoria</div>
+                  <div class="pie-visual" aria-hidden="true"></div>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </section>
