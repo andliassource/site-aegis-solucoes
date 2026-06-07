@@ -94,6 +94,20 @@ document.addEventListener('DOMContentLoaded', () => {
         'footer.modules': 'Modulos',
         'footer.architecture': 'Como funciona',
         'footer.contact': 'Contato',
+        'contact.eyebrow': 'Fale Conosco',
+        'contact.title': 'Envie uma mensagem',
+        'contact.subtitle': 'Preencha o formulario abaixo e nossa equipe retorna em breve.',
+        'contact.labelName': 'Nome',
+        'contact.labelEmail': 'E-mail',
+        'contact.labelSubject': 'Assunto',
+        'contact.labelMessage': 'Mensagem',
+        'contact.placeholderName': 'Seu nome completo',
+        'contact.placeholderEmail': 'seu@email.com',
+        'contact.placeholderSubject': 'Como podemos ajudar?',
+        'contact.placeholderMessage': 'Descreva sua necessidade...',
+        'contact.submit': 'Enviar mensagem',
+        'contact.success': 'Mensagem enviada! Nossa equipe entrara em contato em breve.',
+        'contact.error': 'Algo deu errado. Verifique sua conexao e tente novamente.',
       },
     },
     en: {
@@ -185,6 +199,20 @@ document.addEventListener('DOMContentLoaded', () => {
         'footer.modules': 'Modules',
         'footer.architecture': 'How it works',
         'footer.contact': 'Contact',
+        'contact.eyebrow': 'Get in Touch',
+        'contact.title': 'Send us a message',
+        'contact.subtitle': 'Fill in the form below and our team will get back to you shortly.',
+        'contact.labelName': 'Name',
+        'contact.labelEmail': 'E-mail',
+        'contact.labelSubject': 'Subject',
+        'contact.labelMessage': 'Message',
+        'contact.placeholderName': 'Your full name',
+        'contact.placeholderEmail': 'your@email.com',
+        'contact.placeholderSubject': 'How can we help?',
+        'contact.placeholderMessage': 'Describe your needs...',
+        'contact.submit': 'Send message',
+        'contact.success': 'Message sent! Our team will reach out to you shortly.',
+        'contact.error': 'Something went wrong. Please check your connection and try again.',
       },
     },
     es: {
@@ -276,6 +304,20 @@ document.addEventListener('DOMContentLoaded', () => {
         'footer.modules': 'Modulos',
         'footer.architecture': 'Como funciona',
         'footer.contact': 'Contacto',
+        'contact.eyebrow': 'Contactenos',
+        'contact.title': 'Envie un mensaje',
+        'contact.subtitle': 'Complete el formulario y nuestro equipo se comunicara pronto.',
+        'contact.labelName': 'Nombre',
+        'contact.labelEmail': 'Correo',
+        'contact.labelSubject': 'Asunto',
+        'contact.labelMessage': 'Mensaje',
+        'contact.placeholderName': 'Tu nombre completo',
+        'contact.placeholderEmail': 'tu@correo.com',
+        'contact.placeholderSubject': 'Como podemos ayudar?',
+        'contact.placeholderMessage': 'Describe tu necesidad...',
+        'contact.submit': 'Enviar mensaje',
+        'contact.success': 'Mensaje enviado! Nuestro equipo se pondra en contacto pronto.',
+        'contact.error': 'Algo salio mal. Verifica tu conexion e intenta de nuevo.',
       },
     },
   };
@@ -325,6 +367,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const value = bundle.text[key];
       if (typeof value === 'string') {
         el.innerHTML = value;
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      const value = bundle.text[key];
+      if (typeof value === 'string') {
+        el.placeholder = value;
       }
     });
 
@@ -388,5 +438,56 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach((el) => observer.observe(el));
   } else {
     revealElements.forEach((el) => el.classList.add('is-visible'));
+  }
+
+  // ── Contact form ────────────────────────────────────────────────
+  const contactForm = document.getElementById('contactForm');
+  const cfSubmit = document.getElementById('cfSubmit');
+  const cfFeedback = document.getElementById('cfFeedback');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const lang = localStorage.getItem('aegis-lang') || 'pt';
+      const bundle = translations[lang] || translations.pt;
+
+      // honeypot check — abort silently if filled
+      if (contactForm.querySelector('[name="_honey"]').value) return;
+
+      cfSubmit.disabled = true;
+      cfSubmit.classList.add('loading');
+      cfFeedback.hidden = true;
+
+      const data = {
+        name: contactForm.querySelector('[name="name"]').value.trim(),
+        email: contactForm.querySelector('[name="email"]').value.trim(),
+        subject: contactForm.querySelector('[name="subject"]').value.trim(),
+        message: contactForm.querySelector('[name="message"]').value.trim(),
+      };
+
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/aegissolucoesis@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          cfFeedback.textContent = bundle.text['contact.success'];
+          cfFeedback.className = 'form-feedback success';
+          contactForm.reset();
+        } else {
+          throw new Error('server');
+        }
+      } catch {
+        cfFeedback.textContent = bundle.text['contact.error'];
+        cfFeedback.className = 'form-feedback error';
+      } finally {
+        cfFeedback.hidden = false;
+        cfSubmit.disabled = false;
+        cfSubmit.classList.remove('loading');
+      }
+    });
   }
 });

@@ -249,7 +249,7 @@
       </div>
     </section>
 
-    <section class="section cta reveal" id="contato">
+    <section class="section cta reveal" id="cta">
       <div class="shell cta-box">
         <div>
           <p class="eyebrow" data-i18n="cta.eyebrow">Proximo passo</p>
@@ -263,6 +263,49 @@
       </div>
     </section>
   </main>
+
+    <section class="section contact reveal" id="contato">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Fale Conosco</p>
+          <h2 data-i18n="contact.title">Envie uma mensagem</h2>
+          <p data-i18n="contact.subtitle">Preencha o formulario abaixo e nossa equipe retorna em breve.</p>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <!-- honeypot anti-spam -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-name" data-i18n="contact.labelName">Nome</label>
+              <input id="cf-name" name="name" type="text" required
+                data-i18n-placeholder="contact.placeholderName" placeholder="Seu nome">
+            </div>
+            <div class="form-group">
+              <label for="cf-email" data-i18n="contact.labelEmail">E-mail</label>
+              <input id="cf-email" name="email" type="email" required
+                data-i18n-placeholder="contact.placeholderEmail" placeholder="seu@email.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-subject" data-i18n="contact.labelSubject">Assunto</label>
+            <input id="cf-subject" name="subject" type="text" required
+              data-i18n-placeholder="contact.placeholderSubject" placeholder="Como podemos ajudar?">
+          </div>
+          <div class="form-group">
+            <label for="cf-message" data-i18n="contact.labelMessage">Mensagem</label>
+            <textarea id="cf-message" name="message" rows="5" required
+              data-i18n-placeholder="contact.placeholderMessage" placeholder="Descreva sua necessidade..."></textarea>
+          </div>
+          <div class="form-footer">
+            <button type="submit" class="btn solid lg" id="cfSubmit">
+              <span data-i18n="contact.submit">Enviar mensagem</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+            <p class="form-feedback" id="cfFeedback" aria-live="polite" hidden></p>
+          </div>
+        </form>
+      </div>
+    </section>
 
   <footer class="footer">
     <div class="shell footer-grid">
