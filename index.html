@@ -226,6 +226,67 @@
       </div>
     </section>
 
+    <section class="section plans reveal" id="planos">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="plans.eyebrow">Planos e Preços</p>
+          <h2 data-i18n="plans.title">Escolha o plano ideal para sua empresa</h2>
+          <p data-i18n="plans.subtitle">Sem taxa de adesão, sem licença gratuita e sem fidelidade. Cancele ou pause quando desejar.</p>
+        </div>
+
+        <div class="plans-grid">
+          <!-- Básico -->
+          <article class="plan-card">
+            <div class="plan-header">
+              <h3 data-i18n="plan.basic.name">Básico</h3>
+              <p class="price">R$ 199 <span>/usuário/mês</span></p>
+              <p class="desc" data-i18n="plan.basic.desc">Para pequenas empresas e equipes comerciais de até 25 usuários.</p>
+            </div>
+            <ul class="plan-features">
+              <li data-i18n="plan.basic.f1">Módulos Core + CRM Básico</li>
+              <li data-i18n="plan.basic.f2">Até 25 usuários cadastrados</li>
+              <li data-i18n="plan.basic.f3">Suporte por Email e Chat</li>
+              <li data-i18n="plan.basic.f4">Backup diário automático</li>
+            </ul>
+            <button class="btn ghost lg buy-btn" data-plan="basic" data-i18n="plan.buy">Contratar plano</button>
+          </article>
+
+          <!-- Premium -->
+          <article class="plan-card featured">
+            <div class="plan-badge" data-i18n="plan.featured">Mais Popular</div>
+            <div class="plan-header">
+              <h3 data-i18n="plan.premium.name">Premium</h3>
+              <p class="price">R$ 399 <span>/usuário/mês</span></p>
+              <p class="desc" data-i18n="plan.premium.desc">Para médias empresas em crescimento de até 100 usuários.</p>
+            </div>
+            <ul class="plan-features">
+              <li data-i18n="plan.premium.f1">Módulos Financeiro + Fiscal + CRM</li>
+              <li data-i18n="plan.premium.f2">Até 100 usuários cadastrados</li>
+              <li data-i18n="plan.premium.f3">Suporte por Telefone e Chat</li>
+              <li data-i18n="plan.premium.f4">Multi-tenant e White label</li>
+            </ul>
+            <button class="btn solid lg buy-btn" data-plan="premium" data-i18n="plan.buy">Contratar plano</button>
+          </article>
+
+          <!-- Enterprise -->
+          <article class="plan-card">
+            <div class="plan-header">
+              <h3 data-i18n="plan.enterprise.name">Enterprise</h3>
+              <p class="price">R$ 799 <span>/usuário/mês</span></p>
+              <p class="desc" data-i18n="plan.enterprise.desc">Para grandes corporações que exigem cobertura total e SLAs.</p>
+            </div>
+            <ul class="plan-features">
+              <li data-i18n="plan.enterprise.f1">Todos os 40+ módulos integrados</li>
+              <li data-i18n="plan.enterprise.f2">Usuários cadastrados Ilimitados</li>
+              <li data-i18n="plan.enterprise.f3">Suporte Premium 24x7 e SLA 99.9%</li>
+              <li data-i18n="plan.enterprise.f4">Consultor dedicado e IA customizada</li>
+            </ul>
+            <button class="btn ghost lg buy-btn" data-plan="enterprise" data-i18n="plan.buy">Contratar plano</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section faq reveal" id="faq">
       <div class="shell">
         <div class="section-head">
@@ -306,6 +367,154 @@
         </form>
       </div>
     </section>
+
+  <!-- Modal de Checkout / Loja Online -->
+  <div class="modal" id="checkoutModal" aria-hidden="true" role="dialog" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2>🛒 Checkout Aegis Soluções</h2>
+        <button class="modal-close" id="closeCheckout" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Passo 1: Informações do Cliente -->
+        <div class="checkout-step" id="step-info">
+          <h3 data-i18n="checkout.step1.title">1. Informações de Cadastro</h3>
+          <p class="step-desc" data-i18n="checkout.step1.desc">Preencha os dados abaixo para configurar o seu ambiente empresarial.</p>
+          
+          <div class="form-group">
+            <label for="ck-name" data-i18n="contact.labelName">Nome Completo</label>
+            <input id="ck-name" name="name" type="text" required placeholder="Seu nome">
+          </div>
+          
+          <div class="form-group">
+            <label for="ck-email" data-i18n="contact.labelEmail">E-mail Corporativo</label>
+            <input id="ck-email" name="email" type="email" required placeholder="seu@email.com">
+          </div>
+
+          <div class="form-group">
+            <label for="ck-password" data-i18n="checkout.labelPassword">Senha de Acesso</label>
+            <input id="ck-password" name="password" type="password" required placeholder="Crie uma senha de acesso">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ck-cpfcnpj" data-i18n="checkout.labelCpfCnpj">CPF ou CNPJ</label>
+              <input id="ck-cpfcnpj" name="cpfcnpj" type="text" required placeholder="00.000.000/0001-00">
+            </div>
+            <div class="form-group">
+              <label for="ck-company" data-i18n="checkout.labelCompany">Nome da Empresa</label>
+              <input id="ck-company" name="company" type="text" required placeholder="Minha Empresa S/A">
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top: 15px;">
+            <label for="ck-domain" data-i18n="checkout.labelDomain">Subdomínio Desejado</label>
+            <div class="input-addon-group" style="display: flex;">
+              <input id="ck-domain" name="subdomain" type="text" required placeholder="minhaempresa" style="flex: 1;">
+              <span class="addon-text" style="background: rgba(255,255,255,0.05); padding: 12px; border: 1px solid rgba(255,255,255,0.1); border-left: none; border-radius: 0 8px 8px 0; font-size: 14px; display: flex; align-items: center;">.aegissolucoes.dev.br</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn solid lg" id="btnNextToPayment" style="margin-top: 20px; width: 100%;" data-i18n="checkout.next">Prosseguir para o Pagamento</button>
+        </div>
+
+        <!-- Passo 2: Pagamento -->
+        <div class="checkout-step" id="step-payment" style="display: none;">
+          <h3 data-i18n="checkout.step2.title">2. Forma de Pagamento</h3>
+          <p class="step-desc" data-i18n="checkout.step2.desc">Selecione o método de pagamento. Assinaturas são recorrentes e faturadas mensalmente.</p>
+
+          <div class="payment-tabs" style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <button type="button" class="pay-tab-btn active" data-pay-method="pix" style="flex: 1; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; cursor: pointer;">PIX</button>
+            <button type="button" class="pay-tab-btn" data-pay-method="card" style="flex: 1; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; cursor: pointer;">Cartão de Crédito</button>
+          </div>
+
+          <!-- Opção PIX -->
+          <div class="payment-panel" id="panel-pix">
+            <p class="panel-desc" data-i18n="checkout.pix.desc" style="font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 15px;">Pague com PIX para ativação imediata. A nota fiscal será emitida automaticamente em seu CNPJ.</p>
+            <div class="pix-qr-container" style="text-align: center; margin-bottom: 20px;">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=00020126580014BR.GOV.BCB.PIX0114627945790001695204000053039865406399.005802BR5914AegisSolucoes6008Brasilia62070503***6304" alt="PIX QR Code" class="pix-qr" style="width: 160px; height: 160px; padding: 8px; background: white; border-radius: 8px; margin-bottom: 15px;">
+              <div class="pix-key-wrap" style="text-align: left;">
+                <span class="pix-key-label" data-i18n="checkout.pix.key" style="font-size: 12px; color: rgba(255,255,255,0.5); display: block; margin-bottom: 5px;">Chave PIX Copia e Cola</span>
+                <input type="text" readonly class="pix-key-input" id="pixKeyText" value="00020126580014BR.GOV.BCB.PIX0114627945790001695204000053039865406399.005802BR5914AegisSolucoes6008Brasilia62070503***6304" style="width: 100%; padding: 10px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: rgba(255,255,255,0.8); font-family: monospace; font-size: 13px;">
+              </div>
+            </div>
+            <button type="button" class="btn solid lg w-100" id="btnConfirmPixPayment" style="width: 100%;" data-i18n="checkout.confirmPayment">Confirmar Pagamento Simulado</button>
+          </div>
+
+          <!-- Opção Cartão de Crédito -->
+          <div class="payment-panel" id="panel-card" style="display: none;">
+            <div class="form-group">
+              <label for="card-holder" data-i18n="checkout.card.holder">Nome no Cartão</label>
+              <input id="card-holder" name="card_holder" type="text" placeholder="COMO IMPRESSO NO CARTÃO">
+            </div>
+            <div class="form-group">
+              <label for="card-number" data-i18n="checkout.card.number">Número do Cartão</label>
+              <input id="card-number" name="card_number" type="text" placeholder="0000 0000 0000 0000">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="card-expiry" data-i18n="checkout.card.expiry">Validade (MM/AA)</label>
+                <input id="card-expiry" name="card_expiry" type="text" placeholder="MM/AA">
+              </div>
+              <div class="form-group">
+                <label for="card-cvv" data-i18n="checkout.card.cvv">CVV</label>
+                <input id="card-cvv" name="card_cvv" type="text" placeholder="123">
+              </div>
+            </div>
+            <button type="button" class="btn solid lg w-100" id="btnConfirmCardPayment" style="width: 100%; margin-top: 15px;" data-i18n="checkout.payCard">Finalizar Compra</button>
+          </div>
+
+          <button type="button" class="btn ghost lg mt-3" id="btnBackToInfo" style="width: 100%; margin-top: 15px;" data-i18n="checkout.back">Voltar para cadastro</button>
+        </div>
+
+        <!-- Passo 3: Carregamento / Processamento -->
+        <div class="checkout-step" id="step-processing" style="display: none; text-align: center; padding: 40px 0;">
+          <div class="spinner-large" style="width: 50px; height: 50px; border: 3px solid rgba(255,255,255,0.1); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s infinite linear; margin: 0 auto 20px;"></div>
+          <h3 class="mt-4" data-i18n="checkout.processing.title">Processando Assinatura...</h3>
+          <p data-i18n="checkout.processing.desc" style="color: rgba(255,255,255,0.7); max-width: 400px; margin: 10px auto 0;">Estamos validando o pagamento e estruturando o seu novo banco de dados no Firebase. Isso levará alguns segundos.</p>
+        </div>
+
+        <!-- Passo 4: Sucesso -->
+        <div class="checkout-step" id="step-success" style="display: none; padding: 20px 0;">
+          <div class="success-icon-wrap" style="text-align: center; margin-bottom: 20px;">
+            <svg class="success-checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" style="width: 64px; height: 64px; fill: none; stroke: #4caf50; stroke-width: 2; margin: 0 auto;">
+              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+          <h3 style="text-align: center; color: #4caf50; font-size: 22px;" data-i18n="checkout.success.title">Assinatura Ativada com Sucesso!</h3>
+          <p style="text-align: center; color: rgba(255,255,255,0.8); margin-top: 5px;" data-i18n="checkout.success.desc">Seu novo ambiente ERP está provisionado e pronto para uso.</p>
+          
+          <div class="credentials-box" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; margin: 25px 0;">
+            <h4 data-i18n="checkout.success.credentialsTitle" style="margin-bottom: 12px; color: var(--primary);">Chaves de Acesso e Link da Aplicação:</h4>
+            <p style="margin: 8px 0; font-size: 14px;"><strong>URL de Acesso:</strong> <a href="https://app.aegissolucoes.dev.br" target="_blank" id="success-url" style="color: var(--primary); text-decoration: underline;">app.aegissolucoes.dev.br</a></p>
+            <p style="margin: 8px 0; font-size: 14px;"><strong>Usuário Administrador (E-mail):</strong> <span id="success-email" style="font-family: monospace; color: white;"></span></p>
+            <p style="margin: 8px 0; font-size: 14px;"><strong>Senha Temporária:</strong> <span id="success-pass" style="font-family: monospace; color: white;"></span></p>
+            <p style="margin: 8px 0; font-size: 14px;"><strong>Nota Fiscal de Serviço (NFS-e):</strong> <span id="success-invoice" style="font-family: monospace; color: #4caf50; font-weight: bold;"></span></p>
+          </div>
+
+          <div class="instructions-box mt-4" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <h4 data-i18n="checkout.success.instructionsTitle" style="margin-bottom: 10px;">Instruções de Apontamento de Domínio (Registro.br):</h4>
+            <p data-i18n="checkout.success.instructionsDesc" style="font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 12px;">Se você já possui um domínio próprio ou deseja configurar um subdomínio para apontar para o seu ERP, siga o passo-a-passo abaixo:</p>
+            <ol style="font-size: 13px; color: rgba(255,255,255,0.7); padding-left: 20px; line-height: 1.6;">
+              <li data-i18n="checkout.success.step1" style="margin-bottom: 8px;">Acesse sua conta no provedor onde registrou seu domínio (Registro.br, GoDaddy, Hostgator, etc).</li>
+              <li data-i18n="checkout.success.step2" style="margin-bottom: 8px;">Acesse as configurações de <strong>Zona de DNS</strong> do domínio desejado.</li>
+              <li data-i18n="checkout.success.step3" style="margin-bottom: 8px;">Crie uma nova entrada do tipo <strong>CNAME</strong>:
+                <ul style="padding-left: 15px; margin-top: 4px;">
+                  <li><strong>Nome/Host:</strong> <code>erp</code> (para apontar <code>erp.seu-dominio.com</code>) ou o subdomínio escolhido.</li>
+                  <li><strong>Destino/Aponta para:</strong> <code>app.aegissolucoes.dev.br</code></li>
+                </ul>
+              </li>
+              <li data-i18n="checkout.success.step4" style="margin-bottom: 8px;">Salve as alterações e aguarde a propagação do DNS (geralmente leva de 15 minutos até 24 horas).</li>
+              <li data-i18n="checkout.success.step5">No ERP Aegis, acesse o menu <strong>Licenciamento > Gerenciamento</strong>, insira seu domínio personalizado e ative-o para que o Firebase responda através dele.</li>
+            </ol>
+          </div>
+
+          <a href="https://app.aegissolucoes.dev.br" target="_blank" class="btn solid lg w-100 mt-4" style="text-align: center; display: block; width: 100%; margin-top: 25px;" data-i18n="checkout.success.openApp">Ir para a Aplicação</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="shell footer-grid">

@@ -1190,3 +1190,253 @@ h1 span {
   }
 }
 
+/* ─── Planos pagos e Grid ────────────────────────────────────────────── */
+.plans {
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.05), transparent 60%);
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+  margin-top: 3rem;
+}
+
+.plan-card {
+  background: linear-gradient(165deg, rgba(17, 35, 63, 0.85), rgba(11, 23, 43, 0.85));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.plan-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(45, 212, 191, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.plan-card.featured {
+  border: 2px solid var(--brand);
+  background: linear-gradient(165deg, rgba(21, 47, 85, 0.95), rgba(13, 29, 56, 0.95));
+  box-shadow: 0 16px 48px rgba(45, 212, 191, 0.15);
+}
+
+.plan-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--brand), var(--brand-strong));
+  color: #052426;
+  font-weight: 800;
+  font-size: 0.72rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  box-shadow: 0 4px 12px rgba(45, 212, 191, 0.3);
+}
+
+.plan-header {
+  margin-bottom: 1.75rem;
+}
+
+.plan-header h3 {
+  font-size: 1.45rem;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+
+.plan-header .price {
+  font-size: 2.2rem;
+  font-weight: 800;
+  font-family: Sora, sans-serif;
+  color: var(--brand);
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.plan-header .price span {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.plan-header .desc {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin: 0.5rem 0 0;
+  line-height: 1.5;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.plan-features li {
+  font-size: 0.92rem;
+  color: #d0d7e6;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.plan-features li::before {
+  content: "✓";
+  color: var(--brand);
+  font-weight: bold;
+}
+
+.plan-card .buy-btn {
+  width: 100%;
+  cursor: pointer;
+}
+
+/* ─── Modal de Checkout (Glassmorphism Premium) ───────────────────────── */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(4, 9, 20, 0.72);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards ease;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.modal-dialog {
+  background: linear-gradient(165deg, rgba(16, 29, 49, 0.95), rgba(9, 17, 31, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.95);
+  animation: scaleUp 0.3s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleUp {
+  to { transform: scale(1); }
+}
+
+.modal-header {
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-header h2 {
+  font-size: 1.35rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 1.75rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #f87171;
+}
+
+.modal-body {
+  padding: 1.75rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.checkout-step h3 {
+  font-size: 1.15rem;
+  color: var(--brand);
+  margin-bottom: 0.4rem;
+}
+
+.step-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Addon para domínio */
+.input-addon-group input {
+  border-radius: 10px 0 0 10px !important;
+}
+
+.payment-tabs button.active {
+  background: rgba(45, 212, 191, 0.12) !important;
+  border-color: var(--brand) !important;
+  font-weight: bold;
+}
+
+.payment-panel {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.15);
+  padding: 1.25rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+/* Spinner e status */
+.spinner-large {
+  border-right-color: transparent !important;
+}
+
+/* Estilos de sucesso e credenciais */
+.credentials-box {
+  box-shadow: inset 0 0 15px rgba(45, 212, 191, 0.05);
+}
+
+.instructions-box ol li code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: var(--brand);
+}
+
+/* Responsividade de checkout */
+@media (max-width: 768px) {
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+

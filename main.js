@@ -108,6 +108,60 @@ document.addEventListener('DOMContentLoaded', () => {
         'contact.submit': 'Enviar mensagem',
         'contact.success': 'Mensagem enviada! Nossa equipe entrara em contato em breve.',
         'contact.error': 'Algo deu errado. Verifique sua conexao e tente novamente.',
+        'plans.eyebrow': 'Planos e Preços',
+        'plans.title': 'Escolha o plano ideal para sua empresa',
+        'plans.subtitle': 'Sem taxa de adesão, sem licença gratuita e sem fidelidade. Cancele ou pause quando desejar.',
+        'plan.basic.name': 'Básico',
+        'plan.basic.desc': 'Para pequenas empresas e equipes comerciais de até 25 usuários.',
+        'plan.basic.f1': 'Módulos Core + CRM Básico',
+        'plan.basic.f2': 'Até 25 usuários cadastrados',
+        'plan.basic.f3': 'Suporte por Email e Chat',
+        'plan.basic.f4': 'Backup diário automático',
+        'plan.premium.name': 'Premium',
+        'plan.premium.desc': 'Para médias empresas em crescimento de até 100 usuários.',
+        'plan.premium.f1': 'Módulos Financeiro + Fiscal + CRM',
+        'plan.premium.f2': 'Até 100 usuários cadastrados',
+        'plan.premium.f3': 'Suporte por Telefone e Chat',
+        'plan.premium.f4': 'Multi-tenant e White label',
+        'plan.enterprise.name': 'Enterprise',
+        'plan.enterprise.desc': 'Para grandes corporações que exigem cobertura total e SLAs.',
+        'plan.enterprise.f1': 'Todos os 40+ módulos integrados',
+        'plan.enterprise.f2': 'Usuários cadastrados Ilimitados',
+        'plan.enterprise.f3': 'Suporte Premium 24x7 e SLA 99.9%',
+        'plan.enterprise.f4': 'Consultor dedicado e IA customizada',
+        'plan.featured': 'Mais Popular',
+        'plan.buy': 'Contratar plano',
+        'checkout.step1.title': '1. Informações de Cadastro',
+        'checkout.step1.desc': 'Preencha os dados abaixo para configurar o seu ambiente empresarial.',
+        'checkout.labelPassword': 'Senha de Acesso',
+        'checkout.labelCpfCnpj': 'CPF ou CNPJ',
+        'checkout.labelCompany': 'Nome da Empresa',
+        'checkout.labelDomain': 'Subdomínio Desejado',
+        'checkout.next': 'Prosseguir para o Pagamento',
+        'checkout.step2.title': '2. Forma de Pagamento',
+        'checkout.step2.desc': 'Selecione o método de pagamento. Assinaturas são recorrentes e faturadas mensalmente.',
+        'checkout.pix.desc': 'Pague com PIX para ativação imediata. A nota fiscal será emitida automaticamente em seu CNPJ.',
+        'checkout.pix.key': 'Chave PIX Copia e Cola',
+        'checkout.confirmPayment': 'Confirmar Pagamento Simulado',
+        'checkout.card.holder': 'Nome no Cartão',
+        'checkout.card.number': 'Número do Cartão',
+        'checkout.card.expiry': 'Validade (MM/AA)',
+        'checkout.card.cvv': 'CVV',
+        'checkout.payCard': 'Finalizar Compra',
+        'checkout.back': 'Voltar para cadastro',
+        'checkout.processing.title': 'Processando Assinatura...',
+        'checkout.processing.desc': 'Estamos validando o pagamento e estruturando o seu novo banco de dados no Firebase. Isso levará alguns segundos.',
+        'checkout.success.title': 'Assinatura Ativada com Sucesso!',
+        'checkout.success.desc': 'Seu novo ambiente ERP está provisionado e pronto para uso.',
+        'checkout.success.credentialsTitle': 'Chaves de Acesso e Link da Aplicação:',
+        'checkout.success.instructionsTitle': 'Instruções de Apontamento de Domínio (Registro.br):',
+        'checkout.success.instructionsDesc': 'Se você já possui um domínio próprio ou deseja configurar um subdomínio para apontar para o seu ERP, siga o passo-a-passo abaixo:',
+        'checkout.success.step1': 'Acesse sua conta no provedor onde registrou seu domínio (Registro.br, GoDaddy, Hostgator, etc).',
+        'checkout.success.step2': 'Acesse as configurações de Zona de DNS do domínio desejado.',
+        'checkout.success.step3': 'Crie uma nova entrada do tipo CNAME:',
+        'checkout.success.step4': 'Salve as alterações e aguarde a propagação do DNS (geralmente leva de 15 minutos até 24 horas).',
+        'checkout.success.step5': 'No ERP Aegis, acesse o menu Licenciamento > Gerenciamento, insira seu domínio personalizado e ative-o para que o Firebase responda através dele.',
+        'checkout.success.openApp': 'Ir para a Aplicação',
       },
     },
     en: {
@@ -213,6 +267,60 @@ document.addEventListener('DOMContentLoaded', () => {
         'contact.submit': 'Send message',
         'contact.success': 'Message sent! Our team will reach out to you shortly.',
         'contact.error': 'Something went wrong. Please check your connection and try again.',
+        'plans.eyebrow': 'Plans & Pricing',
+        'plans.title': 'Choose the ideal plan for your company',
+        'plans.subtitle': 'No setup fee, no free license, and no lock-in. Cancel or pause whenever you wish.',
+        'plan.basic.name': 'Basic',
+        'plan.basic.desc': 'For small businesses and sales teams up to 25 users.',
+        'plan.basic.f1': 'Core + Basic CRM Modules',
+        'plan.basic.f2': 'Up to 25 registered users',
+        'plan.basic.f3': 'Email & Chat Support',
+        'plan.basic.f4': 'Daily automatic backup',
+        'plan.premium.name': 'Premium',
+        'plan.premium.desc': 'For growing medium businesses up to 100 users.',
+        'plan.premium.f1': 'Financial + Tax + CRM Modules',
+        'plan.premium.f2': 'Up to 100 registered users',
+        'plan.premium.f3': 'Phone & Chat Support',
+        'plan.premium.f4': 'Multi-tenant and White label',
+        'plan.enterprise.name': 'Enterprise',
+        'plan.enterprise.desc': 'For large corporations requiring full coverage and SLAs.',
+        'plan.enterprise.f1': 'All 40+ integrated modules',
+        'plan.enterprise.f2': 'Unlimited registered users',
+        'plan.enterprise.f3': '24x7 Premium Support and 99.9% SLA',
+        'plan.enterprise.f4': 'Dedicated advisor and custom AI',
+        'plan.featured': 'Most Popular',
+        'plan.buy': 'Get plan',
+        'checkout.step1.title': '1. Registration Information',
+        'checkout.step1.desc': 'Fill in the details below to set up your business environment.',
+        'checkout.labelPassword': 'Access Password',
+        'checkout.labelCpfCnpj': 'CPF or CNPJ',
+        'checkout.labelCompany': 'Company Name',
+        'checkout.labelDomain': 'Desired Subdomain',
+        'checkout.next': 'Proceed to Payment',
+        'checkout.step2.title': '2. Payment Method',
+        'checkout.step2.desc': 'Select your payment method. Subscriptions are recurring and billed monthly.',
+        'checkout.pix.desc': 'Pay with PIX for immediate activation. The invoice will be automatically issued under your CNPJ/CPF.',
+        'checkout.pix.key': 'Copy and Paste PIX Key',
+        'checkout.confirmPayment': 'Confirm Simulated Payment',
+        'checkout.card.holder': 'Cardholder Name',
+        'checkout.card.number': 'Card Number',
+        'checkout.card.expiry': 'Expiry Date (MM/YY)',
+        'checkout.card.cvv': 'CVV',
+        'checkout.payCard': 'Complete Purchase',
+        'checkout.back': 'Back to registration',
+        'checkout.processing.title': 'Processing Subscription...',
+        'checkout.processing.desc': 'We are validating the payment and structuring your new database on Firebase. This will take a few seconds.',
+        'checkout.success.title': 'Subscription Activated Successfully!',
+        'checkout.success.desc': 'Your new ERP environment has been provisioned and is ready to use.',
+        'checkout.success.credentialsTitle': 'Access Keys and Application Link:',
+        'checkout.success.instructionsTitle': 'Domain Pointing Instructions (Registro.br):',
+        'checkout.success.instructionsDesc': 'If you already have your own domain or wish to configure a subdomain to point to your ERP, follow the step-by-step below:',
+        'checkout.success.step1': 'Access your account at the provider where you registered your domain (Registro.br, GoDaddy, Hostgator, etc).',
+        'checkout.success.step2': 'Go to the DNS Zone settings for the desired domain.',
+        'checkout.success.step3': 'Create a new CNAME entry:',
+        'checkout.success.step4': 'Save changes and wait for DNS propagation (typically takes 15 minutes to 24 hours).',
+        'checkout.success.step5': 'In the Aegis ERP, access the Licensing > Management menu, enter your custom domain and activate it so Firebase responds through it.',
+        'checkout.success.openApp': 'Go to Application',
       },
     },
     es: {
@@ -318,6 +426,60 @@ document.addEventListener('DOMContentLoaded', () => {
         'contact.submit': 'Enviar mensaje',
         'contact.success': 'Mensaje enviado! Nuestro equipo se pondra en contacto pronto.',
         'contact.error': 'Algo salio mal. Verifica tu conexion e intenta de nuevo.',
+        'plans.eyebrow': 'Planes y Precios',
+        'plans.title': 'Elija el plan ideal para su empresa',
+        'plans.subtitle': 'Sin cuota de alta, sin licencia gratuita y sin fidelidad. Cancele o pause cuando lo desee.',
+        'plan.basic.name': 'Básico',
+        'plan.basic.desc': 'Para pequeñas empresas y equipos comerciales de hasta 25 usuarios.',
+        'plan.basic.f1': 'Módulos Core + CRM Básico',
+        'plan.basic.f2': 'Hasta 25 usuarios registrados',
+        'plan.basic.f3': 'Soporte por Correo y Chat',
+        'plan.basic.f4': 'Copia de seguridad automática diaria',
+        'plan.premium.name': 'Premium',
+        'plan.premium.desc': 'Para medianas empresas en crecimiento de hasta 100 usuarios.',
+        'plan.premium.f1': 'Módulos Financiero + Fiscal + CRM',
+        'plan.premium.f2': 'Hasta 100 usuarios registrados',
+        'plan.premium.f3': 'Soporte por Teléfono y Chat',
+        'plan.premium.f4': 'Multi-tenant y Marca blanca',
+        'plan.enterprise.name': 'Enterprise',
+        'plan.enterprise.desc': 'Para grandes corporaciones que requieren cobertura total y SLAs.',
+        'plan.enterprise.f1': 'Todos los 40+ módulos integrados',
+        'plan.enterprise.f2': 'Usuarios registrados ilimitados',
+        'plan.enterprise.f3': 'Soporte Premium 24x7 y SLA 99.9%',
+        'plan.enterprise.f4': 'Consultor dedicado e IA personalizada',
+        'plan.featured': 'Más Popular',
+        'plan.buy': 'Contratar plan',
+        'checkout.step1.title': '1. Información de Registro',
+        'checkout.step1.desc': 'Complete los datos a continuación para configurar su entorno empresarial.',
+        'checkout.labelPassword': 'Contraseña de Acceso',
+        'checkout.labelCpfCnpj': 'CPF o CNPJ',
+        'checkout.labelCompany': 'Nombre de la Empresa',
+        'checkout.labelDomain': 'Subdominio Deseado',
+        'checkout.next': 'Continuar al Pago',
+        'checkout.step2.title': '2. Método de Pago',
+        'checkout.step2.desc': 'Seleccione su método de pago. Las suscripciones son recurrentes y se facturan mensualmente.',
+        'checkout.pix.desc': 'Pague con PIX para activación inmediata. La factura se emitirá automáticamente bajo su CNPJ/CPF.',
+        'checkout.pix.key': 'Copiar y Pegar Clave PIX',
+        'checkout.confirmPayment': 'Confirmar Pago Simulado',
+        'checkout.card.holder': 'Nombre en la Tarjeta',
+        'checkout.card.number': 'Número de Tarjeta',
+        'checkout.card.expiry': 'Vencimiento (MM/AA)',
+        'checkout.card.cvv': 'CVV',
+        'checkout.payCard': 'Completar Compra',
+        'checkout.back': 'Volver al registro',
+        'checkout.processing.title': 'Procesando Suscripción...',
+        'checkout.processing.desc': 'Estamos validando el pago y estructurando su nueva base de datos en Firebase. Esto tomará unos segundos.',
+        'checkout.success.title': '¡Suscripción Activada con Éxito!',
+        'checkout.success.desc': 'Su nuevo entorno ERP ha sido provisionado y está listo para usar.',
+        'checkout.success.credentialsTitle': 'Llaves de Acceso y Enlace de la Aplicación:',
+        'checkout.success.instructionsTitle': 'Instrucciones para Apuntar el Dominio (Registro.br):',
+        'checkout.success.instructionsDesc': 'Si ya tiene su propio dominio o desea configurar un subdominio para apuntar a su ERP, siga el paso a paso a continuación:',
+        'checkout.success.step1': 'Acceda a su cuenta en el proveedor donde registró su dominio (Registro.br, GoDaddy, Hostgator, etc).',
+        'checkout.success.step2': 'Vaya a la configuración de la Zona DNS del dominio deseado.',
+        'checkout.success.step3': 'Cree una nueva entrada de tipo CNAME:',
+        'checkout.success.step4': 'Guarde los cambios y espere la propagación de DNS (generalmente toma de 15 minutos a 24 horas).',
+        'checkout.success.step5': 'En el ERP Aegis, acceda al menú Licenciamiento > Gestión, ingrese su dominio personalizado y ative-o para que Firebase responda a través de él.',
+        'checkout.success.openApp': 'Ir a la Aplicación',
       },
     },
   };
@@ -488,6 +650,176 @@ document.addEventListener('DOMContentLoaded', () => {
         cfSubmit.disabled = false;
         cfSubmit.classList.remove('loading');
       }
+    });
+  }
+
+  // ── Checkout & Loja Online Logic ─────────────────────────────
+  let selectedPlan = 'basic';
+  const checkoutModal = document.getElementById('checkoutModal');
+  const closeCheckout = document.getElementById('closeCheckout');
+  const buyButtons = document.querySelectorAll('.buy-btn');
+
+  const stepInfo = document.getElementById('step-info');
+  const stepPayment = document.getElementById('step-payment');
+  const stepProcessing = document.getElementById('step-processing');
+  const stepSuccess = document.getElementById('step-success');
+
+  const btnNextToPayment = document.getElementById('btnNextToPayment');
+  const btnBackToInfo = document.getElementById('btnBackToInfo');
+  const btnConfirmPixPayment = document.getElementById('btnConfirmPixPayment');
+  const btnConfirmCardPayment = document.getElementById('btnConfirmCardPayment');
+
+  const payTabButtons = document.querySelectorAll('.pay-tab-btn');
+  const panelPix = document.getElementById('panel-pix');
+  const panelCard = document.getElementById('panel-card');
+
+  // Input fields
+  const inputName = document.getElementById('ck-name');
+  const inputEmail = document.getElementById('ck-email');
+  const inputPassword = document.getElementById('ck-password');
+  const inputCpfCnpj = document.getElementById('ck-cpfcnpj');
+  const inputCompany = document.getElementById('ck-company');
+  const inputSubdomain = document.getElementById('ck-domain');
+
+  // Card fields
+  const inputCardHolder = document.getElementById('card-holder');
+  const inputCardNumber = document.getElementById('card-number');
+  const inputCardExpiry = document.getElementById('card-expiry');
+  const inputCardCvv = document.getElementById('card-cvv');
+
+  // Success fields
+  const successUrl = document.getElementById('success-url');
+  const successEmail = document.getElementById('success-email');
+  const successPass = document.getElementById('success-pass');
+  const successInvoice = document.getElementById('success-invoice');
+
+  const openCheckoutModal = (plan) => {
+    selectedPlan = plan;
+    checkoutModal.style.display = 'block';
+    checkoutModal.setAttribute('aria-hidden', 'false');
+    showStep(stepInfo);
+  };
+
+  const closeCheckoutModal = () => {
+    checkoutModal.style.display = 'none';
+    checkoutModal.setAttribute('aria-hidden', 'true');
+  };
+
+  const showStep = (stepToShow) => {
+    [stepInfo, stepPayment, stepProcessing, stepSuccess].forEach(step => {
+      if (step) step.style.display = 'none';
+    });
+    if (stepToShow) stepToShow.style.display = 'block';
+  };
+
+  buyButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      openCheckoutModal(btn.dataset.plan);
+    });
+  });
+
+  if (closeCheckout) {
+    closeCheckout.addEventListener('click', closeCheckoutModal);
+  }
+
+  // Switch payment methods
+  payTabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      payTabButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const method = btn.dataset.payMethod;
+      if (method === 'pix') {
+        panelPix.style.display = 'block';
+        panelCard.style.display = 'none';
+      } else {
+        panelPix.style.display = 'none';
+        panelCard.style.display = 'block';
+      }
+    });
+  });
+
+  // Next Step validation
+  if (btnNextToPayment) {
+    btnNextToPayment.addEventListener('click', () => {
+      if (!inputName.value.trim() || !inputEmail.value.trim() || !inputPassword.value.trim() || !inputCpfCnpj.value.trim() || !inputCompany.value.trim() || !inputSubdomain.value.trim()) {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+        return;
+      }
+      showStep(stepPayment);
+    });
+  }
+
+  if (btnBackToInfo) {
+    btnBackToInfo.addEventListener('click', () => {
+      showStep(stepInfo);
+    });
+  }
+
+  // Execute provisioning via Cloud Functions
+  const executeProvisioning = async (paymentMethodName) => {
+    showStep(stepProcessing);
+
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const functionUrl = isLocal
+      ? 'http://localhost:9015/site-aegis-solucoes-1416-a6b2d/us-central1/provisionNewTenant'
+      : 'https://us-central1-site-aegis-solucoes-1416-a6b2d.cloudfunctions.net/provisionNewTenant';
+
+    const payload = {
+      email: inputEmail.value.trim(),
+      name: inputName.value.trim(),
+      companyName: inputCompany.value.trim(),
+      planId: selectedPlan,
+      password: inputPassword.value.trim(),
+      customerCpfCnpj: inputCpfCnpj.value.trim(),
+      paymentMethod: paymentMethodName
+    };
+
+    try {
+      const res = await fetch(functionUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await res.json();
+
+      if (res.ok && result.ok) {
+        // Setup success screen
+        const generatedSubdomain = inputSubdomain.value.trim().toLowerCase().replace(/[^a-z0-9]/g, '-');
+        const loginUrl = `https://${generatedSubdomain}.aegissolucoes.dev.br`;
+        
+        if (successUrl) {
+          successUrl.href = loginUrl;
+          successUrl.textContent = `${generatedSubdomain}.aegissolucoes.dev.br`;
+        }
+        if (successEmail) successEmail.textContent = payload.email;
+        if (successPass) successPass.textContent = payload.password;
+        if (successInvoice) successInvoice.textContent = result.invoiceNumber || 'NFS-984712';
+
+        showStep(stepSuccess);
+      } else {
+        throw new Error(result.error || 'Falha no provisionamento.');
+      }
+    } catch (err) {
+      alert(`Erro ao criar ambiente: ${err.message}`);
+      showStep(stepPayment);
+    }
+  };
+
+  if (btnConfirmPixPayment) {
+    btnConfirmPixPayment.addEventListener('click', () => {
+      executeProvisioning('PIX');
+    });
+  }
+
+  if (btnConfirmCardPayment) {
+    btnConfirmCardPayment.addEventListener('click', () => {
+      if (!inputCardHolder.value.trim() || !inputCardNumber.value.trim() || !inputCardExpiry.value.trim() || !inputCardCvv.value.trim()) {
+        alert('Por favor, preencha todos os dados do cartão de crédito.');
+        return;
+      }
+      executeProvisioning('CARTÃO DE CRÉDITO');
     });
   }
 });
