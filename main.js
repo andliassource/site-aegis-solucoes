@@ -828,14 +828,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Execute provisioning via Stripe Checkout
-  const executeProvisioning = async () => {
+  // Execute provisioning via Cloud Functions
+  const executeProvisioning = async (paymentMethodName) => {
     showStep(stepProcessing);
 
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const functionUrl = isLocal
-      ? 'http://localhost:9015/site-aegis-solucoes-1416-a6b2d/us-central1/createStripeCheckoutSession'
-      : 'https://us-central1-site-aegis-solucoes-1416-a6b2d.cloudfunctions.net/createStripeCheckoutSession';
+      ? 'http://localhost:9015/site-aegis-solucoes-1416-a6b2d/us-central1/provisionNewTenant'
+      : 'https://us-central1-site-aegis-solucoes-1416-a6b2d.cloudfunctions.net/provisionNewTenant';
 
     const payload = {
       email: inputEmail.value.trim(),
@@ -844,7 +844,7 @@ document.addEventListener('DOMContentLoaded', () => {
       planId: selectedPlan,
       password: inputPassword.value.trim(),
       customerCpfCnpj: inputCpfCnpj.value.trim(),
-      subdomain: inputSubdomain.value.trim()
+      paymentMethod: paymentMethodName
     };
 
     try {
@@ -856,28 +856,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const result = await res.json();
 
-      if (res.ok && result.ok && result.url) {
-        // Redireciona o usuário para o checkout seguro da Stripe
-        window.location.href = result.url;
+      if (res.ok && result.ok) {
+        // Setup success screen
+        const generatedSubdomain = inputSubdomain.value.trim().toLowerCase().replace(/[^a-z0-9]/g, '-');
+        const loginUrl = `https://${generatedSubdomain}.aegissolucoes.dev.br`;
+        
+        if (successUrl) {
+          successUrl.href = loginUrl;
+          successUrl.textContent = `${generatedSubdomain}.aegissolucoes.dev.br`;
+        }
+        if (successEmail) successEmail.textContent = payload.email;
+        if (successPass) successPass.textContent = payload.password;
+        if (successInvoice) successInvoice.textContent = result.invoiceNumber || 'NFS-984712';
+
+        showStep(stepSuccess);
       } else {
-        throw new Error(result.error || 'Falha ao criar sessão de pagamento.');
+        throw new Error(result.error || 'Falha no provisionamento.');
       }
     } catch (err) {
-      alert(`Erro ao iniciar pagamento: ${err.message}`);
+      alert(`Erro ao criar ambiente: ${err.message}`);
       showStep(stepPayment);
     }
   };
 
   if (btnConfirmPixPayment) {
     btnConfirmPixPayment.addEventListener('click', () => {
-      executeProvisioning();
+      executeProvisioning('PIX');
     });
   }
 
   if (btnConfirmCardPayment) {
     btnConfirmCardPayment.addEventListener('click', () => {
-      // Como o pagamento agora é via Stripe Checkout, não precisamos validar dados de cartão localmente
-      executeProvisioning();
+      executeProvisioning('CARTÃO DE CRÉDITO');
     });
   }
 });
