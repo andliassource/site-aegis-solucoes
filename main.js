@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'checkout.step1.title': '1. Informações de Cadastro',
         'checkout.step1.desc': 'Preencha os dados abaixo para configurar o seu ambiente empresarial.',
         'checkout.labelPassword': 'Senha de Acesso',
-        'checkout.labelCpfCnpj': 'CPF ou CNPJ',
+        'checkout.labelCpfCnpj': 'CNPJ da Empresa',
         'checkout.labelCompany': 'Nome da Empresa',
         'checkout.labelDomain': 'Subdomínio Desejado',
         'checkout.next': 'Prosseguir para o Pagamento',
@@ -293,13 +293,13 @@ document.addEventListener('DOMContentLoaded', () => {
         'checkout.step1.title': '1. Registration Information',
         'checkout.step1.desc': 'Fill in the details below to set up your business environment.',
         'checkout.labelPassword': 'Access Password',
-        'checkout.labelCpfCnpj': 'CPF or CNPJ',
+        'checkout.labelCpfCnpj': 'Company CNPJ',
         'checkout.labelCompany': 'Company Name',
         'checkout.labelDomain': 'Desired Subdomain',
         'checkout.next': 'Proceed to Payment',
         'checkout.step2.title': '2. Payment Method',
         'checkout.step2.desc': 'Select your payment method. Subscriptions are recurring and billed monthly.',
-        'checkout.pix.desc': 'Pay with PIX for immediate activation. The invoice will be automatically issued under your CNPJ/CPF.',
+        'checkout.pix.desc': 'Pay with PIX for immediate activation. The invoice will be automatically issued under your company CNPJ.',
         'checkout.pix.key': 'Copy and Paste PIX Key',
         'checkout.confirmPayment': 'Confirm Simulated Payment',
         'checkout.card.holder': 'Cardholder Name',
@@ -452,13 +452,13 @@ document.addEventListener('DOMContentLoaded', () => {
         'checkout.step1.title': '1. Información de Registro',
         'checkout.step1.desc': 'Complete los datos a continuación para configurar su entorno empresarial.',
         'checkout.labelPassword': 'Contraseña de Acceso',
-        'checkout.labelCpfCnpj': 'CPF o CNPJ',
+        'checkout.labelCpfCnpj': 'CNPJ de la Empresa',
         'checkout.labelCompany': 'Nombre de la Empresa',
         'checkout.labelDomain': 'Subdominio Deseado',
         'checkout.next': 'Continuar al Pago',
         'checkout.step2.title': '2. Método de Pago',
         'checkout.step2.desc': 'Seleccione su método de pago. Las suscripciones son recurrentes y se facturan mensualmente.',
-        'checkout.pix.desc': 'Pague con PIX para activación inmediata. La factura se emitirá automáticamente bajo su CNPJ/CPF.',
+        'checkout.pix.desc': 'Pague con PIX para activación inmediata. La factura se emitirá automáticamente bajo el CNPJ de su empresa.',
         'checkout.pix.key': 'Copiar y Pegar Clave PIX',
         'checkout.confirmPayment': 'Confirmar Pago Simulado',
         'checkout.card.holder': 'Nombre en la Tarjeta',
@@ -739,6 +739,66 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const validarCNPJ = (cnpj) => {
+    cnpj = cnpj.replace(/[^\d]+/g,'');
+    if(cnpj == '') return false;
+    if (cnpj.length != 14) return false;
+    if (cnpj == "00000000000000" || 
+        cnpj == "11111111111111" || 
+        cnpj == "22222222222222" || 
+        cnpj == "33333333333333" || 
+        cnpj == "44444444444444" || 
+        cnpj == "55555555555555" || 
+        cnpj == "66666666666666" || 
+        cnpj == "77777777777777" || 
+        cnpj == "88888888888888" || 
+        cnpj == "99999999999999")
+        return false;
+         
+    let tamanho = cnpj.length - 2;
+    let numeros = cnpj.substring(0,tamanho);
+    let digitos = cnpj.substring(tamanho);
+    let soma = 0;
+    let pos = tamanho - 7;
+    for (let i = tamanho; i >= 1; i--) {
+      soma += numeros.charAt(tamanho - i) * pos--;
+      if (pos < 2) pos = 9;
+    }
+    let resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+    if (resultado != digitos.charAt(0)) return false;
+         
+    tamanho = tamanho + 1;
+    numeros = cnpj.substring(0,tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (let i = tamanho; i >= 1; i--) {
+      soma += numeros.charAt(tamanho - i) * pos--;
+      if (pos < 2) pos = 9;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+    if (resultado != digitos.charAt(1)) return false;
+           
+    return true;
+  };
+
+  if (inputCpfCnpj) {
+    inputCpfCnpj.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 14) value = value.slice(0, 14);
+      
+      if (value.length > 12) {
+        value = value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
+      } else if (value.length > 8) {
+        value = value.replace(/^(\d{2})(\d{3})(\d{3})(\d{0,4})$/, "$1.$2.$3/$4");
+      } else if (value.length > 5) {
+        value = value.replace(/^(\d{2})(\d{3})(\d{0,3})$/, "$1.$2.$3");
+      } else if (value.length > 2) {
+        value = value.replace(/^(\d{2})(\d{0,3})$/, "$1.$2");
+      }
+      e.target.value = value;
+    });
+  }
+
   // Next Step validation
   if (btnNextToPayment) {
     btnNextToPayment.addEventListener('click', () => {
@@ -746,6 +806,18 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Por favor, preencha todos os campos obrigatórios.');
         return;
       }
+
+      const cnpjLimpo = inputCpfCnpj.value.replace(/\D/g, '');
+      if (cnpjLimpo.length === 11) {
+        alert('A contratação do Aegis ERP é restrita a Pessoas Jurídicas. Por favor, utilize um CNPJ válido.');
+        return;
+      }
+
+      if (!validarCNPJ(cnpjLimpo)) {
+        alert('O CNPJ informado é inválido. Por favor, verifique os dados digitados.');
+        return;
+      }
+
       showStep(stepPayment);
     });
   }
@@ -756,14 +828,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Execute provisioning via Cloud Functions
-  const executeProvisioning = async (paymentMethodName) => {
+  // Execute provisioning via Stripe Checkout
+  const executeProvisioning = async () => {
     showStep(stepProcessing);
 
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const functionUrl = isLocal
-      ? 'http://localhost:9015/site-aegis-solucoes-1416-a6b2d/us-central1/provisionNewTenant'
-      : 'https://us-central1-site-aegis-solucoes-1416-a6b2d.cloudfunctions.net/provisionNewTenant';
+      ? 'http://localhost:9015/site-aegis-solucoes-1416-a6b2d/us-central1/createStripeCheckoutSession'
+      : 'https://us-central1-site-aegis-solucoes-1416-a6b2d.cloudfunctions.net/createStripeCheckoutSession';
 
     const payload = {
       email: inputEmail.value.trim(),
@@ -772,7 +844,7 @@ document.addEventListener('DOMContentLoaded', () => {
       planId: selectedPlan,
       password: inputPassword.value.trim(),
       customerCpfCnpj: inputCpfCnpj.value.trim(),
-      paymentMethod: paymentMethodName
+      subdomain: inputSubdomain.value.trim()
     };
 
     try {
@@ -784,42 +856,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const result = await res.json();
 
-      if (res.ok && result.ok) {
-        // Setup success screen
-        const generatedSubdomain = inputSubdomain.value.trim().toLowerCase().replace(/[^a-z0-9]/g, '-');
-        const loginUrl = `https://${generatedSubdomain}.aegissolucoes.dev.br`;
-        
-        if (successUrl) {
-          successUrl.href = loginUrl;
-          successUrl.textContent = `${generatedSubdomain}.aegissolucoes.dev.br`;
-        }
-        if (successEmail) successEmail.textContent = payload.email;
-        if (successPass) successPass.textContent = payload.password;
-        if (successInvoice) successInvoice.textContent = result.invoiceNumber || 'NFS-984712';
-
-        showStep(stepSuccess);
+      if (res.ok && result.ok && result.url) {
+        // Redireciona o usuário para o checkout seguro da Stripe
+        window.location.href = result.url;
       } else {
-        throw new Error(result.error || 'Falha no provisionamento.');
+        throw new Error(result.error || 'Falha ao criar sessão de pagamento.');
       }
     } catch (err) {
-      alert(`Erro ao criar ambiente: ${err.message}`);
+      alert(`Erro ao iniciar pagamento: ${err.message}`);
       showStep(stepPayment);
     }
   };
 
   if (btnConfirmPixPayment) {
     btnConfirmPixPayment.addEventListener('click', () => {
-      executeProvisioning('PIX');
+      executeProvisioning();
     });
   }
 
   if (btnConfirmCardPayment) {
     btnConfirmCardPayment.addEventListener('click', () => {
-      if (!inputCardHolder.value.trim() || !inputCardNumber.value.trim() || !inputCardExpiry.value.trim() || !inputCardCvv.value.trim()) {
-        alert('Por favor, preencha todos os dados do cartão de crédito.');
-        return;
-      }
-      executeProvisioning('CARTÃO DE CRÉDITO');
+      // Como o pagamento agora é via Stripe Checkout, não precisamos validar dados de cartão localmente
+      executeProvisioning();
     });
   }
 });
