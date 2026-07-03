@@ -504,9 +504,25 @@
           <h3 data-i18n="checkout.step2.title">2. Forma de Pagamento</h3>
           <p class="step-desc" data-i18n="checkout.step2.desc">Selecione o método de pagamento. Assinaturas são recorrentes e faturadas mensalmente.</p>
 
-          <div class="payment-tabs" style="display: flex; gap: 10px; margin-bottom: 20px;">
+          <!-- Cupom de Desconto -->
+          <div class="coupon-section" style="margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;">
+            <label style="display: block; font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 8px;">Possui um Cupom de Desconto?</label>
+            <div style="display: flex; gap: 8px;">
+              <input type="text" id="checkout-coupon-code" placeholder="EX: GOV-PARCEIRO-100" style="flex: 1; padding: 10px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; color: white; text-transform: uppercase; border-color: rgba(255,255,255,0.1);">
+              <button type="button" id="btnApplyCoupon" style="padding: 10px 16px; background: var(--primary); border: none; border-radius: 6px; color: white; font-weight: bold; cursor: pointer;">Aplicar</button>
+            </div>
+            <div id="coupon-feedback" style="display: none; margin-top: 8px; font-size: 12px; font-weight: bold;"></div>
+          </div>
+
+          <div class="payment-tabs" id="checkout-payment-tabs" style="display: flex; gap: 10px; margin-bottom: 20px;">
             <button type="button" class="pay-tab-btn active" data-pay-method="pix" style="flex: 1; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; cursor: pointer;">PIX</button>
             <button type="button" class="pay-tab-btn" data-pay-method="card" style="flex: 1; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; cursor: pointer;">Cartão de Crédito</button>
+          </div>
+
+          <!-- Opção Cupom Aplicado (100% Isento) -->
+          <div class="payment-panel" id="panel-coupon" style="display: none; text-align: center; padding: 10px 0; margin-bottom: 15px;">
+            <p style="color: #4caf50; font-weight: bold; font-size: 15px; margin-bottom: 15px;">🎉 Cupom de Isenção Aplicado: Acesso 100% Gratuito</p>
+            <button type="button" class="btn solid lg w-100" id="btnConfirmCouponPayment" style="width: 100%; background: #4caf50; border-color: #4caf50; color: white;">Ativar Minha Conta Gratuita</button>
           </div>
 
           <!-- Opção PIX -->
