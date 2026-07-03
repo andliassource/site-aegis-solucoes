@@ -1439,4 +1439,144 @@ h1 span {
   }
 }
 
+/* Releases Section Timeline */
+.releases-section {
+  padding: 6rem 0;
+  background: var(--bg-dark);
+  position: relative;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 3rem auto 0;
+  padding: 0 1rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(45, 212, 191, 0.15);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 4rem;
+  width: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  padding-right: 3rem;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  padding-left: 3rem;
+}
+
+.timeline-badge {
+  position: absolute;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--brand);
+  border: 4px solid var(--bg-dark);
+  box-shadow: 0 0 12px var(--brand);
+}
+
+.timeline-item:nth-child(odd) .timeline-badge {
+  right: -10px;
+}
+
+.timeline-item:nth-child(even) .timeline-badge {
+  left: -10px;
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.75rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-4px);
+  border-color: rgba(45, 212, 191, 0.3);
+  box-shadow: 0 15px 40px rgba(45, 212, 191, 0.05);
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  color: var(--brand);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.timeline-title {
+  font-size: 1.25rem;
+  color: #fff;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-subtitle {
+  font-size: 0.95rem;
+  color: #a8a8a8;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.timeline-details {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: left;
+}
+
+.timeline-details ul {
+  padding-left: 1.25rem;
+}
+
+.timeline-details li {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 1.5rem;
+  }
+  .timeline-item {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+  .timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 0;
+    padding-left: 3rem;
+    text-align: left;
+  }
+  .timeline-item:nth-child(even) {
+    left: 0;
+    padding-left: 3rem;
+  }
+  .timeline-item:nth-child(odd) .timeline-badge {
+    left: 1.15rem;
+    right: auto;
+  }
+  .timeline-item:nth-child(even) .timeline-badge {
+    left: 1.15rem;
+  }
+}
+
 
