@@ -948,66 +948,65 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeCoupon = null;
 
   if (btnApplyCoupon) {
-    btnApplyCoupon.addEventListener('click', () => {
+    btnApplyCoupon.addEventListener('click', async () => {
       const code = inputCouponCode.value.trim().toUpperCase();
       if (!code) {
         alert('Por favor, digite um código de cupom.');
         return;
       }
 
-      // Validação lógica de cupons
-      let couponValid = false;
-      let discountText = '100% Gratuito (Parceria)';
+      btnApplyCoupon.disabled = true;
+      const originalText = btnApplyCoupon.textContent;
+      btnApplyCoupon.textContent = 'Validando...';
+
+      const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      const functionUrl = isLocal
+        ? `http://localhost:8550/site-aegis-solucoes-1416-a6b2d/us-central1/api/validate-coupon?code=${encodeURIComponent(code)}`
+        : `https://us-central1-site-aegis-solucoes-1416-a6b2d.cloudfunctions.net/api/validate-coupon?code=${encodeURIComponent(code)}`;
 
       try {
-        const storeRaw = localStorage.getItem('aegis-super-admin-store');
-        if (storeRaw) {
-          const storeData = JSON.parse(storeRaw);
-          const couponsList = storeData.state?.coupons || [];
-          const found = couponsList.find(c => c.code.toUpperCase() === code && c.status === 'ativo');
-          if (found) {
-            couponValid = true;
-            discountText = found.discount;
+        const res = await fetch(functionUrl);
+        const result = await res.json();
+
+        if (res.ok && result.ok && result.valid) {
+          activeCoupon = code;
+          couponFeedback.style.display = 'block';
+          couponFeedback.style.color = '#4caf50';
+          couponFeedback.textContent = `🎉 Cupom "${code}" aplicado com sucesso! Benefício: ${result.discount || '100% Gratuito (Parceria)'}.`;
+
+          const benefit = result.discount || '';
+          if (benefit.includes('100%') || benefit.includes('Gratuito') || code.includes('FREE') || code === 'GOV-PARCEIRO-100') {
+            // Isenção completa: esconde opções normais e mostra botão de ativação de cupom
+            if (paymentTabs) paymentTabs.style.display = 'none';
+            if (panelPix) panelPix.style.display = 'none';
+            if (panelCard) panelCard.style.display = 'none';
+            if (panelCoupon) panelCoupon.style.display = 'block';
+          } else {
+            // Desconto parcial: mantém formas de pagamento, apenas aplica o cupom
+            if (paymentTabs) paymentTabs.style.display = 'flex';
+            if (panelCoupon) panelCoupon.style.display = 'none';
           }
+        } else {
+          throw new Error(result.error || 'Cupom inválido ou já resgatado.');
         }
-      } catch (e) {
-        console.error('Erro ao ler cupons do SuperAdmin:', e);
-      }
-
-      // Convenções/Fallbacks para testes imediatos
-      if (!couponValid) {
-        if (code === 'GOV-PARCEIRO-100' || code === 'GOV-SANDBOX-FREE' || code.startsWith('GOV-') || code.startsWith('AEGIS-')) {
-          couponValid = true;
-          if (code.includes('50')) {
-            discountText = '50% Desconto';
-          }
+      } catch (err) {
+        let msg = '❌ Cupom inválido ou já resgatado.';
+        if (err.message === 'cupom-ja-resgatado') {
+          msg = '❌ Este cupom já foi utilizado e não é mais válido.';
         }
-      }
-
-      if (couponValid) {
-        activeCoupon = code;
-        couponFeedback.style.display = 'block';
-        couponFeedback.style.color = '#4caf50';
-        couponFeedback.textContent = `🎉 Cupom "${code}" aplicado com sucesso! Benefício: ${discountText}.`;
-
-        if (discountText.includes('100%') || discountText.includes('Gratuito') || code.includes('FREE') || code === 'GOV-PARCEIRO-100') {
-          // Isenção completa: esconde opções normais e mostra botão de ativação de cupom
-          if (paymentTabs) paymentTabs.style.display = 'none';
-          if (panelPix) panelPix.style.display = 'none';
-          if (panelCard) panelCard.style.display = 'none';
-          if (panelCoupon) panelCoupon.style.display = 'block';
-        }
-      } else {
         activeCoupon = null;
         couponFeedback.style.display = 'block';
         couponFeedback.style.color = '#f44336';
-        couponFeedback.textContent = '❌ Cupom inválido ou já resgatado.';
+        couponFeedback.textContent = msg;
         
         // Restaura exibição padrão de pagamento
         if (paymentTabs) paymentTabs.style.display = 'flex';
         if (panelPix) panelPix.style.display = 'block';
         if (panelCard) panelCard.style.display = 'none';
         if (panelCoupon) panelCoupon.style.display = 'none';
+      } finally {
+        btnApplyCoupon.disabled = false;
+        btnApplyCoupon.textContent = originalText;
       }
     });
   }
@@ -1015,21 +1014,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnConfirmCouponPayment) {
     btnConfirmCouponPayment.addEventListener('click', () => {
       if (!activeCoupon) return;
-      
-      // Tentar marcar como resgatado no local storage local
-      try {
-        const storeRaw = localStorage.getItem('aegis-super-admin-store');
-        if (storeRaw) {
-          const storeData = JSON.parse(storeRaw);
-          const couponsList = storeData.state?.coupons || [];
-          const index = couponsList.findIndex(c => c.code.toUpperCase() === activeCoupon);
-          if (index !== -1) {
-            couponsList[index].status = 'resgatado';
-            localStorage.setItem('aegis-super-admin-store', JSON.stringify(storeData));
-          }
-        }
-      } catch (e) {}
-
       executeProvisioning(`CUPOM: ${activeCoupon}`);
     });
   }
