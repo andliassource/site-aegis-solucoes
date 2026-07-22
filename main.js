@@ -669,11 +669,32 @@ document.addEventListener('DOMContentLoaded', () => {
       cfSubmit.classList.add('loading');
       cfFeedback.hidden = true;
 
+      // Obter token do reCAPTCHA Enterprise
+      let recaptchaToken = '';
+      try {
+        if (typeof grecaptcha !== 'undefined' && grecaptcha.enterprise) {
+          recaptchaToken = await new Promise((resolve) => {
+            grecaptcha.enterprise.ready(async () => {
+              try {
+                const t = await grecaptcha.enterprise.execute('6LeU1CotAAAAALBtE-6Pa9ZXFh2mLJwKxQpVNCHD', { action: 'CONTACT' });
+                resolve(t);
+              } catch (err) {
+                console.warn('reCAPTCHA Enterprise execution error:', err);
+                resolve('');
+              }
+            });
+          });
+        }
+      } catch (err) {
+        console.warn('reCAPTCHA Enterprise error:', err);
+      }
+
       const data = {
         name: contactForm.querySelector('[name="name"]').value.trim(),
         email: contactForm.querySelector('[name="email"]').value.trim(),
         subject: contactForm.querySelector('[name="subject"]').value.trim(),
         message: contactForm.querySelector('[name="message"]').value.trim(),
+        'g-recaptcha-response': recaptchaToken,
       };
 
       try {
@@ -886,6 +907,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const executeProvisioning = async (paymentMethodName) => {
     showStep(stepProcessing);
 
+    // Obter token do reCAPTCHA Enterprise
+    let recaptchaToken = '';
+    try {
+      if (typeof grecaptcha !== 'undefined' && grecaptcha.enterprise) {
+        recaptchaToken = await new Promise((resolve) => {
+          grecaptcha.enterprise.ready(async () => {
+            try {
+              const t = await grecaptcha.enterprise.execute('6LeU1CotAAAAALBtE-6Pa9ZXFh2mLJwKxQpVNCHD', { action: 'PROVISIONING' });
+              resolve(t);
+            } catch (err) {
+              console.warn('reCAPTCHA Enterprise execution error:', err);
+              resolve('');
+            }
+          });
+        });
+      }
+    } catch (err) {
+      console.warn('reCAPTCHA Enterprise error:', err);
+    }
+
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const functionUrl = isLocal
       ? 'http://localhost:9015/site-aegis-solucoes-1416-a6b2d/us-central1/provisionNewTenant'
@@ -898,7 +939,8 @@ document.addEventListener('DOMContentLoaded', () => {
       planId: selectedPlan,
       password: inputPassword.value.trim(),
       customerCpfCnpj: inputCpfCnpj.value.trim(),
-      paymentMethod: paymentMethodName
+      paymentMethod: paymentMethodName,
+      recaptchaToken: recaptchaToken
     };
 
     try {
