@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'releases.eyebrow': 'Historico de Inovacoes',
         'releases.title': 'Releases e Funcionalidades',
         'releases.subtitle': 'Acompanhe a evolucao continua da plataforma Aegis ERP/CRM.',
+        'releases.v240.title': 'Governança Corporativa, Conformidade Legal Total & Motor Probatório',
+        'releases.v240.subtitle': 'Resoluções BACEN, CVM 80/59, eSocial 2026, Módulo Jurídico CPC 25, Assinaturas Digitais SHA-256 e Segregação por Entidade (PJ/GOV/Capital Misto)',
+        'releases.v240.details': '<ul><li><strong>Módulo Jurídico & Contencioso (CPC 25 / IAS 37)</strong>: Matriz de processos judiciais/administrativos com provisão financeira no DRE para perdas prováveis.</li><li><strong>Tomada de Decisão & Assinaturas SHA-256 em PDF</strong>: Emissão de laudos de auditoria em PDF com selo oficial e quadro de assinaturas executivas para fiscalizações (TCU, TCE, CVM, BACEN).</li><li><strong>Plano Diretor de TIC (PDTIC IN SGD/ME 94/22 & COBIT 2019)</strong>: Alinhamento estratégico de metas de TIC, orçamento do Comitê CGTIC e controle de ativos ITAM.</li><li><strong>Governança S/A & Alçadas (Lei 6.404/76 & CVM 80/22)</strong>: Livro digital de atas de Conselho e Assembleias (AGO/AGE) com Matriz de Alçadas de Assinatura (DOA).</li><li><strong>Balanço Verde ESG & Neutralização (CVM 59/21)</strong>: Inventário GHG Protocol Escopos 1, 2 e 3 com neutralização de carbono via Pix SOS Mata Atlântica.</li><li><strong>GCN BIA / DRP (ISO 22301 & BACEN CMN 4.893/21)</strong>: Análise de impacto no negócio (RTO/RPO) e plano de contingência cibernética.</li><li><strong>Motor de Segregação por Porte & Entidade</strong>: Adaptação dinâmica para empresas privadas (PJ), órgãos públicos (GOV) e estatais (Capital Misto - Lei 13.303/16), com dispensas legais automáticas para MEI/ME/EPP.</li><li><strong>Departamento Pessoal eSocial 2026 & SST</strong>: Ponto eletrônico REP-P (Portaria MTP 671/21), contracheques digitais em PDF e auditoria de NR-01/07/15/17.</li></ul>',
         'releases.v230.title': 'Faturamento Recorrente & Contratos',
         'releases.v230.subtitle': 'Módulo de CLM Inteligente e Mora Contábil',
         'releases.v230.details': '<ul><li><strong>Contratos Inteligentes (Auto-Fill)</strong>: Preenchimento automático de placeholders com base em dados de vendas e clientes.</li><li><strong>Cronograma Recorrente (12-60 meses)</strong>: Geração em lote automatizada de parcelas e boletos mensais futuros no financeiro.</li><li><strong>Ajustes de Mora/Dedução</strong>: Cálculo automático de multas e juros por atraso pro-rata ou descontos por pontualidade no recebimento.</li><li><strong>Conciliação em Lote</strong>: Retorno bancário de boletos da competência de forma 100% simulada e segura.</li><li><strong>Balanço Verde ESG Contábil</strong>: Relatório ecológico que calcula a pegada de CO2 a partir de despesas da DRE.</li></ul>',
@@ -201,6 +204,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'releases.eyebrow': 'History of Innovations',
         'releases.title': 'Releases & Features',
         'releases.subtitle': 'Follow the continuous evolution of the Aegis ERP/CRM platform.',
+        'releases.v240.title': 'Corporate Governance, Full Legal Compliance & Audit Engine',
+        'releases.v240.subtitle': 'BACEN & CVM Regulations, Legal Module CPC 25, SHA-256 PDF Signatures & Entity Segregation',
+        'releases.v240.details': '<ul><li><strong>Legal & Litigation Module (CPC 25 / IAS 37)</strong>: Lawsuit matrix with automatic financial provision on Income Statement for probable loss.</li><li><strong>Decision Making & SHA-256 PDF Signatures</strong>: Executive PDF audit reports with digital timestamps and signature blocks for audit oversight (TCU, TCE, CVM, BACEN).</li><li><strong>Master IT Plan (PDTIC IN 94/22 & COBIT 2019)</strong>: Strategic IT goal alignment, CGTIC committee budget and ITAM asset management.</li><li><strong>S/A Governance & DOA (Law 6.404/76 & CVM 80/22)</strong>: Digital minute book for Board and Assembly meetings with Delegation of Authority matrix.</li><li><strong>ESG Green Balance & Offsetting (CVM 59/21)</strong>: GHG Protocol Scope 1, 2, and 3 footprint inventory with active Pix carbon offsetting.</li><li><strong>BCM BIA / DRP (ISO 22301 & BACEN 4.893/21)</strong>: Business impact analysis (RTO/RPO) and cybersecurity contingency plan.</li><li><strong>Entity & Size Segregation Engine</strong>: Dynamic UI adaptation for Private Companies, Government Entities, and State-Owned Enterprises with legal waivers for SMBs.</li><li><strong>HR eSocial 2026 & OHS</strong>: REP-P time tracking (MTP 671/21), digital PDF paystubs, and OHS compliance.</li></ul>',
         'releases.v230.title': 'Recurring Billing & Contracts',
         'releases.v230.subtitle': 'Smart CLM Module & Interest Calculations',
         'releases.v230.details': '<ul><li><strong>Smart Contracts (Auto-Fill)</strong>: Automatic placeholder replacement using customer and sales order metadata.</li><li><strong>Recurring Schedule (12-60 months)</strong>: Automatic batch generation of future monthly transactions and slips in finance.</li><li><strong>Interest & Discount Adjustments</strong>: Automatic calculation of late payment fees or early payment discounts on transaction settlements.</li><li><strong>Batch Reconciliation</strong>: Safe simulated bank return processing for active subscription slips.</li><li><strong>ESG Green Balance</strong>: Ecological reporting calculating CO2 footprint based on income statement expenses.</li></ul>',
@@ -376,6 +382,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'releases.eyebrow': 'Historial de Innovaciones',
         'releases.title': 'Releases y Funcionalidades',
         'releases.subtitle': 'Siga la evolucion continua de la plataforma Aegis ERP/CRM.',
+        'releases.v240.title': 'Gobernanza Corporativa, Conformidad Legal Total y Motor Probatorio',
+        'releases.v240.subtitle': 'Regulaciones BACEN y CVM, Módulo Jurídico CPC 25, Firmas Digitales SHA-256 y Segregación por Entidad',
+        'releases.v240.details': '<ul><li><strong>Módulo Jurídico y Contencioso (CPC 25 / IAS 37)</strong>: Matriz de litigios con provisión financiera automática en el estado de resultados para pérdidas probables.</li><li><strong>Toma de Decisiones y Firmas SHA-256 en PDF</strong>: Informes de auditoría en PDF con sello oficial y bloque de firmas ejecutivas para fiscalizaciones (TCU, TCE, CVM, BACEN).</li><li><strong>Plan Director de TIC (PDTIC IN 94/22 y COBIT 2019)</strong>: Alineación de objetivos de TI, presupuesto del comité CGTIC y control de activos ITAM.</li><li><strong>Gobernanza S/A y Alçadas (Ley 6.404/76 y CVM 80/22)</strong>: Libro digital de actas de Consejo y Asambleas con matriz de delegación de autoridad.</li><li><strong>Balance Verde ESG y Compensación (CVM 59/21)</strong>: Inventario GHG Protocol Alcances 1, 2 y 3 con compensación activa de carbono vía Pix.</li><li><strong>GCN BIA / DRP (ISO 22301 y BACEN 4.893/21)</strong>: Análisis de impacto operativo (RTO/RPO) y plan de contingencia cibernética.</li><li><strong>Motor de Segregación por Tamaño y Entidad</strong>: Adaptación dinámica para empresas privadas, entidades públicas y estatales con exenciones legales para PyMEs.</li><li><strong>Gestión de Personal eSocial 2026 y SST</strong>: Control de asistencia REP-P (MTP 671/21), recibos de sueldo digitales en PDF y auditoría de SST.</li></ul>',
         'releases.v230.title': 'Facturación Recurrente y Contratos',
         'releases.v230.subtitle': 'Módulo de CLM Inteligente y Mora Contable',
         'releases.v230.details': '<ul><li><strong>Contratos Inteligentes (Auto-Fill)</strong>: Relleno automático de marcadores con datos de clientes y pedidos.</li><li><strong>Cronograma Recurrente (12-60 meses)</strong>: Generación automática de cuotas mensuales futuras en el módulo financiero.</li><li><strong>Cálculos de Mora y Descuento</strong>: Cálculo automático de multas y recargos por retraso o descuentos por pago anticipado.</li><li><strong>Conciliación Bancaria</strong>: Simulador seguro para el procesamiento de archivos de retorno bancario.</li><li><strong>Balance Verde ESG Contable</strong>: Informe ecológico que estima la huella de carbono según gastos de la DRE.</li></ul>',
@@ -669,39 +678,43 @@ document.addEventListener('DOMContentLoaded', () => {
       cfSubmit.classList.add('loading');
       cfFeedback.hidden = true;
 
-      // Obter token do reCAPTCHA Enterprise
-      let recaptchaToken = '';
-      try {
-        if (typeof grecaptcha !== 'undefined' && grecaptcha.enterprise) {
-          recaptchaToken = await new Promise((resolve) => {
-            grecaptcha.enterprise.ready(async () => {
-              try {
-                const t = await grecaptcha.enterprise.execute('6LeU1CotAAAAALBtE-6Pa9ZXFh2mLJwKxQpVNCHD', { action: 'CONTACT' });
-                resolve(t);
-              } catch (err) {
-                console.warn('reCAPTCHA Enterprise execution error:', err);
-                resolve('');
-              }
+      // Obter tokens do reCAPTCHA Enterprise
+      const getRecaptchaToken = async () => {
+        try {
+          if (typeof grecaptcha !== 'undefined' && grecaptcha.enterprise) {
+            return await new Promise((resolve) => {
+              grecaptcha.enterprise.ready(async () => {
+                try {
+                  const t = await grecaptcha.enterprise.execute('6LeU1CotAAAAALBtE-6Pa9ZXFh2mLJwKxQpVNCHD', { action: 'CONTACT' });
+                  resolve(t);
+                } catch (err) {
+                  console.warn('reCAPTCHA Enterprise execution error:', err);
+                  resolve('');
+                }
+              });
             });
-          });
+          }
+        } catch (err) {
+          console.warn('reCAPTCHA Enterprise error:', err);
         }
-      } catch (err) {
-        console.warn('reCAPTCHA Enterprise error:', err);
-      }
+        return '';
+      };
 
-      const data = {
+      const baseData = {
         name: contactForm.querySelector('[name="name"]').value.trim(),
         email: contactForm.querySelector('[name="email"]').value.trim(),
         subject: contactForm.querySelector('[name="subject"]').value.trim(),
         message: contactForm.querySelector('[name="message"]').value.trim(),
-        'g-recaptcha-response': recaptchaToken,
       };
 
       try {
-        const res = await fetch('https://formsubmit.co/ajax/aegissolucoesis@gmail.com', {
+        const recaptchaToken = await getRecaptchaToken();
+        const payload = { ...baseData, 'g-recaptcha-response': recaptchaToken };
+
+        const res = await fetch('https://us-central1-site-aegis-solucoes-1416-a6b2d.cloudfunctions.net/sendContactEmail', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(data),
+          body: JSON.stringify(payload),
         });
 
         if (res.ok) {
