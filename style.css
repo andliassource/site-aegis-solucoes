@@ -1198,7 +1198,7 @@ h1 span {
 
 .plans-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.75rem;
   margin-top: 3rem;
 }
@@ -1225,6 +1225,20 @@ h1 span {
   border: 2px solid var(--brand);
   background: linear-gradient(165deg, rgba(21, 47, 85, 0.95), rgba(13, 29, 56, 0.95));
   box-shadow: 0 16px 48px rgba(45, 212, 191, 0.15);
+}
+
+.plan-card--free {
+  border-color: rgba(34, 197, 94, 0.4);
+  background: linear-gradient(165deg, rgba(15, 40, 25, 0.9), rgba(10, 28, 18, 0.9));
+}
+
+.plan-card--free:hover {
+  border-color: rgba(34, 197, 94, 0.7);
+  box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15);
+}
+
+.plan-card--free .price {
+  color: #22c55e;
 }
 
 .plan-badge {
@@ -1433,6 +1447,13 @@ h1 span {
 
 /* Responsividade de checkout */
 @media (max-width: 768px) {
+  .plans-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 520px) {
   .plans-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;

@@ -129,7 +129,15 @@ document.addEventListener('DOMContentLoaded', () => {
         'contact.error': 'Algo deu errado. Verifique sua conexao e tente novamente.',
         'plans.eyebrow': 'Planos e Preços',
         'plans.title': 'Escolha o plano ideal para sua empresa',
-        'plans.subtitle': 'Sem taxa de adesão, sem licença gratuita e sem fidelidade. Cancele ou pause quando desejar.',
+        'plans.subtitle': 'Sem taxa de adesão, sem fidelidade. Cancele ou pause quando desejar.',
+        'plan.free.name': 'Gratuito PJ',
+        'plan.free.period': '/sempre grátis',
+        'plan.free.desc': 'Para validar sua operação. Sem cartão de crédito.',
+        'plan.free.f1': 'Dashboard + Clientes + Contatos',
+        'plan.free.f2': 'Tarefas e Notificações',
+        'plan.free.f3': 'Até 3 usuários',
+        'plan.free.f4': 'Suporte via comunidade',
+        'plan.free.cta': 'Começar Grátis',
         'plan.basic.name': 'Básico',
         'plan.basic.desc': 'Para pequenas empresas e equipes comerciais de até 25 usuários.',
         'plan.basic.f1': 'Módulos Core + CRM Básico',
@@ -307,7 +315,15 @@ document.addEventListener('DOMContentLoaded', () => {
         'contact.error': 'Something went wrong. Please check your connection and try again.',
         'plans.eyebrow': 'Plans & Pricing',
         'plans.title': 'Choose the ideal plan for your company',
-        'plans.subtitle': 'No setup fee, no free license, and no lock-in. Cancel or pause whenever you wish.',
+        'plans.subtitle': 'No setup fee, no lock-in. Cancel or pause whenever you wish.',
+        'plan.free.name': 'Free PJ',
+        'plan.free.period': '/always free',
+        'plan.free.desc': 'To validate your operation. No credit card required.',
+        'plan.free.f1': 'Dashboard + Clients + Contacts',
+        'plan.free.f2': 'Tasks and Notifications',
+        'plan.free.f3': 'Up to 3 users',
+        'plan.free.f4': 'Community support',
+        'plan.free.cta': 'Start Free',
         'plan.basic.name': 'Basic',
         'plan.basic.desc': 'For small businesses and sales teams up to 25 users.',
         'plan.basic.f1': 'Core + Basic CRM Modules',
@@ -485,7 +501,15 @@ document.addEventListener('DOMContentLoaded', () => {
         'contact.error': 'Algo salio mal. Verifica tu conexion e intenta de nuevo.',
         'plans.eyebrow': 'Planes y Precios',
         'plans.title': 'Elija el plan ideal para su empresa',
-        'plans.subtitle': 'Sin cuota de alta, sin licencia gratuita y sin fidelidad. Cancele o pause cuando lo desee.',
+        'plans.subtitle': 'Sin cuota de alta, sin fidelidad. Cancele o pause cuando lo desee.',
+        'plan.free.name': 'Gratuito PJ',
+        'plan.free.period': '/siempre gratis',
+        'plan.free.desc': 'Para validar su operación. Sin tarjeta de crédito.',
+        'plan.free.f1': 'Dashboard + Clientes + Contactos',
+        'plan.free.f2': 'Tareas y Notificaciones',
+        'plan.free.f3': 'Hasta 3 usuarios',
+        'plan.free.f4': 'Soporte vía comunidad',
+        'plan.free.cta': 'Comenzar Gratis',
         'plan.basic.name': 'Básico',
         'plan.basic.desc': 'Para pequeñas empresas y equipos comerciales de hasta 25 usuarios.',
         'plan.basic.f1': 'Módulos Core + CRM Básico',
@@ -785,6 +809,12 @@ document.addEventListener('DOMContentLoaded', () => {
     selectedPlan = plan;
     checkoutModal.style.display = 'block';
     checkoutModal.setAttribute('aria-hidden', 'false');
+    // Ajusta o botão de avanço conforme o plano
+    if (btnNextToPayment) {
+      btnNextToPayment.textContent = plan === 'free_pj'
+        ? 'Criar Minha Conta Gratuita'
+        : (translations[localStorage.getItem('aegis-lang') || 'pt']?.text?.['checkout.next'] || 'Prosseguir para o Pagamento');
+    }
     showStep(stepInfo);
   };
 
@@ -903,6 +933,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!validarCNPJ(cnpjLimpo)) {
         alert('O CNPJ informado é inválido. Por favor, verifique os dados digitados.');
+        return;
+      }
+
+      // Plano free_pj: pula pagamento e provisiona direto
+      if (selectedPlan === 'free_pj') {
+        executeProvisioning('GRATUITO');
         return;
       }
 
