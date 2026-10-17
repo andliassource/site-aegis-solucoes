@@ -337,6 +337,28 @@
         </div>
 
         <div class="timeline">
+          <!-- v2.5.0 -->
+          <div class="timeline-item">
+            <div class="timeline-badge"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">v2.5.0 - 17/10/2026 (Versão Atual)</div>
+              <h3 class="timeline-title" data-i18n="releases.v250.title">Escala Nacional, IA Multi-Provedor, Open Finance, Supply Chain & Multi-Company</h3>
+              <p class="timeline-subtitle" data-i18n="releases.v250.subtitle">Failover em Cascata (Gemini → Claude → OpenAI), Pix EMV Bacen (CRC16), Ponto de Pedido ROP & Curva ABC, Câmbio PTAX, Auditoria SOX Benford e Holding Intercompany (IFRS 10 / CPC 36)</p>
+              <div class="timeline-details" data-i18n-html="releases.v250.details">
+                <ul>
+                  <li><strong>IA Corporativa Multi-Provedor & Failover</strong>: Mecanismo de alta disponibilidade com chaveamento automático (Gemini → Claude 3.5 Sonnet → OpenAI GPT-4o-mini) para contingência ininterrupta do RAG multi-tenant.</li>
+                  <li><strong>Open Finance & Cobrança Pix Bacen (BR Code)</strong>: Conectores bancários (Itaú, Inter, Cora, Pluggy), geração de QR Code Pix padrão EMV QRCPS com CRC16-CCITT (0x1021) e conciliação bancária inteligente com scoring.</li>
+                  <li><strong>Hub de Dados Abertos Governamentais</strong>: Consultas automáticas de CEP com failover (ViaCEP/BrasilAPI), CNPJ na Receita Federal e cotações PTAX do Banco Central (USD, EUR, SELIC e IPCA).</li>
+                  <li><strong>Supply Chain & Gestão Inteligente de Estoque</strong>: Ponto de Pedido Automático (ROP com 95%+ confiança), Curva ABC de Pareto, valoração CMP/FIFO/LIFO, ranking multicritério de cotações e Lote Econômico de Compra (EOQ).</li>
+                  <li><strong>Multi-Moeda & Câmbio Internacional</strong>: Conversões diretas e trianguladas entre moedas globais (BRL, USD, EUR, GBP, ARS, CLP, MXN) com cotações oficiais PTAX, spread cambial e formatação internacional Intl.</li>
+                  <li><strong>Auditoria Automática SOX & Fraude Contábil</strong>: Detecção de anomalias com Lei de Benford (χ²), trilha imutável por Hash Chaining (SHA-256) padrão SOX/ISO 27001 e detecção estatística de despesas atípicas (Z-score ≥ 2.5).</li>
+                  <li><strong>Multi-Company Nativo & Consolidação Intercompany (IFRS 10 / CPC 36)</strong>: Gestão corporativa de holding e filiais, consolidação contábil de DREs com expurgo de transações internas e rateio corporativo (Shared Services).</li>
+                  <li><strong>Webhooks Resilientes com DLQ & SDK Oficial</strong>: Eventos padronizados CloudEvents 1.0 com assinatura HMAC SHA-256 à prova de timing attacks, retry exponencial e pacote oficial @aegis/sdk para desenvolvedores.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           <!-- v2.4.0 -->
           <div class="timeline-item">
             <div class="timeline-badge"></div>
