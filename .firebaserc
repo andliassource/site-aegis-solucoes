@@ -1,5 +1,7 @@
 {
-  "projects": {},
+  "projects": {
+    "default": "site-aegis-solucoes-1416-a6b2d"
+  },
   "targets": {
     "site-aegis-solucoes-1416-a6b2d": {
       "hosting": {
