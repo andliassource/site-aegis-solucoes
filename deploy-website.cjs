@@ -23,6 +23,10 @@ const IGNORE_FILES = new Set([
   'deploy.bat',
   'deploy-website.cjs',
   'README.md',
+  'check-domains.cjs',
+  'test-jsdom.cjs',
+  'test-live.cjs',
+  'test-site-render.cjs',
 ]);
 
 function getGzippedFile(filePath) {

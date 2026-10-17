@@ -608,7 +608,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
-      const value = bundle.text[key];
+      const value = bundle && bundle.text ? bundle.text[key] : undefined;
       if (typeof value === 'string') {
         el.textContent = value;
       }
@@ -616,7 +616,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('[data-i18n-html]').forEach((el) => {
       const key = el.getAttribute('data-i18n-html');
-      const value = bundle.text[key];
+      const value = bundle && bundle.text ? bundle.text[key] : undefined;
       if (typeof value === 'string') {
         el.innerHTML = value;
       }
@@ -624,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
       const key = el.getAttribute('data-i18n-placeholder');
-      const value = bundle.text[key];
+      const value = bundle && bundle.text ? bundle.text[key] : undefined;
       if (typeof value === 'string') {
         el.placeholder = value;
       }
@@ -674,23 +674,57 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const revealElements = document.querySelectorAll('.reveal');
+  const makeVisible = (el) => {
+    if (el) el.classList.add('is-visible');
+  };
+
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            makeVisible(entry.target);
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.05, rootMargin: '100px 0px 100px 0px' }
     );
 
     revealElements.forEach((el) => observer.observe(el));
   } else {
-    revealElements.forEach((el) => el.classList.add('is-visible'));
+    revealElements.forEach(makeVisible);
   }
+
+  // Se houver âncora direta na URL (ex: #releases), exibir imediatamente
+  if (window.location.hash) {
+    try {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        makeVisible(target);
+      }
+    } catch (_e) {}
+  }
+
+  // Ao clicar em links de navegação para âncoras, exibir o alvo imediatamente
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', () => {
+      const href = anchor.getAttribute('href');
+      if (href && href.length > 1) {
+        try {
+          const target = document.querySelector(href);
+          if (target) {
+            makeVisible(target);
+          }
+        } catch (_e) {}
+      }
+    });
+  });
+
+  // Salvaguarda: após 1.2s garante que todos os elementos estejam 100% visíveis
+  setTimeout(() => {
+    revealElements.forEach(makeVisible);
+  }, 1200);
 
   // ── Contact form ────────────────────────────────────────────────
   const contactForm = document.getElementById('contactForm');
