@@ -238,7 +238,7 @@
         </div>
 
         <div class="plans-grid">
-          <!-- Gratuito PJ -->
+          <!-- 1. Gratuito PJ -->
           <article class="plan-card plan-card--free">
             <div class="plan-header">
               <h3 data-i18n="plan.free.name">Gratuito PJ</h3>
@@ -254,40 +254,88 @@
             <button class="btn solid lg buy-btn" data-plan="free_pj" data-i18n="plan.free.cta" style="background: var(--success, #22c55e); border-color: var(--success, #22c55e);">Começar Grátis</button>
           </article>
 
-          <!-- Básico -->
+          <!-- 2. Starter PME -->
+          <article class="plan-card">
+            <div class="plan-header">
+              <h3 data-i18n="plan.starter.name">Starter PME</h3>
+              <p class="price">R$ 99 <span>/usuário/mês</span></p>
+              <p class="desc" data-i18n="plan.starter.desc">Para micro e pequenas empresas organizando processos internos.</p>
+            </div>
+            <ul class="plan-features">
+              <li data-i18n="plan.starter.f1">CRM + Despesas + Produtos</li>
+              <li data-i18n="plan.starter.f2">Documentos e manuais técnicos</li>
+              <li data-i18n="plan.starter.f3">Até 10 usuários cadastrados</li>
+              <li data-i18n="plan.starter.f4">Suporte via Email em até 24h</li>
+            </ul>
+            <button class="btn ghost lg buy-btn" data-plan="starter_pme" data-i18n="plan.buy">Contratar plano</button>
+          </article>
+
+          <!-- 3. Básico -->
           <article class="plan-card">
             <div class="plan-header">
               <h3 data-i18n="plan.basic.name">Básico</h3>
               <p class="price">R$ 199 <span>/usuário/mês</span></p>
-              <p class="desc" data-i18n="plan.basic.desc">Para pequenas empresas e equipes comerciais de até 25 usuários.</p>
+              <p class="desc" data-i18n="plan.basic.desc">Para operações comerciais com estoque e gestão financeira integrada.</p>
             </div>
             <ul class="plan-features">
-              <li data-i18n="plan.basic.f1">Módulos Core + CRM Básico</li>
-              <li data-i18n="plan.basic.f2">Até 25 usuários cadastrados</li>
-              <li data-i18n="plan.basic.f3">Suporte por Email e Chat</li>
-              <li data-i18n="plan.basic.f4">Backup diário automático</li>
+              <li data-i18n="plan.basic.f1">Módulos Core + Financeiro + Estoque</li>
+              <li data-i18n="plan.basic.f2">Gestão de Pedidos e Projetos</li>
+              <li data-i18n="plan.basic.f3">Até 25 usuários cadastrados</li>
+              <li data-i18n="plan.basic.f4">Suporte por Email e Chat Comercial</li>
             </ul>
             <button class="btn ghost lg buy-btn" data-plan="basic" data-i18n="plan.buy">Contratar plano</button>
           </article>
 
-          <!-- Premium -->
+          <!-- 4. Growth & Expansão -->
+          <article class="plan-card">
+            <div class="plan-header">
+              <h3 data-i18n="plan.growth.name">Growth & Expansão</h3>
+              <p class="price">R$ 299 <span>/usuário/mês</span></p>
+              <p class="desc" data-i18n="plan.growth.desc">Para empresas acelerando vendas com emissão fiscal e pipeline.</p>
+            </div>
+            <ul class="plan-features">
+              <li data-i18n="plan.growth.f1">Pipeline de Vendas + Oportunidades</li>
+              <li data-i18n="plan.growth.f2">Emissão e Gestão Fiscal (NF-e/NFS-e)</li>
+              <li data-i18n="plan.growth.f3">Até 50 usuários cadastrados</li>
+              <li data-i18n="plan.growth.f4">Chat prioritário e Relatórios Executivos</li>
+            </ul>
+            <button class="btn ghost lg buy-btn" data-plan="growth" data-i18n="plan.buy">Contratar plano</button>
+          </article>
+
+          <!-- 5. Premium -->
           <article class="plan-card featured">
             <div class="plan-badge" data-i18n="plan.featured">Mais Popular</div>
             <div class="plan-header">
               <h3 data-i18n="plan.premium.name">Premium</h3>
               <p class="price">R$ 399 <span>/usuário/mês</span></p>
-              <p class="desc" data-i18n="plan.premium.desc">Para médias empresas em crescimento de até 100 usuários.</p>
+              <p class="desc" data-i18n="plan.premium.desc">Para médias empresas com Open Banking, Contabilidade e RH.</p>
             </div>
             <ul class="plan-features">
-              <li data-i18n="plan.premium.f1">Módulos Financeiro + Fiscal + CRM</li>
-              <li data-i18n="plan.premium.f2">Até 100 usuários cadastrados</li>
-              <li data-i18n="plan.premium.f3">Suporte por Telefone e Chat</li>
-              <li data-i18n="plan.premium.f4">Multi-tenant e White label</li>
+              <li data-i18n="plan.premium.f1">Open Banking + DRE + Contabilidade</li>
+              <li data-i18n="plan.premium.f2">Gestão de RH, Ponto e Folha</li>
+              <li data-i18n="plan.premium.f3">Até 100 usuários cadastrados</li>
+              <li data-i18n="plan.premium.f4">Suporte por Telefone e Chat 12x5</li>
             </ul>
             <button class="btn solid lg buy-btn" data-plan="premium" data-i18n="plan.buy">Contratar plano</button>
           </article>
 
-          <!-- Enterprise -->
+          <!-- 6. GRC & Compliance -->
+          <article class="plan-card">
+            <div class="plan-header">
+              <h3 data-i18n="plan.grc.name">GRC & Compliance</h3>
+              <p class="price">R$ 599 <span>/usuário/mês</span></p>
+              <p class="desc" data-i18n="plan.grc.desc">Matriz de riscos ISO 31000, auditoria e gestão de contratos.</p>
+            </div>
+            <ul class="plan-features">
+              <li data-i18n="plan.grc.f1">Matriz de Riscos Corporativos + Auditoria</li>
+              <li data-i18n="plan.grc.f2">Ciclo de Vida de Contratos (CLM) + SLA</li>
+              <li data-i18n="plan.grc.f3">Até 250 usuários cadastrados</li>
+              <li data-i18n="plan.grc.f4">Gerente de Contas Dedicado</li>
+            </ul>
+            <button class="btn ghost lg buy-btn" data-plan="corporate_grc" data-i18n="plan.buy">Contratar plano</button>
+          </article>
+
+          <!-- 7. Enterprise -->
           <article class="plan-card">
             <div class="plan-header">
               <h3 data-i18n="plan.enterprise.name">Enterprise</h3>
@@ -298,9 +346,25 @@
               <li data-i18n="plan.enterprise.f1">Todos os 40+ módulos integrados</li>
               <li data-i18n="plan.enterprise.f2">Usuários cadastrados Ilimitados</li>
               <li data-i18n="plan.enterprise.f3">Suporte Premium 24x7 e SLA 99.9%</li>
-              <li data-i18n="plan.enterprise.f4">Consultor dedicado e IA customizada</li>
+              <li data-i18n="plan.enterprise.f4">Barramento de Integrações e API Total</li>
             </ul>
             <button class="btn ghost lg buy-btn" data-plan="enterprise" data-i18n="plan.buy">Contratar plano</button>
+          </article>
+
+          <!-- 8. Setor Público & Regulados -->
+          <article class="plan-card">
+            <div class="plan-header">
+              <h3 data-i18n="plan.gov.name">Setor Público & Regulados</h3>
+              <p class="price">R$ 999 <span>/usuário/mês</span></p>
+              <p class="desc" data-i18n="plan.gov.desc">Auditoria probatória ICP-Brasil, LAI e conformidade estrita.</p>
+            </div>
+            <ul class="plan-features">
+              <li data-i18n="plan.gov.f1">Todos os 40+ módulos + LAI & Transparência</li>
+              <li data-i18n="plan.gov.f2">Usuários cadastrados Ilimitados</li>
+              <li data-i18n="plan.gov.f3">Suporte Mission-Critical 24x7 e SLA 99.99%</li>
+              <li data-i18n="plan.gov.f4">Adequação à Lei 14.133 e Trilha Probatória</li>
+            </ul>
+            <button class="btn ghost lg buy-btn" data-plan="gov_public" data-i18n="plan.buy">Contratar plano</button>
           </article>
         </div>
       </div>
