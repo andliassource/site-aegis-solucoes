@@ -403,11 +403,32 @@
         </div>
 
         <div class="timeline">
+          <!-- v2.5.1 -->
+          <div class="timeline-item">
+            <div class="timeline-badge"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">v2.5.1 - 22/10/2026 (Versão Atual)</div>
+              <h3 class="timeline-title" data-i18n="releases.v251.title">Blindagem GovTech, Nova Lei de Licitações (14.133), Precatórios CF/88, LRF, Suprimento de Fundos & Guardrails Google Cloud Agentic AI</h3>
+              <p class="timeline-subtitle" data-i18n="releases.v251.subtitle">Segregação Nativa PJ vs. Setor Público, Conformidade Regulatória Total (STN, LRF, TCE/TCU) e Proteção Ativa contra Ciberataques a Agentes de IA</p>
+              <div class="timeline-details" data-i18n-html="releases.v251.details">
+                <ul>
+                  <li><strong>Arquitetura Multi-Tenant GovTech & PJ</strong>: Segregação automática de regras de negócio, telas e terminologia entre empresas privadas e órgãos governamentais (Prefeituras, Câmaras e Autarquias).</li>
+                  <li><strong>Compras Públicas & Licitações (Lei 14.133/2021)</strong>: Módulo de Compras Públicas com Documento de Formalização de Demanda (DFD), Estudo Técnico Preliminar (ETP), gestão de Editais e Homologação de Fornecedores.</li>
+                  <li><strong>Procuradoria Jurídica Pública & Precatórios (CF/88 Art. 100)</strong>: Gestão de Precatórios Judiciais alimentares e comuns, controle de RPVs municipais com prazo de 60 dias e Execuções Fiscais de Dívida Ativa com exportação de laudo em PDF.</li>
+                  <li><strong>Metas Fiscais & Lei de Responsabilidade Fiscal (LRF)</strong>: Acompanhamento em tempo real dos limites de despesa com pessoal do Poder Executivo (limite de alerta 48,6%, prudencial 51,3% e máximo 54% da RCL - Art. 20 da LRF).</li>
+                  <li><strong>Suprimento de Fundos & Diárias Oficiais (Lei 4.320/64)</strong>: Gestão de regime de adiantamento para despesas de pequeno vulto e diárias de servidores com geração do demonstrativo de prestação de contas para órgãos de controle interno e TCE/TCU.</li>
+                  <li><strong>Conformidade com as Diretrizes do Google Cloud (Agentic AI SST Outubro/2026)</strong>: Implementação de guardrails de cibersegurança com bloqueio de Prompt Injection (OWASP LLM01), Gatekeeper Human-in-the-Loop (HITL), sanitização de dados PII (LGPD) e mitigação de Denial of Wallet.</li>
+                  <li><strong>Resiliência Offline Reforçada (PWA & IndexedDB)</strong>: Operação contínua e enfileiramento seguro de lançamentos mesmo em áreas remotas ou com internet intermitente.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           <!-- v2.5.0 -->
           <div class="timeline-item">
             <div class="timeline-badge"></div>
             <div class="timeline-content">
-              <div class="timeline-date">v2.5.0 - 17/10/2026 (Versão Atual)</div>
+              <div class="timeline-date">v2.5.0 - 17/10/2026</div>
               <h3 class="timeline-title" data-i18n="releases.v250.title">Escala Nacional, IA Multi-Provedor, EVM Curva S, Workflow de Aprovações, Supply Chain & Multi-Company</h3>
               <p class="timeline-subtitle" data-i18n="releases.v250.subtitle">Failover em Cascata (Gemini → Claude → OpenAI), Pix EMV Bacen (CRC16), Análise de Valor Agregado EVM & Curva S (PMI), Workflow Multinível com SoD, Câmbio PTAX e Holding Intercompany</p>
               <div class="timeline-details" data-i18n-html="releases.v250.details">
@@ -631,13 +652,22 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label for="ck-cpfcnpj" data-i18n="checkout.labelCpfCnpj">CNPJ da Empresa</label>
+              <label for="ck-cpfcnpj" data-i18n="checkout.labelCpfCnpj">CNPJ da Empresa ou Órgão</label>
               <input id="ck-cpfcnpj" name="cpfcnpj" type="text" required placeholder="00.000.000/0001-00">
             </div>
             <div class="form-group">
-              <label for="ck-company" data-i18n="checkout.labelCompany">Nome da Empresa</label>
-              <input id="ck-company" name="company" type="text" required placeholder="Minha Empresa S/A">
+              <label for="ck-company" data-i18n="checkout.labelCompany">Nome da Empresa / Órgão</label>
+              <input id="ck-company" name="company" type="text" required placeholder="Minha Empresa S/A ou Prefeitura">
             </div>
+          </div>
+
+          <div class="form-group" style="margin-top: 15px;">
+            <label for="ck-orgtype">Tipo de Organização / Enquadramento</label>
+            <select id="ck-orgtype" name="orgtype" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-size: 14px;">
+              <option value="private" style="background: #1a1a24; color: #fff;">🏢 Empresa Privada (PJ Comercial, Serviços ou Indústria)</option>
+              <option value="public" style="background: #1a1a24; color: #fff;">🏛️ Órgão Público / Governo (Prefeitura, Autarquia, Câmara — LRF & Lei 14.133)</option>
+              <option value="hybrid" style="background: #1a1a24; color: #fff;">⚖️ Sociedade de Economia Mista (Estatal / Capital Misto — Lei 13.303/16)</option>
+            </select>
           </div>
 
           <div class="form-group" style="margin-top: 15px;">

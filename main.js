@@ -852,6 +852,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputPassword = document.getElementById('ck-password');
   const inputCpfCnpj = document.getElementById('ck-cpfcnpj');
   const inputCompany = document.getElementById('ck-company');
+  const inputOrgType = document.getElementById('ck-orgtype');
   const inputSubdomain = document.getElementById('ck-domain');
 
   // Card fields
@@ -1049,6 +1050,7 @@ document.addEventListener('DOMContentLoaded', () => {
       planId: selectedPlan,
       password: inputPassword.value.trim(),
       customerCpfCnpj: inputCpfCnpj.value.trim(),
+      tenantType: inputOrgType ? inputOrgType.value : 'private',
       paymentMethod: paymentMethodName,
       recaptchaToken: recaptchaToken
     };
