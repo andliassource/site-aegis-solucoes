@@ -860,6 +860,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputCardNumber = document.getElementById('card-number');
   const inputCardExpiry = document.getElementById('card-expiry');
   const inputCardCvv = document.getElementById('card-cvv');
+  const cardErrorContainer = document.getElementById('card-payment-error');
+  const btnStripeHostedCheckout = document.getElementById('btnStripeHostedCheckout');
+
+  // Stripe Client Configuration
+  const STRIPE_PK = 'pk_test_51Tm18REJAlBYqlkBz4i3yaReO2B0juEcWIxGBMDoZ6jAMROFAl0qzrByKvNxyLHmcasp4aBJRrO0PGOcBX5lvY8D00aTtYZWlq';
+  const stripeClient = (typeof Stripe !== 'undefined') ? Stripe(STRIPE_PK) : null;
 
   // Success fields
   const successUrl = document.getElementById('success-url');
@@ -975,7 +981,31 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (value.length > 2) {
         value = value.replace(/^(\d{2})(\d{0,3})$/, "$1.$2");
       }
+    });
+  }
+
+  // Máscaras para dados do Cartão de Crédito
+  if (inputCardNumber) {
+    inputCardNumber.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, '').slice(0, 16);
+      value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
       e.target.value = value;
+    });
+  }
+
+  if (inputCardExpiry) {
+    inputCardExpiry.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, '').slice(0, 4);
+      if (value.length >= 3) {
+        value = value.slice(0, 2) + '/' + value.slice(2);
+      }
+      e.target.value = value;
+    });
+  }
+
+  if (inputCardCvv) {
+    inputCardCvv.addEventListener('input', (e) => {
+      e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
     });
   }
 
@@ -1015,7 +1045,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Execute provisioning via Cloud Functions
-  const executeProvisioning = async (paymentMethodName) => {
+  const executeProvisioning = async (paymentMethodName, extraData = {}) => {
+    if (cardErrorContainer) {
+      cardErrorContainer.style.display = 'none';
+      cardErrorContainer.textContent = '';
+    }
     showStep(stepProcessing);
 
     // Obter token do reCAPTCHA Enterprise
@@ -1052,7 +1086,8 @@ document.addEventListener('DOMContentLoaded', () => {
       customerCpfCnpj: inputCpfCnpj.value.trim(),
       tenantType: inputOrgType ? inputOrgType.value : 'private',
       paymentMethod: paymentMethodName,
-      recaptchaToken: recaptchaToken
+      recaptchaToken: recaptchaToken,
+      ...extraData,
     };
 
     try {
@@ -1082,7 +1117,12 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error(result.error || 'Falha no provisionamento.');
       }
     } catch (err) {
-      alert(`Erro ao criar ambiente: ${err.message}`);
+      if (cardErrorContainer && paymentMethodName === 'CARTÃO DE CRÉDITO') {
+        cardErrorContainer.textContent = `❌ ${err.message}`;
+        cardErrorContainer.style.display = 'block';
+      } else {
+        alert(`Erro ao criar ambiente: ${err.message}`);
+      }
       showStep(stepPayment);
     }
   };
@@ -1094,8 +1134,121 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (btnConfirmCardPayment) {
-    btnConfirmCardPayment.addEventListener('click', () => {
-      executeProvisioning('CARTÃO DE CRÉDITO');
+    btnConfirmCardPayment.addEventListener('click', async () => {
+      if (!inputCardHolder.value.trim() || !inputCardNumber.value.trim() || !inputCardExpiry.value.trim() || !inputCardCvv.value.trim()) {
+        if (cardErrorContainer) {
+          cardErrorContainer.textContent = '❌ Por favor, preencha todos os campos do cartão de crédito.';
+          cardErrorContainer.style.display = 'block';
+        } else {
+          alert('Por favor, preencha todos os campos do cartão de crédito.');
+        }
+        return;
+      }
+
+      if (cardErrorContainer) cardErrorContainer.style.display = 'none';
+
+      const cleanNumber = inputCardNumber.value.replace(/\s+/g, '');
+      const expiryParts = inputCardExpiry.value.split(/[\/\-]/);
+      const expMonth = parseInt(expiryParts[0]?.trim() || "0", 10);
+      let expYear = parseInt(expiryParts[1]?.trim() || "0", 10);
+      if (expYear < 100) expYear += 2000;
+
+      // Se temos o cliente Stripe carregado no browser, criamos o token oficial seguro
+      if (stripeClient) {
+        btnConfirmCardPayment.disabled = true;
+        const originalText = btnConfirmCardPayment.textContent;
+        btnConfirmCardPayment.textContent = 'Validando Cartão com a Operadora...';
+
+        try {
+          const tokenRes = await stripeClient.createToken('card', {
+            name: inputCardHolder.value.trim(),
+            number: cleanNumber,
+            exp_month: expMonth,
+            exp_year: expYear,
+            cvc: inputCardCvv.value.trim()
+          });
+
+          if (tokenRes.error) {
+            btnConfirmCardPayment.disabled = false;
+            btnConfirmCardPayment.textContent = originalText;
+            if (cardErrorContainer) {
+              cardErrorContainer.textContent = `❌ ${tokenRes.error.message}`;
+              cardErrorContainer.style.display = 'block';
+            } else {
+              alert(tokenRes.error.message);
+            }
+            return;
+          }
+
+          btnConfirmCardPayment.disabled = false;
+          btnConfirmCardPayment.textContent = originalText;
+
+          executeProvisioning('CARTÃO DE CRÉDITO', {
+            stripeToken: tokenRes.token.id,
+            cardDetails: {
+              holder: inputCardHolder.value.trim(),
+              last4: tokenRes.token.card.last4,
+              brand: tokenRes.token.card.brand
+            }
+          });
+        } catch (cardTokenErr) {
+          btnConfirmCardPayment.disabled = false;
+          btnConfirmCardPayment.textContent = originalText;
+          if (cardErrorContainer) {
+            cardErrorContainer.textContent = `❌ Erro ao validar cartão: ${cardTokenErr.message}`;
+            cardErrorContainer.style.display = 'block';
+          }
+        }
+      } else {
+        // Fallback direto
+        executeProvisioning('CARTÃO DE CRÉDITO', {
+          cardDetails: {
+            name: inputCardHolder.value.trim(),
+            number: cleanNumber,
+            expiry: inputCardExpiry.value.trim(),
+            cvv: inputCardCvv.value.trim()
+          }
+        });
+      }
+    });
+  }
+
+  // Abertura do Checkout Hospedado Oficial do Stripe
+  if (btnStripeHostedCheckout) {
+    btnStripeHostedCheckout.addEventListener('click', async () => {
+      btnStripeHostedCheckout.disabled = true;
+      const originalText = btnStripeHostedCheckout.textContent;
+      btnStripeHostedCheckout.textContent = 'Gerando Checkout Stripe...';
+
+      const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      const checkoutSessionUrl = isLocal
+        ? 'http://localhost:9015/site-aegis-solucoes-1416-a6b2d/us-central1/createStripeCheckoutSession'
+        : 'https://us-central1-site-aegis-solucoes-1416-a6b2d.cloudfunctions.net/createStripeCheckoutSession';
+
+      try {
+        const res = await fetch(checkoutSessionUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            planId: selectedPlan,
+            email: inputEmail.value.trim(),
+            companyName: inputCompany.value.trim(),
+            customerCpfCnpj: inputCpfCnpj.value.trim(),
+            subdomain: inputSubdomain.value.trim(),
+          }),
+        });
+
+        const data = await res.json();
+        if (res.ok && data.ok && data.checkoutUrl) {
+          window.location.href = data.checkoutUrl;
+        } else {
+          throw new Error(data.error || 'Não foi possível gerar a sessão Stripe.');
+        }
+      } catch (err) {
+        alert(`Erro ao iniciar Stripe Checkout: ${err.message}`);
+        btnStripeHostedCheckout.disabled = false;
+        btnStripeHostedCheckout.textContent = originalText;
+      }
     });
   }
 
