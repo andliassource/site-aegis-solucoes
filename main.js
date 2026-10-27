@@ -1306,4 +1306,42 @@ document.addEventListener('DOMContentLoaded', () => {
       executeProvisioning(`CUPOM: ${activeCoupon}`);
     });
   }
+
+  // ---------------------------------------------------------------------------
+  // Tratamento de Retorno do Stripe Checkout (Sucesso / Cancelamento)
+  // ---------------------------------------------------------------------------
+  const urlParams = new URLSearchParams(window.location.search);
+  const checkoutSessionId = urlParams.get('checkout_session_id');
+  const checkoutCancelled = urlParams.get('checkout_cancelled');
+  const returnPlan = urlParams.get('plan') || 'basic';
+  const returnCompany = urlParams.get('company') || '';
+  const returnDomain = urlParams.get('domain') || (returnCompany ? returnCompany.toLowerCase().replace(/[^a-z0-9]/g, '-') : '');
+
+  if (checkoutSessionId) {
+    console.log('[Stripe Checkout] Retorno de pagamento aprovado detectado:', checkoutSessionId);
+    if (checkoutModal) {
+      checkoutModal.style.display = 'flex';
+      checkoutModal.setAttribute('aria-hidden', 'false');
+    }
+    if (stepInfo) stepInfo.style.display = 'none';
+    if (stepPayment) stepPayment.style.display = 'none';
+    if (stepSuccess) stepSuccess.style.display = 'block';
+
+    const loginUrl = `https://${returnDomain || 'app'}.aegissolucoes.dev.br`;
+    if (successUrl) {
+      successUrl.href = loginUrl;
+      successUrl.textContent = `${returnDomain || 'app'}.aegissolucoes.dev.br`;
+    }
+    if (successInvoice) {
+      successInvoice.textContent = `STRIPE-${checkoutSessionId.substring(checkoutSessionId.length - 8).toUpperCase()}`;
+    }
+
+    // Limpa a URL do navegador sem recarregar a página
+    window.history.replaceState({}, document.title, window.location.pathname);
+  } else if (checkoutCancelled) {
+    console.warn('[Stripe Checkout] Sessão cancelada pelo usuário na Stripe.');
+    alert('A sessão de pagamento no Stripe foi cancelada. Se desejar, você pode tentar novamente ou escolher outra forma de pagamento.');
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
 });
+
