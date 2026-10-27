@@ -839,8 +839,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const cardErrorContainer = document.getElementById('card-payment-error');
   const btnStripeHostedCheckout = document.getElementById('btnStripeHostedCheckout');
 
-  // Stripe Client Configuration
-  const STRIPE_PK = 'pk_test_51Tm18REJAlBYqlkBz4i3yaReO2B0juEcWIxGBMDoZ6jAMROFAl0qzrByKvNxyLHmcasp4aBJRrO0PGOcBX5lvY8D00aTtYZWlq';
+  // Stripe Client Configuration (Produção Oficial)
+  const STRIPE_PK = 'pk_live_51Tm18DE4EGU84ARRSlsgjgEKp7QQ5hs5dkLbYwRhu34tLXrWvBerKglqIWPyDsIaQ3cT0Rno2tq86br4WJoeheSv00g0eTyt7s';
   const stripeClient = (typeof Stripe !== 'undefined') ? Stripe(STRIPE_PK) : null;
 
   // Success fields
