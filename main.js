@@ -1004,6 +1004,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const ckTerms = document.getElementById('ck-terms');
+      if (ckTerms && !ckTerms.checked) {
+        alert('É necessário concordar com os Termos de Uso e o Contrato de Licença de Software (SaaS) para prosseguir.');
+        return;
+      }
+
       // Plano free_pj: pula pagamento e provisiona direto
       if (selectedPlan === 'free_pj') {
         executeProvisioning('GRATUITO');
