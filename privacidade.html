@@ -106,7 +106,7 @@
 
     <header class="legal-header">
       <h1>Política de Privacidade e Proteção de Dados (LGPD)</h1>
-      <p>Em vigor a partir de 27 de Outubro de 2026 | Versão 2.1 — Atualização Contínua em Conformidade com a Lei Federal nº 13.709/2018</p>
+      <p>Em vigor a partir de 28 de Outubro de 2026 | Versão 2.2 — Atualização Contínua em Conformidade com a Lei Federal nº 13.709/2018 e Diretrizes de Governança de IA do Google Cloud</p>
     </header>
 
     <main>
@@ -200,12 +200,25 @@
         <p>A Aegis Soluções não comercializa, aluga ou cede dados pessoais a terceiros. O compartilhamento ocorre exclusivamente com parceiros tecnológicos essenciais para a prestação do serviço:</p>
         <ul>
           <li><strong>Stripe Inc.:</strong> Processamento seguro de pagamentos e assinaturas com certificação internacional PCI-DSS Nível 1.</li>
-          <li><strong>Google Cloud Platform (GCP):</strong> Provedor de infraestrutura de nuvem, banco de dados (Firestore) e hospedagem de alta disponibilidade com certificações ISO 27001 e SOC 2.</li>
+          <li><strong>Google Cloud Platform (GCP):</strong> Provedor de infraestrutura de nuvem, banco de dados (Firestore), APIs de Inteligência Artificial corporativa (Vertex AI / Gemini Enterprise) e hospedagem de alta disponibilidade com certificações ISO 27001 e SOC 2.</li>
         </ul>
       </section>
 
       <section class="legal-section">
-        <h2>7. Canal de Contato com o Encarregado de Dados (DPO)</h2>
+        <h2>7. Tratamento de Dados por Recursos de Inteligência Artificial e Agentes Autônomos</h2>
+        <div class="legal-highlight">
+          <strong>Compromisso de Não-Treinamento e Isolamento (Google Cloud Enterprise Agreement):</strong>
+          <p>Todos os dados operacionais, fiscais, contábeis ou cadastrais submetidos aos recursos de Inteligência Artificial da Aegis (como Copilot, automações e agentes) são processados em instâncias corporativas privadas providas pela infraestrutura do Google Cloud. <strong>Seus dados empresariais e dados pessoais NÃO são utilizados para retreinar modelos fundacionais públicos do Google ou de quaisquer terceiros</strong>.</p>
+        </div>
+        <ul>
+          <li><strong>Sanitização Preventiva de Dados Sensíveis (PII):</strong> A plataforma conta com camada de guardrails agênticos que mascara proativamente dados como CPFs, chaves de acesso e credenciais antes do envio para modelos de linguagem.</li>
+          <li><strong>Controle de Ciclo de Vida e Sessão:</strong> Prompts e respostas agênticas não são indexados de forma pública e mantêm retenção restrita ao escopo temporal da sessão de trabalho ou arquivamento de auditoria interna da organização contratante.</li>
+          <li><strong>Supervisão Humana (Human-in-the-Loop):</strong> Operações críticas automatizadas por agentes exigem homologação de operadores humanos autorizados, prevenindo execuções automáticas indevidas ou não supervisionadas.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section">
+        <h2>8. Canal de Contato com o Encarregado de Dados (DPO)</h2>
         <p>Para exercer seus direitos de titular, tirar dúvidas sobre o tratamento de dados ou enviar notificações relacionadas à privacidade, entre em contato direto com o nosso Encarregado pelo Tratamento de Dados Pessoais (DPO):</p>
         <div class="legal-highlight">
           <p><strong>Encarregado pelo Tratamento de Dados (DPO):</strong> André Lucas de Morais</p>
@@ -216,7 +229,7 @@
       </section>
 
       <section class="legal-section">
-        <h2>8. Foro de Eleição</h2>
+        <h2>9. Foro de Eleição</h2>
         <p>Esta Política é regida pelas leis da República Federativa do Brasil, em especial pela Lei nº 13.709/2018 (LGPD) e Lei nº 12.965/2014 (Marco Civil da Internet). Fica eleito o Foro da Circunscrição Judiciária Especial de Brasília/DF para dirimir quaisquer controvérsias decorrentes deste documento.</p>
       </section>
     </main>
