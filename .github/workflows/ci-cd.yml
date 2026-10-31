@@ -1,0 +1,37 @@
+name: CI/CD Website Aegis
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validar Sintaxe & Integridade
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validar Sintaxe JavaScript
+        run: |
+          node -c main.js
+          echo "Sintaxe de main.js validada com sucesso!"
+
+      - name: Validar Arquivos Criticos
+        run: |
+          test -f index.html || { echo "index.html ausente"; exit 1; }
+          test -f style.css || { echo "style.css ausente"; exit 1; }
+          test -f firebase.json || { echo "firebase.json ausente"; exit 1; }
+          echo "Arquivos criticos validados com sucesso!"
