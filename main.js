@@ -1315,6 +1315,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkoutCancelled = urlParams.get('checkout_cancelled');
   const returnPlan = urlParams.get('plan') || 'basic';
   const returnCompany = urlParams.get('company') || '';
+  const returnEmail = urlParams.get('email') || '';
   const returnDomain = urlParams.get('domain') || (returnCompany ? returnCompany.toLowerCase().replace(/[^a-z0-9]/g, '-') : '');
 
   if (checkoutSessionId) {
@@ -1331,6 +1332,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (successUrl) {
       successUrl.href = loginUrl;
       successUrl.textContent = `${returnDomain || 'app'}.aegissolucoes.dev.br`;
+    }
+    if (successEmail) {
+      successEmail.textContent = returnEmail || 'O e-mail informado no checkout';
+    }
+    if (successPass) {
+      successPass.textContent = 'Enviamos o link de definição de senha para o seu e-mail.';
     }
     if (successInvoice) {
       successInvoice.textContent = `STRIPE-${checkoutSessionId.substring(checkoutSessionId.length - 8).toUpperCase()}`;
