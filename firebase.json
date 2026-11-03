@@ -6,12 +6,28 @@
       "firebase.json",
       ".firebaserc",
       "**/.*",
+      "!**/.well-known/**",
       "**/node_modules/**",
       "README.md",
       "package.json",
       "deploy.bat",
       "netlify.toml",
       ".workspace-check.md"
+    ],
+    "headers": [
+      {
+        "source": "/.well-known/**",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/plain"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          }
+        ]
+      }
     ],
     "rewrites": [
       {
