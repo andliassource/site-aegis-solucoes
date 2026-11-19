@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'checkout.step2.desc': 'Selecione o método de pagamento. Assinaturas são recorrentes e faturadas mensalmente.',
         'checkout.pix.desc': 'Pague com PIX para ativação imediata. A nota fiscal será emitida automaticamente em seu CNPJ.',
         'checkout.pix.key': 'Chave PIX Copia e Cola',
-        'checkout.confirmPayment': 'Confirmar Pagamento Simulado',
+        'checkout.confirmPayment': 'Confirmar Pagamento PIX',
         'checkout.card.holder': 'Nome no Cartão',
         'checkout.card.number': 'Número do Cartão',
         'checkout.card.expiry': 'Validade (MM/AA)',
@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'checkout.step2.desc': 'Select your payment method. Subscriptions are recurring and billed monthly.',
         'checkout.pix.desc': 'Pay with PIX for immediate activation. The invoice will be automatically issued under your company CNPJ.',
         'checkout.pix.key': 'Copy and Paste PIX Key',
-        'checkout.confirmPayment': 'Confirm Simulated Payment',
+        'checkout.confirmPayment': 'Confirm PIX Payment',
         'checkout.card.holder': 'Cardholder Name',
         'checkout.card.number': 'Card Number',
         'checkout.card.expiry': 'Expiry Date (MM/YY)',
@@ -564,7 +564,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'checkout.step2.desc': 'Seleccione su método de pago. Las suscripciones son recurrentes y se facturan mensualmente.',
         'checkout.pix.desc': 'Pague con PIX para activación inmediata. La factura se emitirá automáticamente bajo el CNPJ de su empresa.',
         'checkout.pix.key': 'Copiar y Pegar Clave PIX',
-        'checkout.confirmPayment': 'Confirmar Pago Simulado',
+        'checkout.confirmPayment': 'Confirmar Pago PIX',
         'checkout.card.holder': 'Nombre en la Tarjeta',
         'checkout.card.number': 'Número de Tarjeta',
         'checkout.card.expiry': 'Vencimiento (MM/AA)',
@@ -1104,11 +1104,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (res.ok && result.ok) {
         // Setup success screen
         const generatedSubdomain = inputSubdomain.value.trim().toLowerCase().replace(/[^a-z0-9]/g, '-');
-        const loginUrl = `https://${generatedSubdomain}.aegissolucoes.dev.br`;
+        const loginUrl = 'https://app.aegissolucoes.dev.br';
         
         if (successUrl) {
           successUrl.href = loginUrl;
-          successUrl.textContent = `${generatedSubdomain}.aegissolucoes.dev.br`;
+          successUrl.textContent = `app.aegissolucoes.dev.br (Tenant: ${generatedSubdomain})`;
         }
         if (successEmail) successEmail.textContent = payload.email;
         if (successPass) successPass.textContent = payload.password;
@@ -1348,10 +1348,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (stepPayment) stepPayment.style.display = 'none';
     if (stepSuccess) stepSuccess.style.display = 'block';
 
-    const loginUrl = `https://${returnDomain || 'app'}.aegissolucoes.dev.br`;
+    const loginUrl = 'https://app.aegissolucoes.dev.br';
     if (successUrl) {
       successUrl.href = loginUrl;
-      successUrl.textContent = `${returnDomain || 'app'}.aegissolucoes.dev.br`;
+      successUrl.textContent = returnDomain ? `app.aegissolucoes.dev.br (Tenant: ${returnDomain})` : 'app.aegissolucoes.dev.br';
     }
     if (successEmail) {
       successEmail.textContent = returnEmail || 'O e-mail informado no checkout';
